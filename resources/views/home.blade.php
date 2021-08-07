@@ -138,7 +138,7 @@
                                                   
                                                </li>
                                                <li class="menu-item-has-children">
-                                                   <a href="#">Login</a>
+                                                   <a href="{{url('login')}}">Login</a>
                                                   
                                                </li>
                                            </ul> <!-- //.nav-menu -->

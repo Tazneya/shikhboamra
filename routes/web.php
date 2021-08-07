@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('signup');
+    return view('instructorhome');
 });
-Route::get('Signup', 'filecontroller@index17');
+Route::get('signup','filecontroller@signup');
+Route::get('login','filecontroller@login');

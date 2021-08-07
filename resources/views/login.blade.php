@@ -66,72 +66,37 @@
 								
 								<form>
                                     <div class="form-group">
-                                        <label for="exampleFormControlInput1">First Name</label>
-                                        <input type="text" class="form-control" id="first_name" placeholder="first Name">
+                                        <label for="exampleFormControlInput1">User Name</label>
+                                        <input type="text" class="form-control" id="user_name" placeholder="User Name">
                                       </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Last Name</label>
-                                        <input type="text" class="form-control" id="last_name" placeholder="Last Name">
-                                      </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Educational Curriculum</label>
-                                        <input type="text" class="form-control" id="educational" placeholder="Lasst Name">
-                                      </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Phone</label>
-                                        <input type="tel"class="form-control" id="phone" name="phone" placeholder="Phone number">
-                                      </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Email address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                                      </div>
+									  
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Password</label>
                                         <input type="password" class="form-control" id="pass" placeholder="Password">
                                       </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Confirmation Password</label>
-                                        <input type="password" class="form-control" id="" placeholder="confirmation Password">
-                                      </div>
+									
                                      
 
-                                      <button class="login-btn" type="submit">Instructor Sign Up Now</button>
+                                      <button class="login-btn" type="submit">Instructor Login Now</button>
 
 								</form>
 							</div>
 							<div class="tab-pane fade" id="student-signup-tab" role="tabpanel" aria-labelledby="student-tab">
 
 							<form>
-								<div class="form-group">
-                                        <label for="exampleFormControlInput1">First Name</label>
-                                        <input type="text" class="form-control" id="first_name" placeholder="first Name">
+                            <div class="form-group">
+                                        <label for="exampleFormControlInput1">User Name</label>
+                                        <input type="text" class="form-control" id="user_name" placeholder="User Name">
                                       </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Last Name</label>
-                                        <input type="text" class="form-control" id="last_name" placeholder="Last Name">
-                                      </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Class</label>
-                                        <input type="text" class="form-control" id="class" placeholder="Class">
-                                      </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Phone</label>
-                                        <input type="tel"class="form-control" id="phone" name="phone" placeholder="Phone number">
-                                      </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Email address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                                      </div>
+									  
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Password</label>
                                         <input type="password" class="form-control" id="pass" placeholder="Password">
                                       </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Confirmation Password</label>
-                                        <input type="password" class="form-control" id="" placeholder="confirmation Password">
-                                      </div>
+									
                                      
-									<button class="login-btn" type="submit">Student Sign Up Now</button>
+
+                                      <button class="login-btn" type="submit">Student Login Now</button>
 								</form>
 							</div>
 						</div>
