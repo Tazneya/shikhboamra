@@ -100,58 +100,11 @@
 	</header>
 	<!-- Header End -->
 	<!-- Left Sidebar Start -->
-	<nav class="vertical_nav">
-		<div class="left_section menu_left" id="js-menu" >
-			<div class="left_section">
-				<ul>
-					<li class="menu--item">
-						<a href="instructor_dashboard.html" class="menu--link" title="Dashboard">
-							<i class="uil uil-apps menu--icon"></i>
-							<span class="menu--label">Dashboard</span>
-						</a>
-					</li>
-					<li class="menu--item">
-						<a href="instructor_courses.html" class="menu--link" title="Courses">
-							<i class='uil uil-book-alt menu--icon'></i>
-							<span class="menu--label">Courses</span>
-						</a>
-					</li>
-					<li class="menu--item">
-						<a href="instructor_analyics.html" class="menu--link" title="Analyics">
-							<i class='uil uil-analysis menu--icon'></i>
-							<span class="menu--label">Analyics</span>
-						</a>
-					</li>
-					
-					
-					<li class="menu--item">
-						<a href="instructor_all_reviews.html" class="menu--link" title="Reviews">
-						  <i class='uil uil-star menu--icon'></i>
-						  <span class="menu--label">Reviews</span>
-						</a>
-					</li>
-					
-					
-				
-				</ul>
-			</div>
-			<div class="left_section pt-2">
-				<ul>
-					<li class="menu--item">
-						<a href="setting.html" class="menu--link" title="Setting">
-							<i class='uil uil-cog menu--icon'></i>
-							<span class="menu--label">Setting</span>
-						</a>
-					</li>
-				
-				</ul>
-			</div>
-		</div>
-	</nav>
-
+	@include('layout.sidebar');
+	<div class="wrapper">
 	@yield('content')
 
-
+</div>
 
 	<script src="{{asset('sourcefile_home')}}/cursus/js/vertical-responsive-menu.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/jquery-3.3.1.min.js"></script>
