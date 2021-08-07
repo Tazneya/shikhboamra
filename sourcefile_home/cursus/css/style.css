@@ -273,7 +273,7 @@ html {
 
 body {
 	margin: 0;
-	font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif !important;
 	font-size: 0.875rem;
 	line-height: 1.42857143;
 	color: #333;
@@ -403,7 +403,7 @@ header {
 
 .search120 {
     float: left;
-    margin-left: 80px;
+    margin-left: 50px;
 }
 
 .srch10 {
@@ -491,7 +491,7 @@ i.icon1 {
     color: #fff;
     background: #ed2a26;
     padding: 9px 15px;
-    border-radius: 25px;
+    border-radius: 3px;
 	margin-right: 10px;
 }
 
@@ -732,7 +732,7 @@ i.icon1 {
 
 .stream_1 {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 15px;
 	background-position: center;
     background-repeat: no-repeat;
@@ -744,7 +744,7 @@ i.icon1 {
     display: inline-block;
     width: 100%;
 	padding: 15px 10px;
-	border-radius: 5px;
+	border-radius: 3px;
 	background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(30px);
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.13);
@@ -807,7 +807,7 @@ i.icon1 {
     padding: 4px 0 !important;
     color: #333 !important;
     background: #fff !important;
-    border-radius: 100% !important;
+    border-radius: 3px !important;
     border: 1px solid #e5e5e5 !important;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -823,7 +823,7 @@ i.icon1 {
 	width: 30px !important;
 	color: #333 !important;
 	background: #fff !important;
-	border-radius: 100% !important;
+	border-radius: 3px !important;
 	border: 1px solid #e5e5e5 !important;
 	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -941,7 +941,7 @@ i.icon1 {
     width: 100%;
 	float: left;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 3px;
 	border: 1px solid #efefef;
 	transition: all .2s ease-in-out;
 }
@@ -975,7 +975,7 @@ i.icon1 {
     color: #333;
     background: transparent;
     padding: 0;
-    border-radius: 25px;
+    border-radius: 3px;
     margin-right: 10px;
 	border: 0;
 	float: right;
@@ -991,7 +991,7 @@ i.icon1 {
 
 .fcrse_img img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .fcrse_content {
@@ -1031,7 +1031,7 @@ i.icon1 {
     display: inline-block;
     padding: 5px 10px;
     text-transform: uppercase;
-    border-radius: 5px;
+    border-radius: 3px;
     margin-top: 15px;
     cursor: default;
 }
@@ -1120,7 +1120,7 @@ i.icon1 {
     border: 1px solid rgba(34,36,38,.15);
 	z-index: 1;
 	right: 0;
-	border-radius: 5px;
+	border-radius: 3px;
 }
 
 .dropdown-content span {
@@ -1163,7 +1163,7 @@ i.icon1 {
     background: #fdcc0d;
     display: inline-block;
     padding: 3px 15px 3px 10px;
-    border-radius: 20px;
+    border-radius: 3px;
     font-size: 14px;
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
@@ -1221,7 +1221,7 @@ i.icon1 {
     background: rgba(51,51,51,0.8);
     display: inline-block;
     padding: 3px 10px;
-    border-radius: 20px;
+    border-radius: 3px;
     font-size: 12px;
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
@@ -1264,7 +1264,7 @@ i.icon1 {
     padding: 4px 0 !important;
     color: #333 !important;
     background: #fff !important;
-    border-radius: 100% !important;
+    border-radius: 3px !important;
     border: 1px solid #e5e5e5 !important;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -1280,7 +1280,7 @@ i.icon1 {
 	width: 30px !important;
 	color: #333 !important;
 	background: #fff !important;
-	border-radius: 100% !important;
+	border-radius: 3px !important;
 	border: 1px solid #e5e5e5 !important;
 	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -1312,7 +1312,7 @@ i.icon1 {
     padding: 4px 0 !important;
     color: #333 !important;
     background: #fff !important;
-    border-radius: 100% !important;
+    border-radius: 3px !important;
     border: 1px solid #e5e5e5 !important;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -1328,7 +1328,7 @@ i.icon1 {
 	width: 30px !important;
 	color: #333 !important;
 	background: #fff !important;
-	border-radius: 100% !important;
+	border-radius: 3px !important;
 	border: 1px solid #e5e5e5 !important;
 	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -1357,7 +1357,7 @@ i.icon1 {
 
 .value_props {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 20px;
     flex: 1;
     float: left;
@@ -1376,7 +1376,7 @@ i.icon1 {
     margin-right: 0;
     color: #333;
     background: #ffecec;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 10px 6px;
     display: inline-block;
 }
@@ -1477,7 +1477,7 @@ i.icon1 {
     float: left;
     width: 35px;
     height: 36px;
-    border-radius: 100%;
+    border-radius: 3px;
     text-align: center;
     padding: 9px 0;
     color: #fff;
@@ -1522,7 +1522,7 @@ i.icon1 {
     border: 0;
     height: 40px;
     padding: 0 20px;
-    border-radius: 20px;
+    border-radius: 3px;
 	text-align: center;
 }
 
@@ -1540,7 +1540,7 @@ i.icon1 {
     border: 0;
     height: 40px;
     width: 40px;
-    border-radius: 20px;
+    border-radius: 3px;
 	text-align: center;
 }
 
@@ -1569,7 +1569,7 @@ i.icon1 {
     width: 100%;
     float: left;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid #efefef;
     transition: all .2s ease-in-out;
 }
@@ -1593,12 +1593,12 @@ i.icon1 {
     width: 100%;
     float: left;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid #efefef;
 	position: relative;
 	text-align: left;
 	margin-bottom: 30px;
-    background-image: url(/images/get-img.jpg);
+    background-image: url(../images/get-img.jpg);
 }
 
 .get1452 h4 {
@@ -1621,7 +1621,7 @@ i.icon1 {
     height: 40px;
     padding: 0 20px;
     border: 0;
-    border-radius: 20px;
+    border-radius: 3px;
     color: #fff;
     font-family: 'Roboto', sans-serif;
     background: #ed2a26;
@@ -1639,7 +1639,7 @@ i.icon1 {
     width: 100%;
     float: left;
     padding: 0;
-    border-radius: 10px;
+    border-radius: 3px;
 	margin-bottom: 30px;
     border: 1px solid #efefef;
     transition: all .2s ease-in-out;
@@ -1749,7 +1749,7 @@ i.icon1 {
     height: 40px;
     background: #ed2a26;
     border: 0;
-    border-radius: 20px;
+    border-radius: 3px;
     padding: 10px 20px;
     color: #fff;
 }
@@ -1764,7 +1764,7 @@ i.icon1 {
     width: 100%;
     float: left;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid #efefef;
     transition: all .2s ease-in-out;
 }
@@ -1826,7 +1826,7 @@ i.icon1 {
     padding: 4px 0 !important;
     color: #333 !important;
     background: #fff !important;
-    border-radius: 100% !important;
+    border-radius: 3px !important;
     border: 1px solid #e5e5e5 !important;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -1842,7 +1842,7 @@ i.icon1 {
 	width: 30px !important;
 	color: #333 !important;
 	background: #fff !important;
-	border-radius: 100% !important;
+	border-radius: 3px !important;
 	border: 1px solid #e5e5e5 !important;
 	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -1929,7 +1929,7 @@ i.icon1 {
 	height: 40px;
     padding: 10px 15px;
     border: 0;
-    border-radius: 20px;
+    border-radius: 3px;
     color: #fff;
     font-family: 'Roboto', sans-serif;
     background: #ed2a26;
@@ -1951,7 +1951,7 @@ i.icon1 {
 	height: 40px;
     padding: 10px 15px;
     border: 1px solid #fff;
-    border-radius: 20px;
+    border-radius: 3px;
     color: #fff;
     font-family: 'Roboto', sans-serif;
     background: transparent;
@@ -2103,7 +2103,7 @@ i.icon1 {
 .live1452 iframe {
 	width: 100%;
 	height: 435px;
-	border-radius: 10px;
+	border-radius: 3px;
 }
 
 @keyframes fade-in-up {
@@ -2162,7 +2162,7 @@ i.icon1 {
     right: 10px;
     width: 40px;
     height: 40px;
-    border-radius: 100%;
+    border-radius: 3px;
     border: 0;
     background: #ed2a26;
     font-size: 20px;
@@ -2251,7 +2251,7 @@ i.icon1 {
     background: #ed2a26;
     padding: 0 20px;
     height: 30px;
-    border-radius: 30px;
+    border-radius: 3px;
     color: #fff;
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
@@ -2276,7 +2276,7 @@ i.icon1 {
     background: #ed2a26;
     padding: 0 20px;
     height: 30px;
-    border-radius: 30px;
+    border-radius: 3px;
     color: #fff;
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
@@ -2302,7 +2302,7 @@ i.icon1 {
     font-family: 'Roboto', sans-serif;
     color: #686f7a;
     border: 1px solid #efefef;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 .lkcm152 span {
@@ -2332,7 +2332,7 @@ i.icon1 {
 
 .slive_tabs .nav-link {
     border: 1px solid #ed2a26 !important;
-    border-radius: 20px !important;
+    border-radius: 3px !important;
 	background-color: #ed2a26 !important;
 	color: #fff;
 	font-size: 14px;
@@ -2413,7 +2413,7 @@ i.icon1 {
     height: 40px;
     width: 100%;
     padding: 0 100px 0 20px;
-    border-radius: 20px;
+    border-radius: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 13px;
@@ -2428,7 +2428,7 @@ i.icon1 {
     background: #ed2a26;
     color: #fff;
     border: 0;
-    border-radius: 20px;
+    border-radius: 3px;
     font-size: 13px;
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
@@ -2446,7 +2446,7 @@ i.icon1 {
     color: #fff;
     border: 0;
 	margin-top: 30px;
-    border-radius: 20px;
+    border-radius: 3px;
     font-size: 14px;
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
@@ -2500,7 +2500,7 @@ i.icon1 {
     background: #fff !important;
     border: 1px solid #e5e5e5 !important;
     color: #333 !important;	
-	box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.1) !important;
+	box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.02) !important;
 }
 
 .srch_explore:focus {
@@ -2549,7 +2549,7 @@ i.icon2 {
     padding: 10px;
     float: left;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 ._215b02 {
@@ -2781,7 +2781,7 @@ i.icon2 {
     height: 40px;
     border: 0;
     padding: 0 20px;
-    border-radius: 20px;
+    border-radius: 3px;
     color: #fff;
     font-size: 14px;
     font-weight: 500;
@@ -2800,7 +2800,7 @@ i.icon2 {
     height: 40px;
     border: 0;
     padding: 0 25px;
-    border-radius: 20px;
+    border-radius: 3px;
     color: #fff;
     font-size: 14px;
     font-weight: 500;
@@ -2901,7 +2901,7 @@ i.icon2 {
     background: #fff;
     padding: 30px;
     border: 1px solid #efefef;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 ._htgdrt h3 {
@@ -3182,7 +3182,7 @@ i.icon2 {
     background: #fff;
     padding: 20px 30px 30px;
     border: 1px solid #efefef;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 .reviews_left h3 {
@@ -3202,7 +3202,7 @@ i.icon2 {
 	background: #f7f7f7;
     border: 1px solid #efefef;
     padding: 10px 20px;
-	border-radius: 20px;
+	border-radius: 3px;
 }
 
 ._rate001 {
@@ -3361,14 +3361,14 @@ i.icon2 {
     padding-right: 40px;
     width: 100%;
     border: 1px solid #efefef;
-    border-radius: 20px;
+    border-radius: 3px;
 }
 
 .rvsrch_btn {
     position: absolute;
     right: 3px;
     top: 2px;
-    border-radius: 100%;
+    border-radius: 3px;
     border: 0;
     height: 26px;
     width: 26px;
@@ -3386,7 +3386,7 @@ i.icon2 {
 	float: left;
 	width: 100%;
 	background: #fff;
-	border-radius: 10px;
+	border-radius: 3px;
 }
 
 .review_item {
@@ -3660,7 +3660,7 @@ i.icon2 {
     color: #fff;
     background: transparent;
     border: 1px solid #fff;
-    border-radius: 20px;
+    border-radius: 3px;
 }
 
 ._ttl120 {
@@ -3723,7 +3723,7 @@ i.icon2 {
     float: left;
     width: 100%;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
 	margin-bottom: 30px;
 	padding: 20px;
 }
@@ -3754,7 +3754,7 @@ i.icon2 {
 	font-weight: 400;
 	color: #333;
 	padding: 12px;
-    border-radius: 10px;
+    border-radius: 3px;
 	background: #f9f9f9;
 }
 
@@ -3766,7 +3766,7 @@ i.icon2 {
     font-family: 'Roboto', sans-serif;
     color: #fff;
     background: #ed2a26;
-    border-radius: 25px;
+    border-radius: 3px;
     border: 0;
     height: 40px;
     padding: 0px 30px;
@@ -3816,7 +3816,7 @@ i.icon2 {
     height: 40px;
     text-align: left;
     padding: 10px 15px 10px 55px;
-    border-radius: 10px;
+    border-radius: 3px;
     box-shadow: 0in 0.5pc 1.125pc -7px rgba(25,42,70,.13);
     font-size: 16px;
     font-weight: 500;
@@ -3832,8 +3832,8 @@ i.icon2 {
     width: 40px;
     top: 0;
     left: 0;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
     font-size: 20px;
     padding: 10px 0;
     text-align: center;
@@ -3933,7 +3933,7 @@ i.icon2 {
 
 .hf_img img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .hs_content {
@@ -3998,7 +3998,7 @@ a.rmv-btn {
     color: #fff;
     display: block;
     background: #ed2a26;
-    border-radius: 20px;
+    border-radius: 3px;
     text-align: center;
     padding: 10px 0;
 }
@@ -4026,7 +4026,7 @@ a.rmv-btn i {
 .setting_tabs .nav-pills .nav-link.active, .setting_tabs .nav-pills .show>.nav-link {
     color: #fff !important;
     background-color: #ed2a26 !important;
-	border-radius: 20px;
+	border-radius: 3px;
 }
 
 .nav-link {
@@ -4034,7 +4034,7 @@ a.rmv-btn i {
     padding: .5rem 1rem;
 	font-size: 14px;
     margin-top: 0;
-    font-weight: 400;
+    font-weight: 500;
     font-family: 'Roboto', sans-serif;
 	color: #333;
 }
@@ -4101,7 +4101,7 @@ a.rmv-btn i {
     min-width: 34px;
     line-height: 24px;
     text-align: center;
-    border-radius: 100%;
+    border-radius: 3px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
 }
@@ -4111,8 +4111,8 @@ a.rmv-btn i {
     border: 1px solid #e5e5e5 !important;
     outline: 0;
     color: rgba(0,0,0,.87);
-    border-radius: 1rem !important;
-    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 3px !important;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.02) !important;
 }
 
 .ui.form.swdh30 textarea:focus {
@@ -4133,8 +4133,8 @@ a.rmv-btn i {
     background-color: #dedfe !important;
     padding: .9999em 1.2em !important;
     color: #686f7a !important;
-    border-top-left-radius: 500rem !important;
-    border-bottom-left-radius: 500rem !important;
+    border-top-left-radius: 3px !important;
+    border-bottom-left-radius: 3px !important;
 }
 
 .ui[class*="left icon"].swdh31.input>input {
@@ -4164,7 +4164,7 @@ a.rmv-btn i {
     margin-top: 45px;
     margin-bottom: 20px;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     background: #ed2a26;
@@ -4183,13 +4183,13 @@ a.rmv-btn i {
 
 .ui.selection.dropdown.cntry152 {
     border: 1px solid #e5e5e5 !important;
-    border-radius: 500rem !important;
-	box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 3px !important;
+	box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.02) !important;
 }
 
 .ui.selection.active.dropdown.cntry152 {
-    border-top-left-radius: 1.5rem !important;
-    border-top-right-radius: 1.5rem !important;
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
 	box-shadow: none !important;
 	border: 1px solid #333 !important;
 }
@@ -4329,7 +4329,7 @@ a.rmv-btn i {
 	padding: 15px 20px;
     background: #fff;
     width: 100%;
-	border-radius: 15px;
+	border-radius: 3px;
 }
 
 .radio-label_1:hover {
@@ -4376,7 +4376,7 @@ a.rmv-btn i {
     margin-top: 30px;
     margin-bottom: 0px;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     background: #ed2a26;
@@ -4391,7 +4391,7 @@ a.rmv-btn i {
     margin-top: 30px;
     padding: 0 20px;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 3px;
     border: 2px solid #efefef;
     color: #686f7a;
     background: #fff;
@@ -4439,7 +4439,7 @@ a.rmv-btn i {
 	position: relative;
 	border-radius:3px;
 	background-color: #fff;
-	border-radius: 15px;
+	border-radius: 3px;
 }
 .image-dropping,
 .image-upload-wrap:hover {
@@ -4597,7 +4597,7 @@ a.rmv-btn i {
 
 .value_props50 {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 20px;
     border: 1px solid #efefef;
 	box-shadow: none;
@@ -4611,7 +4611,7 @@ a.rmv-btn i {
 
 .value_props51 {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
 	border: 1px solid #efefef;
     padding: 20px;
     box-shadow: none;
@@ -4769,7 +4769,7 @@ a.rmv-btn i {
     text-align: center;
     padding: 11px;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 3px;
     margin-bottom: 50px;
 }
 
@@ -4806,7 +4806,7 @@ a.rmv-btn i {
 
 ._215cd2:before {
     content: "";
-    background: url(../cursus/images/about/title_bg.jpg) center bottom repeat-x;
+    background: url(../images/about/title_bg.jpg) center bottom repeat-x;
     left: 0;
     right: 0;
     top: 0;
@@ -4986,7 +4986,7 @@ a.rmv-btn i {
     margin-top: 34px;
     margin-bottom: 20px;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     background: #ed2a26;
@@ -5092,7 +5092,7 @@ a.rmv-btn i {
     font-family: 'Roboto', sans-serif;
     color: #fff;
     border: 0;
-    border-radius: 20px;
+    border-radius: 3px;
     height: 30px;
     padding: 0 15px;
     width: 100%;
@@ -5105,7 +5105,7 @@ a.rmv-btn i {
     font-family: 'Roboto', sans-serif;
     color: #fff;
     border: 0;
-    border-radius: 20px;
+    border-radius: 3px;
     height: 30px;
     padding: 0 15px;
     width: 100%;
@@ -5169,7 +5169,7 @@ a.rmv-btn i {
     width: 100%;
     float: left;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid #efefef;
     box-shadow: none;
     transition: all .2s ease-in-out;
@@ -5189,7 +5189,7 @@ a.rmv-btn i {
     display: inline-flex;
     padding-left: 0;
     list-style: none;
-    border-radius: .25rem;
+    border-radius: 3px;
     text-align: right;
 }
 
@@ -5245,7 +5245,7 @@ a.rmv-btn i {
 .bg_blog2 img {
     width: 100%;
     margin-top: 30px;
-	border-radius: 10px;
+	border-radius: 3px;
 }
 
 .vdtodt55 {
@@ -5419,7 +5419,7 @@ a.rmv-btn i {
 
 .cpy_img img {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .cpy_content {
@@ -5470,7 +5470,7 @@ a.rmv-btn i {
     color: #fff;
     background: #ed2a26;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 3px;
 }
 
 .joblink:hover {
@@ -5494,7 +5494,7 @@ a.rmv-btn i {
     padding: 4px 0 !important;
     color: #333 !important;
     background: #fff !important;
-    border-radius: 100% !important;
+    border-radius: 3px !important;
     border: 1px solid #e5e5e5 !important;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -5510,7 +5510,7 @@ a.rmv-btn i {
 	width: 30px !important;
 	color: #333 !important;
 	background: #fff !important;
-	border-radius: 100% !important;
+	border-radius: 3px !important;
 	border: 1px solid #e5e5e5 !important;
 	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
 }
@@ -5592,7 +5592,7 @@ a.rmv-btn i {
 	width: 100%;
 	background: #fff;
 	padding: 30px;
-	border-radius: 10px;
+	border-radius: 3px;
 	height: 190px;
 	text-align: center;
 }
@@ -5623,7 +5623,7 @@ a.rmv-btn i {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 3px;
     margin-top: 20px;
     display: inline-block;
 }
@@ -5640,7 +5640,7 @@ a.rmv-btn i {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 3px;
     margin-top: 0;
     display: inline-block;
 }
@@ -5653,7 +5653,7 @@ a.rmv-btn i {
 .apply_form {
 	padding-top: 50px;
     border-top: 1px solid #e5e5e5;
-    margin-top: 20px;
+    margin-top: 3px;
     margin-bottom: 50px;
 }
 
@@ -5729,7 +5729,7 @@ a.rmv-btn i {
 .press_item {
     background: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid #efefef;
 }
 
@@ -5758,7 +5758,7 @@ a.rmv-btn i {
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
     color: #333;
-    border-radius: 20px;
+    border-radius: 3px;
 }
 
 .press_dt_view:hover {
@@ -5814,7 +5814,7 @@ a.rmv-btn i {
 
 .sign_in_up_bg:before {
     content: "";
-    background: url(../../images/sign.svg) no-repeat center;
+    background: url(../images/sign.svg) no-repeat center;
     left: 0;
     right: 0;
     top: 0;
@@ -5827,7 +5827,7 @@ a.rmv-btn i {
 
 .sign_form {
 	background: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 50px 50px 30px;
     box-shadow: -0.083333333in 0.5pc 1.125pc -7px rgba(25,42,70,.13);
     flex: 1;
@@ -5865,11 +5865,11 @@ a.rmv-btn i {
 .login-btn {
 	font-size: 14px;
     margin-top: 30px;
-    font-weight: 400;
+    font-weight: 500;
     font-family: 'Roboto', sans-serif;
     color: #fff;
     background: #ed2a26;
-    border-radius: 20px;
+    border-radius: 3px;
     text-align: center;
 	border: 0;
 	width: 100%;
@@ -5969,7 +5969,7 @@ a.rmv-btn i {
     font-family: 'Roboto', sans-serif;
     color: #fff;
     background: #efefef;
-    border-radius: 20px;
+    border-radius: 3px;
     text-align: center;
 	border: 0;
 	width: 100%;
@@ -6010,8 +6010,8 @@ a.rmv-btn i {
 	margin: 0;
 	border-bottom: 0;
 	background: #f7f7f7;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 .main-tabs .nav-tabs .nav-item.show .nav-link, .main-tabs .nav-tabs .nav-link.active {
@@ -6065,7 +6065,7 @@ a.rmv-btn i {
     width: 100%;
     float: left;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid #efefef;
     box-shadow: -0.083333333in 0.5pc 1.125pc -7px rgba(25,42,70,.13);
     transition: all .2s ease-in-out;
@@ -6229,7 +6229,7 @@ a.rmv-btn i {
     margin-top: 20px;
     width: 100%;
     height: 50px;
-    border-radius: 30px;
+    border-radius: 3px;
     border: 0;
     background: #ed2a26;
     color: #fff;
@@ -6248,7 +6248,7 @@ a.rmv-btn i {
     width: 100%;
     float: left;
     padding: 0 30px 10px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid #efefef;
     box-shadow: -0.083333333in 0.5pc 1.125pc -7px rgba(25,42,70,.13);
     transition: all .2s ease-in-out;
@@ -6279,7 +6279,7 @@ a.rmv-btn i {
     width: 100%;
     float: left;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid #efefef;
     transition: all .2s ease-in-out;
     margin-bottom: 30px;
@@ -6308,8 +6308,8 @@ a.rmv-btn i {
 	margin: 0;
 	border-bottom: 0;
 	background: #f7f7f7;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 .checkout-tabs .nav-tabs .nav-item.show .nav-link, .checkout-tabs .nav-tabs .nav-link.active {
@@ -6493,7 +6493,7 @@ a.rmv-btn i {
     margin-top: 30px;
     float: right;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     background: #ed2a26;
@@ -6511,7 +6511,7 @@ a.rmv-btn i {
     border: 0;
     margin-top: 30px;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     background: #ed2a26;
@@ -6817,7 +6817,7 @@ a.rmv-btn i {
     font-family: 'Roboto', sans-serif;
 	text-align: center;
 	background: #ed2a26;
-	border-radius: 20px;
+	border-radius: 3px;
 	height: 40px;
 	border: 0;
 	padding: 0 20px;
@@ -6847,7 +6847,7 @@ a.rmv-btn i {
     font-family: 'Roboto', sans-serif;
 	text-align: center;
 	background: #ed2a26;
-	border-radius: 20px;
+	border-radius: 3px;
 	height: 40px;
 	border: 0;
 	padding: 10px 20px;
@@ -6925,7 +6925,7 @@ a.rmv-btn i {
 
 .contact_link_step {
 	background: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 30px;
     border: 1px solid #efefef;
     box-shadow: -0.083333333in 0.5pc 1.125pc -7px rgba(25,42,70,.13);
@@ -6951,7 +6951,7 @@ a.rmv-btn i {
 
 .contact_map {
 	background: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 10px;
     border: 1px solid #efefef;
     box-shadow: none;
@@ -7032,7 +7032,7 @@ a.rmv-btn i {
 
 ._215certibg:before {
     content: "";
-    background: url(../cursus/images/cerificate_center/center_bg.jpg) no-repeat bottom;
+    background: url(../images/cerificate_center/center_bg.jpg) no-repeat bottom;
     left: 0;
     right: 0;
     top: 0;
@@ -7097,7 +7097,7 @@ a.rmv-btn i {
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
     color: #fff;
-    border-radius: 30px;
+    border-radius: 3px;
     background: #ed2a26;
 }
 
@@ -7118,13 +7118,13 @@ a.rmv-btn i {
 .catey-tabs .nav-pills .nav-link.active, .catey-tabs .nav-pills .show>.nav-link {
     color: #fff;
     background-color: #ed2a26 !important;
-	border-radius: 20px;
+	border-radius: 3px;
 }
 
 .catey-tabs .nav-pills .nav-link:focus, .catey-tabs .nav-pills .nav-link:hover {
     color: #fff !important;
     background-color: #ed2a26 !important;
-	border-radius: 20px;
+	border-radius: 3px;
 }
 
 .catey-tabs .nav-pills .nav-item {
@@ -7137,7 +7137,7 @@ a.rmv-btn i {
 
 .certilink__152 {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
     border: 1px solid #efefef;
     padding: 20px;
     box-shadow: none;
@@ -7168,7 +7168,7 @@ a.rmv-btn i {
 
 ._485td5:before {
     content: "";
-    background: url(/images/sign.svg) no-repeat center;
+    background: url(../images/sign.svg) no-repeat center;
     left: 0;
     right: 0;
     top: 0;
@@ -7243,7 +7243,7 @@ a.rmv-btn i {
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
     color: #fff;
-    border-radius: 30px;
+    border-radius: 3px;
     background: #ed2a26;
 }
 
@@ -7368,7 +7368,7 @@ a.rmv-btn i {
     width: 100%;
     float: left;
     padding: 0;
-    border-radius: 10px;
+    border-radius: 3px;
     margin-bottom: 50px;
     border: 1px solid #efefef;
     transition: all .2s ease-in-out;
@@ -7463,7 +7463,7 @@ a.rmv-btn i {
     margin-top: 30px;
     float: left;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     background: #ed2a26;
@@ -7602,7 +7602,7 @@ a.rmv-btn i {
     font-family: 'Roboto', sans-serif;
 	text-align: center;
 	background: #ed2a26;
-	border-radius: 20px;
+	border-radius: 3px;
 	height: 40px;
 	border: 0;
 	padding: 10px 20px;
@@ -7885,7 +7885,7 @@ a.rmv-btn i {
 	font-size: 14px;
 	text-align: center;
 	text-transform: uppercase;
-	border-radius: 20px;
+	border-radius: 3px;
 }
 
 .print_btn:hover {
@@ -7914,7 +7914,7 @@ a.rmv-btn i {
     /* margin-top: 45px; */
     /* margin-bottom: 20px; */
     color: #fff;
-    border-radius: 20px;
+    border-radius: 3px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     background: #ed2a26;
@@ -7935,7 +7935,7 @@ a.rmv-btn i {
     font-family: 'Roboto', sans-serif;
     color: #fff !important;
     background: #ed2a26;
-    border-radius: 20px;
+    border-radius: 3px;
     text-align: center;
     border: 0;
     width: 100%;
@@ -7947,6 +7947,10 @@ a.rmv-btn i {
 .chck-btn22:hover {
     color: #fff !important;
     background: #333;
+}
+
+.ui.search .prompt {
+    border-radius: 3px !important;
 }
 
 /* --- Night Mode Btn --- */
@@ -7961,7 +7965,7 @@ a.rmv-btn i {
     transition: 0.3s;
     font-weight: 500;
 	font-family: 'Roboto', sans-serif;
-    border-radius: 10px;
+    border-radius: 3px;
     color: #333;
     padding: 15px;
     position: relative;
@@ -7987,4 +7991,204 @@ a.rmv-btn i {
     top: 35%;
     right: 13px;
     position: absolute;
+}
+
+/* --- Downloaded Course View Pages --- */
+
+.lecture-header{
+    background-color: #333333;
+    height: 50px;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
+.lecture-header-right {
+    width: 100%;
+}
+
+.lecture-container-wrap {
+    margin-top: 50px;
+}
+
+.lecture-header-left {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 349px;
+    flex: 0 0 349px;
+    border-right: 1px solid #dee2e6;
+}
+
+a.nav-icon-list {
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    padding: 1px 15px;
+}
+
+a.nav-icon-list:hover {
+    color: #fff !important;
+}
+
+.lecture-header-right .nav-btn {
+    width: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    color: #ffffff;
+    display: inline-table;
+}
+
+.lecture-header-right a.disabled {
+    cursor: not-allowed !important;
+    background-color: #CCCCCC !important;
+    color: #999999 !important;
+}
+
+.lecture-header-right .nav-btn span {
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.lecture-header-right .nav-btn:hover{
+    background-color: #ed2a26;
+	color: #fff !important;
+}
+
+.lecture-container{
+    margin-left: 350px;
+    background: #f7f7f7;
+    padding: 40px;
+    height: auto;
+    width: 100%;
+}
+
+.back-to-curriculum {
+    background: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #333333;
+    font-weight: bold;
+    padding: 2px 0;
+}
+
+.section-item-title .lecture-name small {
+    color: #666;
+}
+
+.lecture-title{
+    font-size: 24px;
+	font-weight: 600;
+    color: #333333;
+	font-family: "Roboto", sans-serif !important;
+}
+
+.lecture-lock-icon i{
+    font-size: 50px;
+}
+
+.lecture-lock-title{
+    font-weight: 300;
+}
+
+.lecture-attachments-title{
+    font-size: 16px;
+}
+
+.lecture-attachments .lecture-attachment{
+    font-size: 14px;
+}
+
+.lecture-sidebar{
+    width: 350px;
+    background-color: #fff;
+    border-right: 1px solid #efefef;
+    position: fixed;
+    height: 100% !important;
+    overflow: scroll !important;
+    padding-bottom: 120px;
+    z-index: 9;
+}
+
+.lecture-sidebar-course-title{
+    font-size: 18px;
+	font-weight: 600;
+    color: #333333;
+    margin-bottom: 0;
+	font-family: "Roboto", sans-serif !important;
+}
+
+.lecture-sidebar-curriculum-wrap .section-item-title a{
+    background-color: #f0f0f0;
+	color: #686f7a;
+}
+
+.sidebar-section-item.completed .section-item-title a{
+    color: #f47721;
+}
+
+.sidebar-section-item.active .section-item-title a{
+    background-color: #D3E6FF;
+	color: #333333;
+}
+
+.pp-2 {
+	padding: 10px 20px;
+}
+
+.section-header {
+    border-bottom: 2px solid #efefef;
+}
+
+.video-responsive iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+	border: 0;
+}
+
+.lec-responsive-width {
+    max-width: 100% !important;
+    height: auto;
+	box-sizing: border-box;
+}
+
+.video-responsive {
+    position: relative;
+    width: 100%;
+    height: 0;
+    display: contents;
+	overflow: hidden;
+}
+
+.lecture-content-inner-video {
+    position: relative;
+    height: calc(99vh - 90px) !important;
+    width: 100%;
+}
+
+.ui-accordion-content .lecture-container {
+    display: flex;
+    padding: 12px 30px 12px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #efefef;
+    border-top: none;
+    color: #686f7a;
+    letter-spacing: .3px;
+    line-height: 1.33;
+    font-weight: 400;
+    margin-left: 0 !important;
+}
+
+.lecture-content-txt p {
+    line-height: 26px;
 }
