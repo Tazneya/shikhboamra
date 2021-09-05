@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, shrink-to-fit=9">
 		<meta name="description" content="Gambolthemes">
 		<meta name="author" content="Gambolthemes">
-		<title>Cursus - Sign Up Next Step</title>
+		<title>ShikhboAmra- LogIn  Step</title>
 
 		<!-- Favicon Icon -->
 		<link rel="icon" type="image/png" href="{{asset('sourcefile_home')}}/cursus/images//fav.png">
@@ -27,7 +27,7 @@
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="{{asset('sourcefile_home')}}/cursus/stylesheet" type="text/css" href="vendor/semantic/semantic.min.css">
+		<link rel="stylesheet" type="text/css" href="{{asset('sourcefile_home')}}/cursus/vendor/semantic/semantic.min.css">
 
 	</head>
 
@@ -137,7 +137,7 @@
 						</div>
 						<p class="mb-0 mt-30">Already have an account? <a href="sign_in.html">Log In</a></p>
 					</div>
-					<div class="sign_footer"><img src="{{asset('sourcefile_home')}}/cursus/images//sign_logo.png" alt="">© 2020 <strong>Cursus</strong>. All Rights Reserved.</div>
+					<div class="sign_footer"><img src="{{asset('sourcefile_home')}}/cursus/images/logo.svg" alt="">© 2020 <strong>Shikhboamra</strong>. All Rights Reserved.</div>
 				</div>
 			</div>
 		</div>
