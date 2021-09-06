@@ -9,7 +9,7 @@
 						</a>
 					</li>
 					<li class="menu--item">
-						<a href="{{url('instructor_courses')}}" class="menu--link" title="Courses">
+						<a href="{{url('teacher/instructor_courses')}}" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
 							<span class="menu--label">Courses</span>
 						</a>
@@ -44,7 +44,7 @@
 						  <span class="menu--label">My Certificates</span>
 						</a>
 					</li> -->
-					
+
 					<!-- <li class="menu--item">
 						<a href="instructor_earning.html" class="menu--link" title="Earning">
 						  <i class='uil uil-dollar-sign menu--icon'></i>
@@ -79,7 +79,7 @@
 							<span class="menu--label">Setting</span>
 						</a>
 					</li> -->
-					
+
 				</ul>
 			</div>
 		</div>
