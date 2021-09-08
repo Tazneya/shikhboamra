@@ -29,7 +29,7 @@
                               <th class="text-center" scope="col">SERIAL NO</th>
                               <th scope="col">VIDEO TITLE</th>
                               <th class="text-center" scope="col">DURATION</th>
-                              <th class="text-center" scope="col">URL</th>
+
 
                               <th class="text-center" scope="col">ACTION</th>
                            </tr>
@@ -41,7 +41,7 @@
                               <td class="text-center">1</td>
                               <td class="cell-ta">{{ $data->content_name}}</td>
                               <td class="text-center">{{ $data->duration }}</td>
-                              <td class="text-center">{{ $data->content_url }}</td>
+
 
                               <td class="text-center">
                                  <select class="ui hj145  cntry152 prompt srch_explore">

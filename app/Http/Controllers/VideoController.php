@@ -54,7 +54,7 @@ class VideoController extends Controller
          $video = time() . '.' . request()->content_video->getClientOriginalExtension();//course_image from view file
 
          $req->content_video->move(public_path('../video/content_video') , $video);
-          $content_video = "vide/content_video/" . $video;
+          $content_video = "video/content_video/" . $video;
 
           course_content::create([
             'course_id'=>$req->course_id,

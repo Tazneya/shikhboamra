@@ -37,7 +37,7 @@ Route::group(['prefix' => 'teacher'], function()
             Route::get('details_que_ans','filecontroller@details_que_ans');
 
 
-            Route::get('course_note','filecontroller@course_note');
+
             Route::get('course_exam','filecontroller@course_exam');
             Route::get('add_new_qus','filecontroller@add_new_qus');
 
@@ -47,6 +47,13 @@ Route::group(['prefix' => 'teacher'], function()
             Route::get('course_video/{id}','VideoController@show_all_video_teacher')->name('course_video');
             Route::get('course_video/{id}/add','VideoController@video_add_ui')->name('add_course_video_ui');
             Route::post('add_content_video','VideoController@add_content_video')->name('add_content_video');
+
+            Route::get('course_note/{id}','NoteController@show_all_note_teacher')->name('course_note');
+            Route::get('course_note/{id}/add','NoteController@note_add_ui')->name('add_course_note_ui');
+            Route::post('add_content_note','NoteController@add_content_note')->name('add_content_note');
+
+
+
 
 
 
