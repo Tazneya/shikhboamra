@@ -7,6 +7,14 @@
             <h2 class="st_title"><i class="uil uil-award"></i> All Courses</h2>
          </div>
       </div>
+
+      @if(Session::has('success'))
+      <div class="col-md-10 col-sm-10 col-10 offset-md-1 offset-sm-10 alert alert-success" >
+
+          {{Session::get('success')}}
+
+          </div>
+      @endif
       <div class="row">
          <div class="col-12">
             <div class="mt-10">
@@ -33,7 +41,7 @@
                               <td class="text-center">1</td>
                               <td class="cell-ta">{{ $data->content_name}}</td>
                               <td class="text-center">{{ $data->duration }}</td>
-                              <td class="text-center">{{ $data->url }}</td>
+                              <td class="text-center">{{ $data->content_url }}</td>
 
                               <td class="text-center">
                                  <select class="ui hj145  cntry152 prompt srch_explore">

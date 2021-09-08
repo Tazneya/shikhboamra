@@ -44,8 +44,11 @@ Route::group(['prefix' => 'teacher'], function()
 
             Route::get('instructor_courses','CourseController@show_all_course')->name('show_all_course_teacher');
             Route::post('add_course','CourseController@add_course')->name('add_course');
-            Route::get('course_video/{id}','VideoController@show_all_video_teacher');
+            Route::get('course_video/{id}','VideoController@show_all_video_teacher')->name('course_video');
             Route::get('course_video/{id}/add','VideoController@video_add_ui')->name('add_course_video_ui');
+            Route::post('add_content_video','VideoController@add_content_video')->name('add_content_video');
+
+
 
 });
 

@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class course_content extends Model
 {
-    use HasFactory;
+    //use HasFactory;
+    protected $guarded = [];
 }
