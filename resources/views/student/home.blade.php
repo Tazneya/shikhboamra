@@ -20,18 +20,19 @@
           <div class="col-md-12">
              <div class="_14d25">
                 <div class="row">
+                    @foreach($courses as $course)
                    <div class="col-lg-3 col-md-4">
                       <div class="fcrse_1 mt-30">
                          <a href="course_detail_view.html" class="fcrse_img">
-                            <img src="images/courses/img-1.jpg" alt="">
+                            <img src="{{ $course->course_image }}" alt="">
                             <div class="course-overlay">
-                               <div class="badge_seller">Bestseller</div>
+
                                <div class="crse_reviews">
                                   <i class="uil uil-star"></i>4.5
                                </div>
                                <span class="play_btn1"><i class="uil uil-play"></i></span>
                                <div class="crse_timer">
-                                  25 hours
+                                  25 Video
                                </div>
                             </div>
                          </a>
@@ -46,19 +47,23 @@
                                </div>
                             </div>
                             <div class="vdtodt">
-                               <span class="vdt14">109k views</span>
+
                                <span class="vdt14">15 days ago</span>
                             </div>
-                            <a href="course_detail_view.html" class="crse14s">Complete Python Bootcamp: Go from zero to hero in Python 3</a>
-                            <a href="#" class="crse-cate">Web Development | Python</a>
+                            <a href="course_detail_view.html" class="crse14s">{{ $course->course_name }}</a>
+
+
+
+
                             <div class="auth1lnkprce">
-                               <p class="cr1fot">By <a href="#">John Doe</a></p>
-                               <div class="prce142">$10</div>
-                               <button class="shrt-cart-btn" title="cart"><i class="uil uil-shopping-cart-alt"></i></button>
+                               <p class="cr1fot">By <a href="#">{{ $course->teacher->teacher_name }}</a></p>
+                               <div class="prce142">Free</div>
+
                             </div>
                          </div>
                       </div>
                    </div>
+                   @endforeach
 
 
                 </div>

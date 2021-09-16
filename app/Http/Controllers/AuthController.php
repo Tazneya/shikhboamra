@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\user;
 use App\Models\user_otp;
 use Hash;
+use Auth;
 class AuthController extends Controller
 {
     //
@@ -163,6 +164,20 @@ class AuthController extends Controller
         if($check_otp)
         {
             user::where('id',$user_id)->update(['active_status'=>1]);
+            $user = user::where('id',$user_id)->first();
+
+            $user_role = $user->role;
+
+            if($user_role == "Teacher")
+            {
+                Auth::login($user);
+                return redirect()->to('teacher');
+            }
+            else if($user_role == 'Student')
+            {
+                Auth::login($user);
+                return redirect()->to('student');
+            }
         }
         else
         {

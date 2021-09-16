@@ -21,6 +21,7 @@
 		<link href="{{asset('sourcefile_home')}}/cursus/css/instructor-dashboard.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/css/instructor-responsive.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/css/night-mode.css?{{ time() }}" rel="stylesheet">
+        <link href="{{asset('sourcefile_home')}}/cursus/css/style.css?{{ time() }}" rel="stylesheet">
 
 		<!-- Vendor Stylesheets -->
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/fontawesome-free/css/all.min.css?{{ time() }}" rel="stylesheet">
