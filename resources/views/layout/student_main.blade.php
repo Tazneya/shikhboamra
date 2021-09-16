@@ -104,7 +104,7 @@
 	<div class="wrapper">
 	@yield('content')
 
-</div>
+    </div>
 
 	<script src="{{asset('sourcefile_home')}}/cursus/js/vertical-responsive-menu.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/jquery-3.3.1.min.js"></script>

@@ -41,7 +41,9 @@
 	<!-- Signup Start -->
 	<div class="sign_in_up_bg">
 		<div class="container">
+
 			<div class="row justify-content-lg-center justify-content-md-center">
+
 				<div class="col-lg-12">
 					<div class="main_logo25" id="logo">
 						<a href="index-2.html"><img src="{{asset('sourcefile_home')}}/cursus/images//logo.svg" alt=""></a>
@@ -51,6 +53,15 @@
 
 				<div class="col-lg-6 col-md-8">
 					<div class="sign_form">
+                        @if (count($errors)>0)
+            <div class="col-md-10 col-sm-10 col-10 offset-md-1 offset-sm-10 alert alert-danger" >
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li style="display: list-item;list-style-type:disc">{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 						<div class="main-tabs">
 							<ul class="nav nav-tabs" id="myTab" role="tablist">
 								<li class="nav-item">
@@ -63,37 +74,36 @@
 						</div>
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="instructor-signup-tab" role="tabpanel" aria-labelledby="instructor-tab">
-								
-								<form>
+
+								<form action="{{ route('signup') }}" method="POST">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1">First Name</label>
-                                        <input type="text" class="form-control" id="first_name" placeholder="first Name">
+                                        <input type="text" class="form-control" id="first_name" placeholder="first Name" name="first_name">
                                       </div>
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Last Name</label>
-                                        <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+                                        <input type="text" class="form-control" id="last_name" placeholder="Last Name" name="last_name">
                                       </div>
 									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Educational Curriculum</label>
-                                        <input type="text" class="form-control" id="educational" placeholder="Lasst Name">
+                                        <label for="exampleFormControlInput1">Educational Qualification</label>
+                                        <input type="text" class="form-control" id="educational" placeholder="Lasst Name" name="teacher_qualification">
                                       </div>
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Phone</label>
-                                        <input type="tel"class="form-control" id="phone" name="phone" placeholder="Phone number">
+                                        <input type="tel"class="form-control" id="phone"  placeholder="Phone number" name="mobile_number">
                                       </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Email address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                                      </div>
+
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Password</label>
-                                        <input type="password" class="form-control" id="pass" placeholder="Password">
+                                        <input type="password" class="form-control" id="pass" placeholder="Password" name="password">
                                       </div>
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Confirmation Password</label>
-                                        <input type="password" class="form-control" id="" placeholder="confirmation Password">
+                                        <input type="password" class="form-control" id="" placeholder="confirmation Password" name="password_confirmation">
+                                        <input type="hidden" value="Teacher" name="role">
                                       </div>
-                                     
+
 
                                       <button class="login-btn" type="submit">Instructor Sign Up Now</button>
 
@@ -101,36 +111,40 @@
 							</div>
 							<div class="tab-pane fade" id="student-signup-tab" role="tabpanel" aria-labelledby="student-tab">
 
-							<form>
+							<form action="{{ route('signup') }}" method="POST" >
+                                @csrf
 								<div class="form-group">
                                         <label for="exampleFormControlInput1">First Name</label>
-                                        <input type="text" class="form-control" id="first_name" placeholder="first Name">
+                                        <input type="text" class="form-control" id="first_name" placeholder="first Name" name="first_name">
                                       </div>
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Last Name</label>
-                                        <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+                                        <input type="text" class="form-control" id="last_name" placeholder="Last Name" name="last_name">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleFormControlInput1">School</label>
+                                        <input type="text" class="form-control" id="class" placeholder="Class" name="school">
                                       </div>
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Class</label>
-                                        <input type="text" class="form-control" id="class" placeholder="Class">
+                                        <input type="text" class="form-control" id="class" placeholder="Class" name="class">
                                       </div>
+
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Phone</label>
-                                        <input type="tel"class="form-control" id="phone" name="phone" placeholder="Phone number">
+                                        <input type="tel"class="form-control" id="phone"  placeholder="Phone number" name="mobile_number">
                                       </div>
-									  <div class="form-group">
-                                        <label for="exampleFormControlInput1">Email address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                                      </div>
+
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Password</label>
-                                        <input type="password" class="form-control" id="pass" placeholder="Password">
+                                        <input type="password" class="form-control" id="pass" placeholder="Password" name="password">
                                       </div>
 									  <div class="form-group">
                                         <label for="exampleFormControlInput1">Confirmation Password</label>
-                                        <input type="password" class="form-control" id="" placeholder="confirmation Password">
+                                        <input type="password" class="form-control" id="" placeholder="confirmation Password" name="password_confirmation">
+                                        <input type="hidden" value="Student" name="role">
                                       </div>
-                                     
+
 									<button class="login-btn" type="submit">Student Sign Up Now</button>
 								</form>
 							</div>

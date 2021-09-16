@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zxx">
-    
+
 <!-- Mirrored from keenitsolutions.com/products/html/educavo/index4.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Aug 2021 13:38:48 GMT -->
 <head>
         <!-- meta tag -->
         <meta charset="utf-8">
-        <title>shikhboamra- Education HTML Template</title>
+        <title>shikhboamra</title>
         <meta name="description" content="">
         <!-- responsive tag -->
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -45,7 +45,7 @@
         <![endif]-->
     </head>
     <body class="home-style3">
-        
+
         <!--Preloader area start here-->
         <div id="loader" class="loader">
             <div class="loader-container">
@@ -103,7 +103,7 @@
                                             <img src="{{asset('sourcefile_home')}}/images/logo.png" alt="">
                                         </a>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="col-lg-8 text-center">
@@ -121,30 +121,30 @@
                                               </li>
                                                <li class="menu-item-has-children">
                                                    <a href="#">About</a>
-                                                  
+
                                                </li>
 
                                                <li class="menu-item-has-children">
                                                    <a href="#">Courses</a>
-                                              
-                                               
+
+
 
                                                <li class="menu-item-has-children">
                                                    <a href="#">Contact</a>
-                                                  
+
                                                </li>
                                                <li class="menu-item-has-children">
                                                    <a href="{{url('signup')}}">Sign Up</a>
-                                                  
+
                                                </li>
                                                <li class="menu-item-has-children">
                                                    <a href="{{url('login')}}">Login</a>
-                                                  
+
                                                </li>
                                            </ul> <!-- //.nav-menu -->
-                                        </nav>                                         
+                                        </nav>
                                     </div> <!-- //.main-menu -->
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -274,7 +274,7 @@
                     </div>
                 </div>
             </div>
-            <!-- About Section End --> 
+            <!-- About Section End -->
 
             <!-- Subject Categories Section Start -->
             <div class="rs-popular-courses style2  pt-94 pb-200 md-pt-64 md-pb-90">
@@ -310,7 +310,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -339,7 +339,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -368,7 +368,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                              
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -397,7 +397,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -426,7 +426,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -455,7 +455,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -470,7 +470,7 @@
             <div class="rs-popular-courses style2 bg3 pt-94 pb-200 md-pt-64 md-pb-90">
                 <div class="container">
                     <div class="sec-title mb-60 text-center md-mb-30">
-                      
+
                         <h2 class="title mb-0">Best Instructor</h2>
                     </div>
                     <div class="row">
@@ -500,7 +500,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -529,7 +529,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -558,7 +558,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -587,7 +587,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -616,7 +616,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-30">
@@ -645,10 +645,10 @@
                                         </ul>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="btn-part text-center mt-30">
                         <a class="readon3 dark-hov" href="#">Joint As Instructor</a>
@@ -881,19 +881,19 @@
             <!-- Testimonial Section End -->
 
             <!-- Blog Section Start -->
-           
+
             <!-- Blog Section End -->
 
-       
-        </div> 
-        <!-- Main content End --> 
+
+        </div>
+        <!-- Main content End -->
 
         <!-- Footer Start -->
         <footer id="rs-footer" class="rs-footer">
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
-                       
+
                         <div class="col-lg-3 col-md-12 col-sm-12 footer-widget md-mb-50">
                             <h4 class="widget-title">Resources</h4>
                             <ul class="site-map">
@@ -914,14 +914,14 @@
                                 <li>
                                     <i class="flaticon-call"></i>
                                     <div class="desc">
-                                        <a href="tel:(123)-456-7890">(123)-456-7890</a> , 
+                                        <a href="tel:(123)-456-7890">(123)-456-7890</a> ,
                                         <a href="tel:(123)-456-7890">(123)-456-7890</a>
                                     </div>
                                 </li>
                                 <li>
                                     <i class="flaticon-email"></i>
                                     <div class="desc">
-                                        <a href="mailto:infoname@gmail.com">infoname@gmail.com</a> , 
+                                        <a href="mailto:infoname@gmail.com">infoname@gmail.com</a> ,
                                         <a href="#">www.yourname.com</a>
                                     </div>
                                 </li>
@@ -931,7 +931,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="container">                    
+                <div class="container">
                     <div class="row y-middle">
                         <div class="col-lg-4 md-mb-20">
                             <div class="footer-logo md-text-center">
@@ -990,7 +990,7 @@
         <!-- Bootstrap v4.4.1 js -->
         <script src="{{asset('sourcefile_home')}}/js/bootstrap.min.js"></script>
         <!-- Menu js -->
-        <script src="{{asset('sourcefile_home')}}/js/rsmenu-main.js"></script> 
+        <script src="{{asset('sourcefile_home')}}/js/rsmenu-main.js"></script>
         <!-- op nav js -->
         <script src="{{asset('sourcefile_home')}}/js/jquery.nav.js"></script>
         <!-- owl.carousel js -->
@@ -1005,15 +1005,15 @@
         <script src="{{asset('sourcefile_home')}}/js/wow.min.js"></script>
         <!-- Skill bar js -->
         <script src="{{asset('sourcefile_home')}}/js/skill.bars.jquery.js"></script>
-        <script src="{{asset('sourcefile_home')}}/js/jquery.counterup.min.js"></script>        
+        <script src="{{asset('sourcefile_home')}}/js/jquery.counterup.min.js"></script>
          <!-- counter top js -->
         <script src="{{asset('sourcefile_home')}}/js/waypoints.min.js"></script>
         <!-- video js -->
         <script src="{{asset('sourcefile_home')}}/js/jquery.mb.YTPlayer.min.js"></script>
         <!-- magnific popup js -->
-        <script src="{{asset('sourcefile_home')}}/js/jquery.magnific-popup.min.js"></script> 
+        <script src="{{asset('sourcefile_home')}}/js/jquery.magnific-popup.min.js"></script>
         <!-- parallax-effect js -->
-        <script src="{{asset('sourcefile_home')}}/js/parallax-effect.min.js"></script>     
+        <script src="{{asset('sourcefile_home')}}/js/parallax-effect.min.js"></script>
         <!-- plugins js -->
         <script src="{{asset('sourcefile_home')}}/js/plugins.js"></script>
         <!-- contact form js -->

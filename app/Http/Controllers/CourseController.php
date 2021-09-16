@@ -21,7 +21,7 @@ class CourseController extends Controller
         {
             $data['sl_no'] = $i++;
         }
-        return view('instructor_courses',compact('datas'));
+        return view('teacher.instructor_courses',compact('datas'));
     }
 
     public function add_course(Request $req)

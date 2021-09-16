@@ -22,10 +22,10 @@ class filecontroller extends Controller
         return view('ci_edit');
     }
     public function video_add(){
-        return view('video_add');
+        return view('teacher.video_add');
     }
     public function note_add(){
-        return view('note_add');
+        return view('teacher.note_add');
     }
     public function add_new_exam(){
         return view('add_new_exam');
@@ -34,7 +34,7 @@ class filecontroller extends Controller
         return view('add_question');
     }
     public function create_new_course(){
-        return view('create_new_course');
+        return view('teacher.create_new_course');
     }
     public function instructor_all_review(){
         return view('instructor_all_review');
@@ -58,7 +58,7 @@ class filecontroller extends Controller
         return view('details_que_ans');
     }
     public function instructorhome(){
-        return view('instructorhome');
+        return view('teacher.instructorhome');
     }
     public function course_video(){
         return view('course_video');
@@ -72,6 +72,6 @@ class filecontroller extends Controller
     public function add_new_qus(){
         return view('add_new_qus');
     }
-    
+
 }
 

@@ -13,12 +13,12 @@ class VideoController extends Controller
     {
         $course_id = $req->id;
         $datas = course_content::where('course_id',$course_id)->where('content_type','video')->get();
-        return view('course_video',compact('datas','course_id'));
+        return view('teacher.course_video',compact('datas','course_id'));
     }
     public function video_add_ui(Request $req)
     {
         $course_id = $req->id;
-        return view('video_add',compact('course_id'));
+        return view('teacher.video_add',compact('course_id'));
     }
 
     public function add_content_video(Request $req)

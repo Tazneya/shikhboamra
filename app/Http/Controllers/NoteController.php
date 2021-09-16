@@ -19,13 +19,13 @@ class NoteController extends Controller
         {
             $data['sl_no'] = $i++;
         }
-        return view('course_note',compact('datas','course_id'));
+        return view('teacher.course_note',compact('datas','course_id'));
     }
 
     public function note_add_ui(Request $req)
     {
         $course_id = $req->id;
-        return view('note_add',compact('course_id'));
+        return view('teacher.note_add',compact('course_id'));
     }
 
     public function add_content_note(Request $req)

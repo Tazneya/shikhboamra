@@ -2,12 +2,12 @@
 @section('content')
 
 		<div class="sa4d25">
-			<div class="container-fluid">			
+			<div class="container-fluid">
 				<div class="row">
-					<div class="col-lg-12">	
+					<div class="col-lg-12">
 						<h2 class="st_title"><i class="uil uil-apps"></i> Instructor Dashboard</h2>
 					</div>
-					
+
 					<div class="col-xl-3 col-lg-6 col-md-6">
 						<div class="card_dash">
 							<div class="card_dash_left">
@@ -54,12 +54,12 @@
 								<button class="create_btn_dash" onclick="window.location.href = 'create_new_course.html';">Create Your Course</button>
 							</div>
 						</div>
-					</div>					
+					</div>
 				</div>
-				
+
 			</div>
 		</div>
-		
+
 
 
 @endsection

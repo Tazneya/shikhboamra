@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('signup','filecontroller@signup');
+Route::get('login','filecontroller@login');
+Route::post('signup','AuthController@signup')->name('signup');
+//Route::view('otp','otp');
+Route::post('submit_otp','AuthController@submit_otp')->name('submit_otp');
 Route::group(['prefix' => 'teacher'], function()
 {
 
@@ -37,7 +42,6 @@ Route::group(['prefix' => 'teacher'], function()
             Route::get('details_que_ans','filecontroller@details_que_ans');
 
 
-
             Route::get('course_exam','filecontroller@course_exam');
             Route::get('add_new_qus','filecontroller@add_new_qus');
 
@@ -54,12 +58,17 @@ Route::group(['prefix' => 'teacher'], function()
 
 
 
+});
+
+Route::group(['prefix' => 'student'], function()
+{
+
+            Route::get('/','StudentHomeController@index');
 
 
 
 });
 
-Route::get('signup','filecontroller@signup');
-Route::get('login','filecontroller@login');
+
 
 

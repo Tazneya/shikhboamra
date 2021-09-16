@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class teacher_info extends Model
+class user_otp extends Model
 {
-    //use HasFactory;
-    protected $guarded = [];
+   // use HasFactory;
+
+   protected $guarded = [];
 
 }
