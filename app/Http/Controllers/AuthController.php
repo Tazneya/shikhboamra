@@ -11,6 +11,8 @@ use App\Models\user;
 use App\Models\user_otp;
 use Hash;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+
 class AuthController extends Controller
 {
     //
@@ -26,7 +28,7 @@ class AuthController extends Controller
             'first_name'=>'required',
             'last_name'=>'required',
             'teacher_qualification'=>'required',
-            'mobile_number'=>['required','unique:users','regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/'],
+            'mobile_number'=>['required','regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/'],
             'password'=>'required|confirmed',
 
 
@@ -150,7 +152,7 @@ class AuthController extends Controller
   curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-  $response = curl_exec($ch);
+ // $response = curl_exec($ch);
   curl_close($ch);
   //return $response;
 
@@ -166,11 +168,13 @@ class AuthController extends Controller
             user::where('id',$user_id)->update(['active_status'=>1]);
             $user = user::where('id',$user_id)->first();
 
+
             $user_role = $user->role;
 
             if($user_role == "Teacher")
             {
                 Auth::login($user);
+                file_put_contents('test.txt',auth()->user()->id);
                 return redirect()->to('teacher');
             }
             else if($user_role == 'Student')

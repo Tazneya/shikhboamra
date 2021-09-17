@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\course;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class CourseController extends Controller
 {
-    //
 
-    public $user_id = 1;
+
+
 
     public function show_all_course()
     {
+
 
         $datas = course::where('active_status',1)->where('delete_status',0)->get();
         $i = 1;
@@ -66,7 +68,7 @@ class CourseController extends Controller
          //Image code end
 
          course::create([
-            'teacher_id'=>$this->user_id,
+            'teacher_id'=>auth()->user()->id,
             'course_name'=>$req->course_name,
             'course_description'=>$req->course_description,
             'subject'=>$req->subject,
