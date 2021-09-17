@@ -26,7 +26,7 @@ class AuthController extends Controller
             'first_name'=>'required',
             'last_name'=>'required',
             'teacher_qualification'=>'required',
-            'mobile_number'=>['required','regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/'],
+            'mobile_number'=>['required','unique:users','regex:/(^(\+88|0088)?(01){1}[3456789]{1}(\d){8})$/'],
             'password'=>'required|confirmed',
 
 
@@ -134,7 +134,7 @@ class AuthController extends Controller
     }
     public function otp($mobile_number,$otp)
     {
-        file_put_contents('test.txt',$mobile_number." ".$otp);
+        //file_put_contents('test.txt',$mobile_number." ".$otp);
         $mobile_number = '88'.$mobile_number;
         $url = "http://gsms.pw/smsapi";
      $data = [
