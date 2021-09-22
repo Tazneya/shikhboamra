@@ -3,21 +3,21 @@
         <div class="left_section">
             <ul>
                 <li class="menu--item">
-                    <a href="{{url('instructorhome')}}" class="menu--link" title="Dashboard">
+                    <a href="{{url('student')}}" class="menu--link" title="Dashboard">
                         <i class="uil uil-apps menu--icon"></i>
-                        <span class="menu--label">Dashboard</span>
+                        <span class="menu--label">Explore</span>
                     </a>
                 </li>
                 <li class="menu--item">
                     <a href="{{url('teacher/instructor_courses')}}" class="menu--link" title="Courses">
                         <i class='uil uil-book-alt menu--icon'></i>
-                        <span class="menu--label">Courses</span>
+                        <span class="menu--label">My Courses</span>
                     </a>
                 </li>
                 <li class="menu--item">
                     <a href="{{url('instructor_analytics')}}" class="menu--link" title="Analyics">
                         <i class='uil uil-analysis menu--icon'></i>
-                        <span class="menu--label">Analyics</span>
+                        <span class="menu--label">Analytics</span>
                     </a>
                 </li>
                 <!-- <li class="menu--item">

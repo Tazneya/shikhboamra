@@ -14,5 +14,11 @@ class course extends Model
         return $this->belongsTo('App\Models\teacher_info','teacher_id','user_id');
     }
 
+    public function video()
+    {
+        return $this->hasMany('App\Models\course_content','course_id','id')->where('active_status',1)->where('delete_status',0)->where('content_type','video');
+    }
+
+
 
 }

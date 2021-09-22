@@ -1,3 +1,4 @@
+@include('student.jquery_url')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +8,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, shrink-to-fit=9">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 		<meta name="description" content="Gambolthemes">
 		<meta name="author" content="Gambolthemes">
 		<title>Shikhboamra</title>
@@ -57,9 +59,7 @@
 		</div>
 		<div class="header_right">
 			<ul>
-				<li>
-					<a href="create_new_course.html" class="upload_btn" title="Create New Course">Create New Course</a>
-				</li>
+
 				<li class="ui dropdown">
 					<a href="#" class="opts_account" title="Account">
 						<img src="{{asset('sourcefile_home')}}/cursus/images/hd_dp.jpg" alt="">
@@ -101,19 +101,22 @@
 	</header>
 	<!-- Header End -->
 	<!-- Left Sidebar Start -->
-	@include('layout.sidebar');
+	@include('layout.student_sidebar');
 	<div class="wrapper">
 	@yield('content')
 
     </div>
-
+    <script src="{{asset('sourcefile_home')}}/cursus/js/jquery-3.3.1.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/vertical-responsive-menu.min.js"></script>
-	<script src="{{asset('sourcefile_home')}}/cursus/js/jquery-3.3.1.min.js"></script>
+
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/OwlCarousel/owl.carousel.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/semantic/semantic.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/custom1.js?{{ time() }}"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/night-mode.js"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @yield('page-js')
 
 </body>
 

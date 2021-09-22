@@ -174,7 +174,7 @@ class AuthController extends Controller
             if($user_role == "Teacher")
             {
                 Auth::login($user);
-                file_put_contents('test.txt',auth()->user()->id);
+               // file_put_contents('test.txt',auth()->user()->id);
                 return redirect()->to('teacher');
             }
             else if($user_role == 'Student')

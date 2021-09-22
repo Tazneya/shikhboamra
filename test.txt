@@ -1,1 +1,1 @@
-72
+[{"id":1,"teacher_id":1,"course_name":"Flynn Stark","course_description":"Amet est eligendi a","course_image":"image\/course_image\/1630943539.jpg","subject":"Aliquid fugit adipisci praesentium libero voluptates adipis","class":"Reiciendis pariatur Tempore omnis minus excepteur aute ali","course_type":null,"course_fee":null,"active_status":1,"delete_status":0,"created_at":"2021-09-06T15:52:19.000000Z","updated_at":"2021-09-06T15:52:19.000000Z"}]

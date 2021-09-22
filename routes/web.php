@@ -64,6 +64,8 @@ Route::group(['prefix' => 'student'], function()
 {
 
             Route::get('/','StudentHomeController@index');
+            Route::get('course_details/{id}','StudentCourseController@show_course_details');
+            Route::post('course_enroll','StudentCourseController@course_enroll')->name('course_enroll');
 
 
 

@@ -23,7 +23,7 @@
                     @foreach($courses as $course)
                    <div class="col-lg-3 col-md-4">
                       <div class="fcrse_1 mt-30">
-                         <a href="course_detail_view.html" class="fcrse_img">
+                         <a href="{{ url('student/course_details/'.$course->id) }}" class="fcrse_img">
                             <img src="{{ $course->course_image }}" alt="">
                             <div class="course-overlay">
 
