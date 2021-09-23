@@ -11,7 +11,7 @@
          <div class="col-12">
             <div class="mt-10">
                <div class="card_dash_right1">
-                  <a type="button" class="create_btn_dash course_details btn btn-danger" href="{{url('teacher/add_new_exam')}}">ADD NEW</a>
+                  <a type="button" class="create_btn_dash course_details btn btn-danger" href="{{url('teacher/add_new_exam?course_id='.$course_id)}}">ADD NEW</a>
                </div>
                <div class="table-cerificate">
                   <div class="table-responsive">
@@ -30,27 +30,30 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <tr>
-                              <td class="text-center">1</td>
-                              <td class="cell-ta">WordPress Certificate</td>
-                              <td class="text-center">15</td>
-                              <td class="text-center">20</td>
-                              <td class="text-center">6 </td>
-                              <td class="text-center">6 </td>
-                              <td class="text-center">
-                                <a type="button" class="btn btn-warning" href="{{url('teacher/add_question')}}">ADD QUE</a>
-                             </td>
-                              <td class="text-center">
-                                 <select class="ui hj145  cntry152 prompt srch_explore">
-                                    <option value=""><a href="#" title="Delete" class="gray-s">Edit</a></option>
-                                    <option value=""><a href="#" title="Delete" class="gray-s">Delete</a></option>
-                                    <option value=""><a href="#" title="Delete" class="gray-s">status</a></option>
-                                    <option value=""><a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a></option>
-                                    <option value=""><a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a></option>
-                                 </select>
-
+                           @foreach ($course_exams as $index=>$course_exam)
+                              <tr>
+                                 <td class="text-center">{{ $index+1 }}</td>
+                                 <td class="cell-ta">{{ $course_exam->exam_name }}</td>
+                                 <td class="text-center">{{ $course_exam->durationString }}</td>
+                                 <td class="text-center">20</td>
+                                 <td class="text-center">6 </td>
+                                 <td class="text-center">6 </td>
+                                 <td class="text-center">
+                                 <a type="button" class="btn btn-warning" href="{{url('teacher/add_question')}}">ADD QUE</a>
                               </td>
-                           </tr>
+                                 <td class="text-center">
+                                    <select class="ui hj145  cntry152 prompt srch_explore">
+                                       <option value=""><a href="#" title="Delete" class="gray-s">Edit</a></option>
+                                       <option value=""><a href="#" title="Delete" class="gray-s">Delete</a></option>
+                                       <option value=""><a href="#" title="Delete" class="gray-s">status</a></option>
+                                       <option value=""><a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a></option>
+                                       <option value=""><a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a></option>
+                                    </select>
+
+                                 </td>
+                              </tr>
+                           @endforeach
+                           
 
 
 

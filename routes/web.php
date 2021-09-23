@@ -30,7 +30,8 @@ Route::group(['prefix' => 'teacher'], function()
             Route::get('ci_edit','filecontroller@ci_edit');
 
             Route::get('note_add','filecontroller@note_add');
-            Route::get('add_new_exam','filecontroller@add_new_exam');
+            Route::get('add_new_exam/{course_id?}','filecontroller@add_new_exam');
+            Route::post('add_new_exam', 'CourseExamController@create')->name('add_new_exam_post');
             Route::get('add_question','filecontroller@add_question');
             Route::get('create_new_course','filecontroller@create_new_course');
             Route::get('instructor_all_review','filecontroller@instructor_all_review');
@@ -42,7 +43,7 @@ Route::group(['prefix' => 'teacher'], function()
             Route::get('details_que_ans','filecontroller@details_que_ans');
 
 
-            Route::get('course_exam','filecontroller@course_exam');
+            Route::get('course_exam/{course_id?}','filecontroller@course_exam')->name('course_exams');
             Route::get('add_new_qus','filecontroller@add_new_qus');
 
 

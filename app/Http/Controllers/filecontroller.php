@@ -27,8 +27,9 @@ class filecontroller extends Controller
     public function note_add(){
         return view('teacher.note_add');
     }
-    public function add_new_exam(){
-        return view('teacher.add_new_exam');
+    public function add_new_exam(Request $req){
+        $course_id = $req->query('course_id');
+        return view('teacher.add_new_exam', ['course_id' => $course_id]);
     }
     public function add_question(){
         return view('teacher.add_question');
@@ -66,8 +67,14 @@ class filecontroller extends Controller
     public function course_note(){
         return view('teacher.course_note');
     }
-    public function course_exam(){
-        return view('teacher.course_exam');
+    public function course_exam(Request $req){
+        $course_exams = CourseExamController::all();
+        $course_id = $req->query('course_id');
+        return view('teacher.course_exam', 
+        [
+            'course_id' => $course_id,
+            'course_exams' => $course_exams
+        ]);
     }
     public function add_new_qus(){
         return view('teacher.add_new_qus');
