@@ -41,12 +41,7 @@
                          </div>
                          <ul class="_215b31">
                             <li>
-                                @if($enroll_avail)
-                                <button class="btn_adcart">You enrolled this course</button>
-                                @else
-                                <button class="btn_adcart" onclick = 'enroll_now("{{ $course_details->id }}")'>Enroll Now</button>
 
-                                @endif
                             </li>
 
                          </ul>
@@ -131,7 +126,7 @@
                                         </div>
                                      </div>
                                      <div class="details">
-                                        <a href="#" class="preview-text">Preview</a>
+                                        <a href="{{ url('student/video/4') }}" class="preview-text">Preview</a>
                                         <span class="content-summary">{{ $video->duration }} Minute</span>
                                      </div>
                                   </div>
@@ -342,51 +337,6 @@
 @endsection
 
 @section('page-js')
-<script>
 
-$(function() {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-    })
-
-
-    function enroll_now(course_id)
-    {
-        swal({
-  title: "Are you sure?",
-  icon: "warning",
-  buttons: true,
-  dangerMode: true,
-})
-.then((willDelete) => {
-  if (willDelete) {
-
-    var formdata = new FormData();
-       formdata.append('course_id',course_id);
-        $.ajax({
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        url: course_enroll,
-        data:formdata,
-        success: function (data) {
-            swal("You successfully enrolled this course", {
-            icon: "success",
-    }).then((value) => {
-  location.reload()
-});
-
-        }
-    })
-
-
-  }
-});
-    }
-</script>
 
 @endsection

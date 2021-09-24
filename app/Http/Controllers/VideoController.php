@@ -81,4 +81,10 @@ class VideoController extends Controller
 
 
     }
+
+    public function show_video_preview(Request $request)
+    {
+        $video = course_content::where('id',$request->id)->first();
+        return view('student.video',compact('video'));
+    }
 }

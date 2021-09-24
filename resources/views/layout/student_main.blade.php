@@ -21,7 +21,7 @@
 		<link href="{{asset('sourcefile_home')}}/cursus/css/instructor-dashboard.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/css/instructor-responsive.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/css/night-mode.css?{{ time() }}" rel="stylesheet">
-        <link href="{{asset('sourcefile_home')}}/cursus/css/style.css" rel="stylesheet">
+        <link href="{{asset('sourcefile_home')}}/cursus/css/style.css?{{ time() }}" rel="stylesheet">
 		<!-- Vendor Stylesheets -->
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/fontawesome-free/css/all.min.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/OwlCarousel/assets/owl.carousel.css?{{ time() }}" rel="stylesheet">
@@ -92,7 +92,7 @@
 						<a href="setting.html" class="item channel_item">Setting</a>
 						<a href="help.html" class="item channel_item">Help</a>
 						<a href="feedback.html" class="item channel_item">Send Feedback</a>
-						<a href="sign_in.html" class="item channel_item">Sign Out</a>
+						<a href="{{ route('logout') }}" class="item channel_item">Sign Out</a>
 					</div>
 				</li>
 			</ul>

@@ -21,6 +21,7 @@ Route::get('login','filecontroller@login')->name('login-view');
 Route::post('login', 'AuthController@login')->name('login');
 Route::get('logout', 'AuthController@logout')->name('logout');
 Route::post('signup','AuthController@signup')->name('signup');
+
 //Route::view('otp','otp');
 Route::post('submit_otp','AuthController@submit_otp')->name('submit_otp');
 Route::group(['prefix' => 'teacher', 'middleware' => ['general-login', 'teacher-login']], function()
@@ -72,6 +73,7 @@ Route::group(['prefix' => 'student'], function()
             Route::post('course_enroll','StudentCourseController@course_enroll')->name('course_enroll');
             Route::post('filter_course','StudentHomeController@filter_course')->name('filter_course');
             Route::get('my_courses','StudentHomeController@my_course');
+            Route::get('video/{id}','VideoController@show_video_preview');
 
 
 
