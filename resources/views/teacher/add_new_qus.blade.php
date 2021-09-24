@@ -16,45 +16,60 @@
                      <div class="certi_form">
                         <div class="all_ques_lest">
                            <div class="ques_item">
-                              <div class="ui form">
-                                 <div class="grouped fields">
-                                    <div class="field fltr-radio">
-                                       <div class="ques_title">
-                                          <h4>Ques 1 :-</h4>
-                                          <input type="text" name="example1" tabindex="0" class="hidden">
-                                       </div>
-                                       <div class="ui">
-                                          <label>
-                                             <h4>Option1</h4>
-                                          </label>
-                                          <input type="text" name="example1" tabindex="0" class="hidden">
-                                       </div>
-                                       <div class="ui">
-                                          <label>
-                                             <h4>Option2</h4>
-                                          </label>
-                                          <input type="text" name="example1" tabindex="0" class="hidden">
-                                       </div>
-                                       <div class="ui">
-                                          <label>
-                                             <h4>Option3</h4>
-                                          </label>
-                                          <input type="text" name="example1" tabindex="0" class="hidden">
-                                       </div>
-                                       <div class="ques_title">
-                                          <h4>CORRECT ANS</h4>
-                                          <input type="text" name="example1" tabindex="0" class="hidden">
-                                       </div>
-                                       <div class="ques_title">
-                                          <h4>TAG</h4>
-                                          <input type="text" name="example1" tabindex="0" class="hidden">
-                                       </div>
-                                       <div>
-                                          <a type="button" class="create_btn_dash course_details btn btn-danger" href="{{url('add_new_qus')}}" style="margin-top: 20px;">ADD</a>
+                              <form action="{{ route('add_new_question') }}" method="POST">    
+                                 @csrf
+                                 <input type="hidden" value="{{ $exam_id }}" name="exam_id">                             
+                                 <div class="ui form">
+                                    <div class="grouped fields">
+                                       <div class="field fltr-radio">
+                                          <div class="ques_title">
+                                             <h4>Question</h4>
+                                             <input type="text" name="question" tabindex="0" class="hidden">
+                                          </div>
+                                          <div class="ui">
+                                             <label>
+                                                <h4>Option1</h4>
+                                             </label>
+                                             <input type="text" name="option1" tabindex="0" class="hidden">
+                                          </div>
+                                          <div class="ui">
+                                             <label>
+                                                <h4>Option2</h4>
+                                             </label>
+                                             <input type="text" name="option2" tabindex="0" class="hidden">
+                                          </div>
+                                          <div class="ui">
+                                             <label>
+                                                <h4>Option3</h4>
+                                             </label>
+                                             <input type="text" name="option3" tabindex="0" class="hidden">
+                                          </div>
+                                          <div class="ui">
+                                             <label>
+                                                <h4>Option4</h4>
+                                             </label>
+                                             <input type="text" name="option4" tabindex="0" class="hidden">
+                                          </div>
+                                          <div class="ques_title">
+                                             <h4>CORRECT ANS</h4>
+                                             <input type="number" name="correct_ans" tabindex="0" class="hidden">
+                                          </div>
+                                          <div class="ques_title">
+                                             <h4>TAG</h4>
+                                             <input type="text" name="tag" tabindex="0" class="hidden">
+                                          </div>
+                                          <div class="mt-2">
+                                             <input type="submit" class="btn btn-primary" value="ADD">
+                                          </div>
+                                          @if (session()->has('msg'))
+                                             <div class="alert alert-success mt-3" role="alert">
+                                                {{session('msg')}}
+                                             </div>
+                                          @endif
                                        </div>
                                     </div>
                                  </div>
-                              </div>
+                              </form>
                            </div>
                         </div>
                      </div>

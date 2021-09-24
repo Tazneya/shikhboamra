@@ -39,7 +39,7 @@
                                  <td class="text-center">6 </td>
                                  <td class="text-center">6 </td>
                                  <td class="text-center">
-                                 <a type="button" class="btn btn-warning" href="{{url('teacher/add_question')}}">ADD QUE</a>
+                                 <a type="button" class="btn btn-warning" href="{{url('teacher/add_question?exam_id='.$course_exam->id)}}">ADD QUE</a>
                               </td>
                                  <td class="text-center">
                                     <select class="ui hj145  cntry152 prompt srch_explore">
