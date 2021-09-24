@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\user;
 use App\Models\user_otp;
 use Hash;
+use Illuminate\Support\Facades\Hash as BcryptHash;
 use Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
@@ -188,5 +189,25 @@ class AuthController extends Controller
            return view('otp',['user_id'=>$user_id,'error'=>'OTP NOT MATCH']);
         }
 
+    }
+    public function login(Request $req)
+    {
+        $user = user::where('mobile_number', $req->input('mobile_number'))->first();
+        if($user === null) {
+            $req->session()->flash('msg', 'Wrong phone number/password');
+            return redirect()->route('login-view');
+        }
+        if(!BcryptHash::check($req->input('password'), $user->password)) {
+            $req->session()->flash('msg', 'Wrong phone number/password');
+            return redirect()->route('login-view');
+        }
+
+        $req->session()->put('user', $user);
+        return redirect('/');
+    }
+    public function logout()
+    {
+        session()->flush();
+        return redirect()->route('login-view');
     }
 }

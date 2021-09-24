@@ -27,11 +27,17 @@ class filecontroller extends Controller
     public function note_add(){
         return view('teacher.note_add');
     }
-    public function add_new_exam(){
-        return view('teacher.add_new_exam');
+    public function add_new_exam(Request $req){
+        $course_id = $req->query('course_id');
+        return view('teacher.add_new_exam', ['course_id' => $course_id]);
     }
-    public function add_question(){
-        return view('teacher.add_question');
+    public function add_question(Request $req){
+        $exam_id = $req->query('exam_id');
+        $questions = QuestionController::getByExamId($exam_id);
+        return view('teacher.add_question', 
+            ['exam_id' => $exam_id],
+            ['questions' => $questions]
+        );
     }
     public function create_new_course(){
         return view('teacher.create_new_course');
@@ -66,11 +72,18 @@ class filecontroller extends Controller
     public function course_note(){
         return view('teacher.course_note');
     }
-    public function course_exam(){
-        return view('teacher.course_exam');
+    public function course_exam(Request $req){
+        $course_exams = CourseExamController::all();
+        $course_id = $req->query('course_id');
+        return view('teacher.course_exam', 
+        [
+            'course_id' => $course_id,
+            'course_exams' => $course_exams
+        ]);
     }
-    public function add_new_qus(){
-        return view('teacher.add_new_qus');
+    public function add_new_qus(Request $req){
+        $exam_id = $req->query('exam_id');
+        return view('teacher.add_new_qus', ['exam_id' => $exam_id]);
     }
 
 }

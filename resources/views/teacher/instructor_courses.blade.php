@@ -58,7 +58,7 @@
                                  <a type="button" class="btn btn-warning" href="course_note/{{ $data->id }}">SHOW</a>
                               </td>
                               <td class="text-center">
-                                 <a type="button" class="btn btn-warning" href="{{url('teacher/course_exam')}}">SHOW</a>
+                                 <a type="button" class="btn btn-warning" href="{{url('teacher/course_exam?course_id='.$data->id)}}">SHOW</a>
                               </td>
                               <td class="text-center">
                                  <a type="button" class="btn btn-warning" href="{{url('teacher/create_new_course')}}">SHOW</a>
