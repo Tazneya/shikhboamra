@@ -195,23 +195,24 @@ class AuthController extends Controller
         $user = user::where('mobile_number', $req->input('mobile_number'))->first();
         if($user === null) {
             $req->session()->flash('msg', 'User Not Registered');
-            return redirect()->to('/');
+            return redirect()->to('login-view');
         }
         if(!BcryptHash::check($req->input('password'), $user->password)) {
             $req->session()->flash('msg', 'Wrong phone number/password');
-            return redirect()->to('/');
+            return redirect()->to('login-view');
         }
         Auth::login($user);
+        file_put_contents('test.txt',$user->role);
         if($user->role =='Teacher')
-        return redirect('teacher');
+        return redirect()->to('teacher');
         if($user->role =='Student')
-        return redirect('student');
+        return redirect()->to('student');
 
         //$user = user::where('mobile_number',$req->mobile_number)->where('password')
     }
     public function logout()
     {
-        session()->flush();
-        return redirect()->route('login-view');
+        auth()->logout();
+        return redirect()->to('/');
     }
 }

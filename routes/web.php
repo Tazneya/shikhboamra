@@ -24,7 +24,7 @@ Route::post('signup','AuthController@signup')->name('signup');
 
 //Route::view('otp','otp');
 Route::post('submit_otp','AuthController@submit_otp')->name('submit_otp');
-Route::group(['prefix' => 'teacher', 'middleware' => ['general-login', 'teacher-login']], function()
+Route::group(['prefix' => 'teacher'], function()
 {
     Route::get('/','filecontroller@instructorhome');
 
