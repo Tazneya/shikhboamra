@@ -34,7 +34,7 @@
             </div>
             <div class="col-lg-5 col-md-5">
                <div class="ui search focus mt-30 lbel25">
-                  <h4>CLASS</h4>
+                  <h4>Class</h4>
                   <div class="ui left icon input swdh19">
                      <input class="prompt srch_explore" type="text" placeholder="Insert your course content title." name="class" data-purpose="edit-course-title" maxlength="60" id="Content[title]" value="">
                   </div>
@@ -42,12 +42,20 @@
             </div>
             <div class="col-lg-5 col-md-5">
                <div class="ui search focus mt-30 lbel25">
-                  <h4>SUBJECT</h4>
+                  <h4>Subject</h4>
                   <div class="ui left icon input swdh19">
                      <input class="prompt srch_explore" type="text" placeholder="Insert your course content title." name="subject" data-purpose="edit-course-title" maxlength="60" id="Content[title]" value="">
                   </div>
                </div>
             </div>
+            <div class="col-lg-5 col-md-5">
+                <div class="ui search focus mt-30 lbel25">
+                   <h4>Topic</h4>
+                   <div class="ui left icon input swdh19">
+                      <input class="prompt srch_explore" type="text" placeholder="Insert your course content title." name="topic" data-purpose="edit-course-title" maxlength="60" id="Content[title]" value="">
+                   </div>
+                </div>
+             </div>
             <div class="col-lg-12 col-md-12">
                <div class="course_des_textarea mt-30 lbel25">
                   <label>Description*</label>

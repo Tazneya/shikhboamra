@@ -34,6 +34,7 @@ class CourseController extends Controller
             'course_description'=>'required',
             'subject'=>'required',
             'class'=>'required',
+            'topic'=>'required',
 
 
 
@@ -45,6 +46,7 @@ class CourseController extends Controller
         'course_description.required' => 'Description Field is Rquired.',
         'subject.required'=>'Subject filed is required',
         'class.required'=>'Class filed is required',
+        'topic.required'=>'Topic filed is required',
 
 
     ];
@@ -73,7 +75,8 @@ class CourseController extends Controller
             'course_description'=>$req->course_description,
             'subject'=>$req->subject,
             'class'=>$req->class,
-            'course_image'=>$image
+            'course_image'=>$image,
+            'topic'=>$req->topic
 
          ]);
 

@@ -30,6 +30,7 @@
                               <th class="text-center" scope="col">IMAGE</th>
                               <th class="text-center" scope="col">CLASS</th>
                               <th class="text-center" scope="col">SUBJECT</th>
+                              <th class="text-center" scope="col">TOPIC</th>
                               <th class="text-center" scope="col">CLASS DURATION</th>
                               <th class="text-center" scope="col">VIDEO</th>
                               <th class="text-center" scope="col">NOTE</th>
@@ -48,6 +49,7 @@
                               <td class="text-center"><img width="100px"src="{{ asset($data->course_image)}}"></td>
                               <td class="text-center">{{ $data->class }}</td>
                               <td class="text-center">{{ $data->subject }}</td>
+                              <td class="text-center">{{ $data->topic }}</td>
                               <td class="text-center">100</td>
                               <td class="text-center">
                                  <a type="button" class="btn btn-warning" href="course_video/{{ $data->id }}">SHOW</a>

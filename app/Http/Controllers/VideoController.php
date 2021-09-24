@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\course_content;
 use Illuminate\Support\Facades\Validator;
+use Youtube;
 
 class VideoController extends Controller
 {
@@ -52,8 +53,19 @@ class VideoController extends Controller
 
 
          $video = time() . '.' . request()->content_video->getClientOriginalExtension();//course_image from view file
+        //  $videos = Youtube::upload($req->file('content_video')->getPathName(), [
+        //     'title'       => 'My Awesome Video',
+        //     'description' => 'You can also specify your video description here.',
+        //     'tags'	      => ['foo', 'bar', 'baz'],
 
-         $req->content_video->move(public_path('../video/content_video') , $video);
+        // ]);
+
+       // return $videos->getVideoId();
+
+
+
+
+        $req->content_video->move(public_path('../video/content_video') , $video);
           $content_video = "video/content_video/" . $video;
 
           course_content::create([
@@ -65,7 +77,7 @@ class VideoController extends Controller
 
           ]);
 
-          return redirect()->route('course_video',['id'=>$req->course_id])->with('success','Video Added Successfully');
+         return redirect()->route('course_video',['id'=>$req->course_id])->with('success','Video Added Successfully');
 
 
     }
