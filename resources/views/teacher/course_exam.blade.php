@@ -21,9 +21,9 @@
                               <th class="text-center" scope="col">SERIAL NO</th>
                               <th scope="col">EXAM TITLE</th>
                               <th class="text-center" scope="col">DURATION</th>
-                              <th class="text-center" scope="col">PRE-REQUISITION</th>
+
                               <th class="text-center" scope="col">TOTAL MARKS</th>
-                              <th class="text-center" scope="col">ORDER</th>
+
                               <th class="text-center" scope="col">QUESTION</th>
 
                               <th class="text-center" scope="col">ACTION</th>
@@ -35,9 +35,8 @@
                                  <td class="text-center">{{ $index+1 }}</td>
                                  <td class="cell-ta">{{ $course_exam->exam_name }}</td>
                                  <td class="text-center">{{ $course_exam->durationString }}</td>
-                                 <td class="text-center">20</td>
-                                 <td class="text-center">6 </td>
-                                 <td class="text-center">6 </td>
+                                 <td class="text-center">{{ $course_exam->total_marks }}</td>
+
                                  <td class="text-center">
                                  <a type="button" class="btn btn-warning" href="{{url('teacher/add_question?exam_id='.$course_exam->id)}}">ADD QUE</a>
                               </td>
@@ -53,7 +52,7 @@
                                  </td>
                               </tr>
                            @endforeach
-                           
+
 
 
 
