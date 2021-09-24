@@ -1,4 +1,4 @@
-@include('student.jquery_url')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,7 +116,7 @@
 	<script src="{{asset('sourcefile_home')}}/cursus/js/custom1.js?{{ time() }}"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/night-mode.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    @include('student.jquery_url')
 
     @yield('page-js')
 

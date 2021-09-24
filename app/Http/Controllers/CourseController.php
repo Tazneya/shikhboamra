@@ -37,8 +37,6 @@ class CourseController extends Controller
             'topic'=>'required',
 
 
-
-
         ];
     $customMessages = [
         'course_name.required' => 'Course Name Field is Rquired.',

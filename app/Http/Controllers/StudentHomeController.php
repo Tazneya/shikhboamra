@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\course;
+use App\Models\st_course;
 
 class StudentHomeController extends Controller
 {
@@ -32,9 +33,10 @@ class StudentHomeController extends Controller
     public function my_course()
     {
 
-        $courses = course::get();
-
-        return view('student.my_course',compact('courses'));
+        $st_courses = st_course::where('st_id',auth()->user()->id)->get();
+      //  file_put_contents('test.txt',json_encode($st_courses->enroll_course));
+        //$courses = $st_courses->courses();
+        return view('student.my_course',compact('st_courses'));
     }
 
 

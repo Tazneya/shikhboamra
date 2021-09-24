@@ -63,7 +63,7 @@
 										</div>
 									</div>
 
-									<button class="login-btn" type="submit">Instructor Login Now</button>
+									<button class="login-btn" type="submit">Login Now</button>
 									{{-- <button class="login-btn" type="submit">Next</button> --}}
 								</form>
 								@if (session()->has('msg'))
