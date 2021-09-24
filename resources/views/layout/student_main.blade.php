@@ -1,4 +1,3 @@
-@include('student.jquery_url')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +7,6 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, shrink-to-fit=9">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 		<meta name="description" content="Gambolthemes">
 		<meta name="author" content="Gambolthemes">
 		<title>Shikhboamra</title>
@@ -23,8 +21,7 @@
 		<link href="{{asset('sourcefile_home')}}/cursus/css/instructor-dashboard.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/css/instructor-responsive.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/css/night-mode.css?{{ time() }}" rel="stylesheet">
-        <link href="{{asset('sourcefile_home')}}/cursus/css/style.css?{{ time() }}" rel="stylesheet">
-
+        <link href="{{asset('sourcefile_home')}}/cursus/css/style.css" rel="stylesheet">
 		<!-- Vendor Stylesheets -->
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/fontawesome-free/css/all.min.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/OwlCarousel/assets/owl.carousel.css?{{ time() }}" rel="stylesheet">
@@ -59,7 +56,9 @@
 		</div>
 		<div class="header_right">
 			<ul>
+				<li>
 
+				</li>
 				<li class="ui dropdown">
 					<a href="#" class="opts_account" title="Account">
 						<img src="{{asset('sourcefile_home')}}/cursus/images/hd_dp.jpg" alt="">
@@ -105,18 +104,15 @@
 	<div class="wrapper">
 	@yield('content')
 
-    </div>
-    <script src="{{asset('sourcefile_home')}}/cursus/js/jquery-3.3.1.min.js"></script>
-	<script src="{{asset('sourcefile_home')}}/cursus/js/vertical-responsive-menu.min.js"></script>
+</div>
 
+	<script src="{{asset('sourcefile_home')}}/cursus/js/vertical-responsive-menu.min.js"></script>
+	<script src="{{asset('sourcefile_home')}}/cursus/js/jquery-3.3.1.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/OwlCarousel/owl.carousel.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/semantic/semantic.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/custom1.js?{{ time() }}"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/night-mode.js"></script>
-
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    @yield('page-js')
 
 </body>
 

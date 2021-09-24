@@ -29,6 +29,14 @@ class StudentHomeController extends Controller
         //file_put_contents('test.txt',$subject." ".$topic);
     }
 
+    public function my_course()
+    {
+
+        $courses = course::get();
+
+        return view('student.my_course',compact('courses'));
+    }
+
 
 
 

@@ -18,6 +18,15 @@ class StudentCourseController extends Controller
         return view('student.course_details',compact('course_details','enroll_avail'));
     }
 
+    public function show_course_details_enrolled(Request $request)
+    {
+        $course_id = $request->id;
+        $user_id = auth()->user()->id;
+        $course_details = course::where('id',$course_id)->first();
+        $enroll_avail = st_course::where('st_id',$user_id)->where('course_id',$course_id)->first();
+        return view('student.course_details_enrrolled',compact('course_details','enroll_avail'));
+    }
+
     public function course_enroll(Request $request)
     {
         $st_id =auth()->user()->id; ;

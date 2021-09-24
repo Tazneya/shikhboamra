@@ -9,7 +9,7 @@
                     </a>
                 </li>
                 <li class="menu--item">
-                    <a href="{{url('teacher/instructor_courses')}}" class="menu--link" title="Courses">
+                    <a href="{{url('student/my_courses')}}" class="menu--link" title="Courses">
                         <i class='uil uil-book-alt menu--icon'></i>
                         <span class="menu--label">My Courses</span>
                     </a>
