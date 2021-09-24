@@ -58,11 +58,11 @@
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="instructor-signup-tab" role="tabpanel" aria-labelledby="instructor-tab">
 								
-								<form>
-									
+								<form action="{{ route('login') }}" method="POST">	
+									@csrf								
 									<div class="ui search focus">
 										<div class="ui left icon input swdh11 swdh19">
-											<input class="prompt srch_explore" type="text" name="user_name" value="" id="username" required="" maxlength="64" placeholder="User Name">															
+											<input class="prompt srch_explore" type="text" name="mobile_number" value="" id="username" required="" maxlength="64" placeholder="User Name">															
 										</div>
 									</div>
 									
@@ -75,6 +75,11 @@
 									<button class="login-btn" type="submit">Instructor Login Now</button>
 									{{-- <button class="login-btn" type="submit">Next</button> --}}
 								</form>
+								@if (session()->has('msg'))									
+									<div class="alert alert-danger mt-2" role="alert">
+										{{ session('msg') }}
+									</div>
+								@endif
 								{{-- <form>
 									
 									<button class="login-btn" type="submit">Instructor Sign Up Now</button>
@@ -82,8 +87,8 @@
 							</div>
 							<div class="tab-pane fade" id="student-signup-tab" role="tabpanel" aria-labelledby="student-tab">
 								
-								<form>
-									
+								<form action="{{ route('login') }}" method="POST">
+									@csrf
 									<div class="ui search focus">
 										<div class="ui left icon input swdh11 swdh19">
 											<input class="prompt srch_explore" type="text" name="user_name" value="" id="username" required="" maxlength="64" placeholder="User Name">															
@@ -99,10 +104,17 @@
 									<button class="login-btn" type="submit">Student Login Now</button>
 									{{-- <button class="login-btn" type="submit">Next</button> --}}
 								</form>
+
+								@if (session()->has('msg'))									
+									<div class="alert alert-danger mt-2" role="alert">
+										{{ session('msg') }}
+									</div>
+								@endif
 							</div>
 						</div>
 						<p class="mb-0 mt-30">Already have an account? <a href="sign_in.html">Log In</a></p>
 					</div>
+					
 					{{-- <div class="sign_footer"><img src="{{asset('sourcefile_home')}}/cursus/images/sign_logo.png" alt="">© 2020 <strong>Cursus</strong>. All Rights Reserved.</div> --}}
 				</div>				
 			</div>				
