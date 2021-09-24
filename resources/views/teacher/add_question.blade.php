@@ -16,6 +16,7 @@
     @if (count($questions) === 0)                
         <div class="text-center">
             <h2 class="display-3">No Questions Added Yet</h2>
+            <a type="button" class="create_btn_dash" href="{{url('teacher/add_new_qus?exam_id='.$exam_id)}}">Add</a>
         </div>
     @else    
         <table class="table ucp-table">
