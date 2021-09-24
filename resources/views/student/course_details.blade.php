@@ -339,21 +339,19 @@
        </div>
     </footer>
 
+
 @endsection
 
 @section('page-js')
 <script>
-
 $(function() {
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
-    })
-
-
+    });
     function enroll_now(course_id)
     {
         swal({
@@ -364,7 +362,6 @@ $(function() {
 })
 .then((willDelete) => {
   if (willDelete) {
-
     var formdata = new FormData();
        formdata.append('course_id',course_id);
         $.ajax({
@@ -379,11 +376,8 @@ $(function() {
     }).then((value) => {
   location.reload()
 });
-
         }
     })
-
-
   }
 });
     }
