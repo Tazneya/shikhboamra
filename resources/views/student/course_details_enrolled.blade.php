@@ -126,7 +126,7 @@
                                         </div>
                                      </div>
                                      <div class="details">
-                                        <a href="{{ url('student/video/4') }}" class="preview-text">Preview</a>
+                                        <a href="video/{{ $video->id }}" class="preview-text">Preview</a>
                                         <span class="content-summary">{{ $video->duration }} Minute</span>
                                      </div>
                                   </div>
