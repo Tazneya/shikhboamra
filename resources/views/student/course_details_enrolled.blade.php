@@ -63,6 +63,9 @@
                       <div class="nav nav-tabs tab_crse justify-content-center" id="nav-tab" role="tablist">
                          <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-selected="true">About</a>
                          <a class="nav-item nav-link" id="nav-courses-tab" data-toggle="tab" href="#nav-courses" role="tab" aria-selected="false">Courses Content</a>
+                         @if (count($course_exams) > 0)                             
+                           <a class="nav-item nav-link" id="nav-exam-tab" data-toggle="tab" href="#nav-exam" role="tab" aria-selected="false">Exams</a>
+                         @endif
                          <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="false">Reviews</a>
                       </div>
                    </nav>
@@ -140,6 +143,43 @@
 
                          </div>
                       </div>
+                      <div class="tab-pane fade" id="nav-exam" role="tabpanel">
+                        <div class="_htg451">
+
+                           <div class="_htg452 mt-35">
+                              <table class="table ucp-table" id="content-table">
+                                 <thead class="thead-s">
+                                    <tr>
+                                       <th class="text-center" scope="col">SERIAL NO</th>
+                                       <th scope="col">EXAM TITLE</th>
+                                       <th class="text-center" scope="col">DURATION</th>         
+                                       <th class="text-center" scope="col">TOTAL MARKS</th>
+                                       <th class="text-center" scope="col">ACTION</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    @foreach ($course_exams as $index=>$course_exam)
+                                       <tr>
+                                          <td class="text-center">{{ $index+1 }}</td>
+                                          <td class="cell-ta">{{ $course_exam->exam_name }}</td>
+                                          <td class="text-center">{{ $course_exam->durationString }}</td>
+                                          <td class="text-center">{{ $course_exam->total_marks }}</td>
+                                          <td class="text-center">
+                                             <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Take Exam</a>         
+                                          </td>
+                                       </tr>
+                                    @endforeach
+         
+         
+         
+         
+                                 </tbody>
+                              </table>
+                           </div>
+
+
+                        </div>
+                     </div>
                       <div class="tab-pane fade" id="nav-reviews" role="tabpanel">
                          <div class="student_reviews">
                             <div class="row">

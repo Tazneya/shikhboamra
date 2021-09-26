@@ -17,6 +17,20 @@ class CourseExamController extends Controller
         }
         return $course_exams;
     }
+    public static function byCourseId($id)
+    {
+        $course_exams =  course_exam::where('course_id', $id)->get();
+        foreach($course_exams as $course_exam) {
+            $course_exam->durationString = Utils::getDurationString((int)$course_exam->duration);
+        }
+        return $course_exams;
+    }
+    public static function find($id)
+    {
+        $course_exam =  course_exam::find($id);
+        $course_exam->durationString = Utils::getDurationString((int)$course_exam->duration);
+        return $course_exam;
+    }
     public function create(Request $req)
     {
         $req->validate([
