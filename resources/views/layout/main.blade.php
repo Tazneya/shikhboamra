@@ -57,7 +57,7 @@
 		<div class="header_right">
 			<ul>
 				<li>
-					<a href="create_new_course.html" class="upload_btn" title="Create New Course">Create New Course</a>
+					<a href="#" class="upload_btn" title="Create New Course">Create New Course</a>
 				</li>
 				<li class="ui dropdown">
 					<a href="#" class="opts_account" title="Account">

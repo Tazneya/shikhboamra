@@ -17,11 +17,11 @@
           <div class="col-md-12">
              <div class="_14d25">
                 <div class="row">
-                    @foreach($courses as $course)
+                    @foreach($st_courses as $course)
                    <div class="col-lg-3 col-md-4">
                       <div class="fcrse_1 mt-30">
-                         <a href="{{ url('student/course_details_enrolled/'.$course->id) }}" class="fcrse_img">
-                            <img src="{{ asset($course->course_image) }}" height="200px" alt="">
+                         <a href="{{ url('student/course_details_enrolled/'.$course->enroll_course->id) }}" class="fcrse_img">
+                            <img src="{{ asset($course->enroll_course->course_image) }}" height="200px" alt="">
                             <div class="course-overlay">
 
                                <div class="crse_reviews">
@@ -47,13 +47,13 @@
 
                                <span class="vdt14">15 days ago</span>
                             </div>
-                            <a href="course_detail_view.html" class="crse14s">{{ $course->course_name }}</a>
+                            <a href="course_detail_view.html" class="crse14s">{{ $course->enroll_course->course_name }}</a>
 
 
 
 
                             <div class="auth1lnkprce">
-                               <p class="cr1fot">By <a href="#">{{ $course->teacher->teacher_name }}</a></p>
+                               <p class="cr1fot">By <a href="#">{{ $course->enroll_course->teacher->teacher_name }}</a></p>
                                <div class="prce142">Free</div>
 
                             </div>
