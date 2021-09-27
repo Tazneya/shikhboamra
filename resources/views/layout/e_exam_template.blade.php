@@ -56,7 +56,7 @@
         </div>
         <script src="{{ asset('sourcefile_exam') }}/vendor/jquery/jquery.min.js"></script>
         <script src="{{ asset('sourcefile_exam') }}/vendor/bootstrap/js/bootstrap.min.js"></script>
-    
+        <script src="{{ asset('/') }}/routes.js"></script>
         <script src="{{ asset('sourcefile_exam') }}/js/style.js"></script>
         <script src="{{ asset('sourcefile_exam') }}/js/utils.js"></script>
         @yield('page_js')

@@ -17,7 +17,8 @@ class StudentCourseController extends Controller
         $user_id = auth()->user()->id;
         $course_details = course::where('id',$course_id)->first();
         $enroll_avail = st_course::where('st_id',$user_id)->where('course_id',$course_id)->first();
-        return view('student.course_details',compact('course_details','enroll_avail'));
+        $course_exams = CourseExamController::byCourseId($course_id);
+        return view('student.course_details_enrolled',compact('course_details','enroll_avail', 'course_exams'));
     }
 
     public function show_course_details_enrolled(Request $request)
@@ -37,6 +38,10 @@ class StudentCourseController extends Controller
         st_course::create(['st_id'=>$st_id,'course_id'=>$course_id]);
     }
     public function exam_page($exam_id)
+    {
+        return view('student.exam_page', ['exam_id' => $exam_id]);
+    }
+    public function exam_page_old($exam_id)
     {
         $questions = question::where('exam_id', $exam_id)->paginate(1);
         

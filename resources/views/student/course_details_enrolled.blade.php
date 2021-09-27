@@ -1,7 +1,6 @@
 @extends('layout.student_main')
 
 @section('content')
-
     <div class="_215b01">
        <div class="container-fluid">
           <div class="row">

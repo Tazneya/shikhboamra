@@ -34,4 +34,10 @@ class QuestionController extends Controller
         $req->session()->flash('msg', 'Question Created');
         return back();
     }
+    public function apiServeExamQuestion($exam_id)
+    {
+        $questions = question::where('exam_id', $exam_id)->paginate(1);
+        
+        return response()->json($questions, 200);
+    }
 }
