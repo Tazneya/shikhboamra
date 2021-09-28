@@ -202,6 +202,7 @@ class AuthController extends Controller
             return redirect()->to('login-view');
         }
         Auth::login($user);
+        $req->session()->put('user', $user);
         file_put_contents('test.txt',$user->role);
         if($user->role =='Teacher')
         return redirect()->to('teacher');
