@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\course;
 use App\Models\course_exam;
 use App\Models\question;
+use App\Models\st_answer;
 use App\Models\st_course;
+use App\Models\st_exam;
 
 class StudentCourseController extends Controller
 {
@@ -72,5 +74,29 @@ class StudentCourseController extends Controller
     {   
         $exam = CourseExamController::find($exam_id);
         return view('student.exam_confirmation', ['exam' => $exam]);
+    }
+    public function exam_result($exam_id)
+    {
+        $correct_answer_count = 0;
+        $answers = st_answer::where([
+            'exam_id' => $exam_id,
+            'user_id' => session('user')->id
+        ])->get();
+        foreach($answers as $answer) {
+            if($answer->correct) {
+                $correct_answer_count++;
+            }
+            $answer->question = question::find($answer->question_id);
+        }
+        $st_exam = st_exam::where([
+            'exam_id' => $exam_id,
+            'st_id' => session('user')->id
+        ])->first();
+
+        return view('student.exam_result', [
+            'answers' => $answers,
+            'st_exam' => $st_exam,
+            'correct_answer_count' => $correct_answer_count
+        ]);
     }
 }

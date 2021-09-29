@@ -42,7 +42,7 @@
 @section('page_js')
     <script>
 
-        const question_timer = 5;
+        const question_timer = 20;
         var timer_display = document.querySelector('#timer');
 
         let current_page = 1;
@@ -78,14 +78,18 @@
         }
         function submitAnswer(data)
         {
-            console.log(data)
-            post(routes.submitAnswer, data).then(response => console.log(response));
+            post(routes.submitAnswer, data).then(response => { endExam() });
         }
         function clearSelection()
         {
             document.querySelectorAll('.answer_section input[type="radio"]').forEach(elem => {
                 elem.checked = false;
             })
+        }
+        function endExam()
+        {
+            let redirectLocation = "{{ route('exam_result', ['exam_id' => $exam_id]) }}"
+            window.location.replace(redirectLocation);
         }
         function serveNextQuestion()
         {
@@ -97,6 +101,7 @@
                 current_page += 1;
                 serveQuestion();
                 clearSelection();
+                clearTimer();
                 initializeTimer();
             } else {
                 submitAnswer(response_record)
@@ -113,6 +118,11 @@
             })
             return parseInt(answer);
         } 
+        function clearTimer() {
+            startTimer(question_timer, timer_display, function() {
+                serveNextQuestion()
+            }, false);
+        }
         function initializeTimer() {
             startTimer(question_timer, timer_display, function() {
                 serveNextQuestion()

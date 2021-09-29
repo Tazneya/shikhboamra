@@ -25,6 +25,10 @@ class CourseExamController extends Controller
         $course_exams =  course_exam::where('course_id', $id)->get();
         foreach($course_exams as $course_exam) {
             $course_exam->durationString = Utils::getDurationString((int)$course_exam->duration);
+            if(session()->has('user')) {
+                $st_exam = st_exam::where('exam_id', $course_exam->id)->first();
+                $course_exam->isTaken = $st_exam !== null ? true : false;
+            }
         }
         return $course_exams;
     }
@@ -43,6 +47,7 @@ class CourseExamController extends Controller
             $question = question::find($answer['question_id']);
             $correct = $question->correct_ans === $answer['response'] ? 1 : 0;
             $total_correct_answers = $correct === 1 ? $total_correct_answers + 1 : $total_correct_answers;
+            CourseExamController::deleteIfAnswerExists($inputs['exam_id'], $answer['question_id'], $inputs['user_id']);
             st_answer::create([
                 'exam_id' => $inputs['exam_id'],
                 'question_id' => $answer['question_id'],
@@ -58,8 +63,22 @@ class CourseExamController extends Controller
                 'exam_entry' => $exam_entry
             ]);
     }
+    public static function deleteIfAnswerExists($exam_id, $question_id, $student_id) {
+        $existing_st_answer = st_answer::where([
+            'exam_id' => $exam_id,
+            'question_id' => $question_id,
+            'user_id' => $student_id
+        ])->first();
+
+        if($existing_st_answer !== null) {
+            $existing_st_answer->delete();
+            return true;
+        } 
+        return false;
+    }
     public static function makeStudentExamEntry($exam_id, $student_id, $total_answers, $total_correct_answers)
     {
+        CourseExamController::deleteIfExamEntryExists($student_id, $exam_id);
         $exam = course_exam::find($exam_id);
         $obtaining_marks = ($exam->total_marks / $total_answers) * $total_correct_answers;
 
@@ -70,6 +89,19 @@ class CourseExamController extends Controller
         ]);
 
         return $st_exam;
+    }
+    public static function deleteIfExamEntryExists($student_id, $exam_id)
+    {
+        $st_exam = st_exam::where([
+            'st_id' => $student_id,
+            'exam_id' => $exam_id
+        ])->first();
+
+        if($st_exam !== null) {
+            $st_exam->delete();
+            return true;
+        }
+        return false;
     }
     public function create(Request $req)
     {

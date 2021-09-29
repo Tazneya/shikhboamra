@@ -163,9 +163,16 @@
                                           <td class="cell-ta">{{ $course_exam->exam_name }}</td>
                                           <td class="text-center">{{ $course_exam->durationString }}</td>
                                           <td class="text-center">{{ $course_exam->total_marks }}</td>
-                                          <td class="text-center">
-                                             <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Take Exam</a>         
-                                          </td>
+                                          @if (!$course_exam->isTaken)
+                                             <td class="text-center">
+                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Take Exam</a>         
+                                             </td>                                              
+                                          @else
+                                             <td class="text-center">
+                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Try Again</a>
+                                                <a href="{{ route('exam_result', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >View Result</a>        
+                                             </td> 
+                                          @endif
                                        </tr>
                                     @endforeach
          

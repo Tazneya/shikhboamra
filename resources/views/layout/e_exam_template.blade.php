@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('sourcefile_exam') }}/css/style.css">
     <link rel="stylesheet" href="{{ asset('sourcefile_exam') }}/css/exam.css">
     <link rel="stylesheet" href="{{ asset('sourcefile_exam') }}/css/info_page.css">
+    <link rel="stylesheet" href="{{ asset('sourcefile_exam') }}/css/answers.css">
     <title>E-Exam | Subjects</title>
 </head>
 <body>

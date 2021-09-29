@@ -75,6 +75,7 @@ Route::group(['prefix' => 'student'], function()
     Route::get('course_details_enrolled/video/{id}','VideoController@show_video_preview');
     Route::get('exam_confirmation/{exam_id}', 'StudentCourseController@exam_confirmation')->name('exam_confirmation_page');
     Route::get('exam_page/{exam_id}', 'StudentCourseController@exam_page')->name('exam_page');
+    Route::get('exam_result/{exam_id}', 'StudentCourseController@exam_result')->name('exam_result');
 });
 
 
