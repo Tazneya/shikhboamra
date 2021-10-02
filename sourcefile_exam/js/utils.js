@@ -1,9 +1,6 @@
-function startTimer(duration, display, callback, stop = false) {
+function startTimer(duration, display, callback) {
     var timer = duration, minutes, seconds;
     var interval = setInterval(function () {
-        if(stop) {
-            clearInterval(interval)
-        }
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 

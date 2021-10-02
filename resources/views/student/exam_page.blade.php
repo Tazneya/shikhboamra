@@ -46,6 +46,7 @@
         var timer_display = document.querySelector('#timer');
 
         let current_page = 1;
+        let interval = null;
         let total = 0;
         let exam_id = {{ $exam_id }};
         let current_question_id = 0;
@@ -119,12 +120,10 @@
             return parseInt(answer);
         } 
         function clearTimer() {
-            startTimer(question_timer, timer_display, function() {
-                serveNextQuestion()
-            }, false);
+            clearInterval(interval)
         }
         function initializeTimer() {
-            startTimer(question_timer, timer_display, function() {
+            interval = startTimer(question_timer, timer_display, function() {
                 serveNextQuestion()
             });
         }

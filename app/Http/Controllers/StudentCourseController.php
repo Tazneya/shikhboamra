@@ -16,6 +16,7 @@ class StudentCourseController extends Controller
     public function show_course_details(Request $request)
     {
         $course_id = $request->id;
+        $request->session()->put('recent_course_id', $course_id);
         $user_id = auth()->user()->id;
         $course_details = course::where('id',$course_id)->first();
         $enroll_avail = st_course::where('st_id',$user_id)->where('course_id',$course_id)->first();
@@ -26,6 +27,7 @@ class StudentCourseController extends Controller
     public function show_course_details_enrolled(Request $request)
     {
         $course_id = $request->id;
+        $request->session()->put('recent_course_id', $course_id);
         $user_id = auth()->user()->id;
         $course_details = course::where('id',$course_id)->first();
         $course_exams = CourseExamController::byCourseId($course_id);
