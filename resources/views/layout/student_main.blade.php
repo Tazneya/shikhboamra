@@ -29,6 +29,7 @@
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/OwlCarousel/assets/owl.carousel.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/OwlCarousel/assets/owl.theme.default.min.css?{{ time() }}" rel="stylesheet">
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/bootstrap/css/bootstrap.min.css?{{ time() }}" rel="stylesheet">
+		<link rel="stylesheet" href="{{asset('sourcefile_home')}}/vendor/star-rating/main.css?{{ time() }}">
 		<link rel="stylesheet" type="text/css" href="{{asset('sourcefile_home')}}/cursus/vendor/semantic/semantic.min.css?{{ time() }}">
 
 	</head>
@@ -115,7 +116,9 @@
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/semantic/semantic.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/custom1.js?{{ time() }}"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/night-mode.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="{{asset('sourcefile_home')}}/vendor/star-rating/jquery.star-rating-svg.js?{{time()}}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js?{{time()}}"></script>
     @include('student.jquery_url')
 
     @yield('page-js')

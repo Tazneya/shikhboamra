@@ -273,6 +273,9 @@
                                   </div>
                                </div>
                                <div class="col-lg-7">
+                                  <div class="mb-3">
+                                     <button class="btn btn-info" onclick="openReviewPopup()">Rate this course</button>
+                                  </div>
                                   <div class="review_right">
                                      <div class="review_right_heading">
                                         <h3>Reviews</h3>
@@ -383,6 +386,40 @@
 @endsection
 
 @section('page-js')
-
+<script>
+   const openReviewPopup = () => {
+      Swal.fire({
+         title: '<strong>Rate this course</strong>',
+         icon: 'info',
+         html:
+            `<form>
+               <div class="my-rating jq-stars mb-2"></div>
+               <div class="form-group">
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write feedback.."></textarea>
+               </div>
+            </form>
+               `,
+         showCloseButton: true,
+         focusConfirm: false,
+         confirmButtonText:
+            '<i class="fa fa-check" aria-hidden="true"></i> Submit!',
+         confirmButtonAriaLabel: 'Thumbs up, great!',
+         cancelButtonText:
+            '<i class="fa fa-times" aria-hidden="true"></i>',
+         cancelButtonAriaLabel: 'Thumbs down'
+      })
+      initializeRatingPlugin();
+   }
+   const initializeRatingPlugin = () => {
+      $(".my-rating").starRating({
+         totalStars: 5,
+         emptyColor: 'lightgray',
+         hoverColor: 'salmon',
+         activeColor: 'cornflowerblue',
+         strokeWidth: 0,
+         useGradient: false
+      });
+   }
+</script>
 
 @endsection
