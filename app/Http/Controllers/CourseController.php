@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\course;
+use App\Models\review;
+use App\Models\reviews;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 
@@ -83,7 +85,67 @@ class CourseController extends Controller
 
     }
 
+    public function apiCreateRating(Request $req)
+    {
+        $inputs = $req->all();
+        $review = review::where([
+            'st_id' => $inputs['st_id'],
+            'course_id' => $inputs['course_id']
+        ])->first();
+        if($review === null) {
+            $newReview = review::create([
+                'st_id' => $inputs['st_id'],
+                'course_id' => $inputs['course_id'],
+                'rating' => $inputs['rating'],
+                'review' => $inputs['review']
+            ]);
+            return response()->json($newReview, 201);
+        } else {
+            $review->rating = $inputs['rating'];
+            $review->review = $inputs['review'];
 
+            $review->update();
+            return response()->json($review, 201);
+        }
+    }
+    public function apiGetCourseRatings($course_id)
+    {
+        $reviews = review::where('course_id', $course_id)->get();
+        $totalReviews = count($reviews);
+        $reviewSummary = [
+            'average' => 0,
+            'star1' => 0,
+            'star2' => 0,
+            'star3' => 0,
+            'star4' => 0,
+            'star5' => 0
+        ];
+
+        foreach($reviews as $review) {
+            $reviewSummary['average'] = $review->rating;
+            $deNormalizedReview = floor($review->rating / 2);
+            if($deNormalizedReview === 1) {
+                $reviewSummary['star1']++;
+            } else if($deNormalizedReview === 2) {
+                $reviewSummary['star2']++;
+            } else if($deNormalizedReview === 3) {
+                $reviewSummary['star3']++;
+            } else if($deNormalizedReview === 4) {
+                $reviewSummary['star4']++;
+            } else if($deNormalizedReview === 5) {
+                $reviewSummary['star5']++;
+            }
+        }
+
+        $reviewSummary['average'] = (floor($reviewSummary['average'] / $totalReviews))/2;
+        $reviewSummary['star1'] = ($reviewSummary['star1'] / $totalReviews) * 100;
+        $reviewSummary['star2'] = ($reviewSummary['star2'] / $totalReviews) * 100;
+        $reviewSummary['star3'] = ($reviewSummary['star3'] / $totalReviews) * 100;
+        $reviewSummary['star4'] = ($reviewSummary['star4'] / $totalReviews) * 100;
+        $reviewSummary['star5'] = ($reviewSummary['star5'] / $totalReviews) * 100;
+
+        return response()->json($reviewSummary, 200);
+    }
 
 
 }

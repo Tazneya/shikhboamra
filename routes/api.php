@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseExamController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Http\Request;
@@ -21,3 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/student/exam_page/load_question/{exam_id}', [QuestionController::class, 'apiServeExamQuestion']);
 Route::post('/student/exam/submit', [CourseExamController::class, 'apiSubmitAnswers']);
+Route::post('/student/course/review/create', [CourseController::class, 'apiCreateRating']);
+Route::get('/student/course/rating_summary/{course_id}', [CourseController::class, 'apiGetCourseRatings']);

@@ -109,6 +109,7 @@
 
 </div>
 
+	<script src="{{ asset('/') }}/routes.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/vertical-responsive-menu.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/jquery-3.3.1.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -192,7 +192,7 @@
                                <div class="col-lg-5">
                                   <div class="reviews_left">
                                      <h3>Student Feedback</h3>
-                                     <div class="total_rating">
+                                     {{-- <div class="total_rating">
                                         <div class="_rate001">4.6</div>
                                         <div class="rating-box">
                                            <span class="rating-star full-star"></span>
@@ -200,9 +200,11 @@
                                            <span class="rating-star full-star"></span>
                                            <span class="rating-star full-star"></span>
                                            <span class="rating-star half-star"></span>
+                                           <div class="my-rating-7"></div>
                                         </div>
                                         <div class="_rate002">Course Rating</div>
-                                     </div>
+                                     </div> --}}
+                                     <div class="averageRating"></div>
                                      <div class="_rate003">
                                         <div class="_rate004">
                                            <div class="progress progress1">
@@ -387,6 +389,16 @@
 
 @section('page-js')
 <script>
+   let currentReviewText = '';
+   let currentCourseRating = 0;
+   
+   const setAverageRating = (rating) => {
+      $(".averageRating").starRating({
+         starSize: 25,
+         initialRating: rating,
+         readOnly: true
+      });
+   } 
    const openReviewPopup = () => {
       Swal.fire({
          title: '<strong>Rate this course</strong>',
@@ -395,7 +407,7 @@
             `<form>
                <div class="my-rating jq-stars mb-2"></div>
                <div class="form-group">
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write feedback.."></textarea>
+                  <textarea class="form-control" id="courseReviewText" onchange="getReviewText(this)" rows="3" placeholder="Write feedback.."></textarea>
                </div>
             </form>
                `,
@@ -407,6 +419,12 @@
          cancelButtonText:
             '<i class="fa fa-times" aria-hidden="true"></i>',
          cancelButtonAriaLabel: 'Thumbs down'
+      }).then(result => {
+         if (result.isConfirmed) {
+            postCourseRating();
+         } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+         }
       })
       initializeRatingPlugin();
    }
@@ -417,9 +435,34 @@
          hoverColor: 'salmon',
          activeColor: 'cornflowerblue',
          strokeWidth: 0,
-         useGradient: false
+         useGradient: false,
+         callback: (currentRating, $el) => setCourseRating(currentRating, $el)
       });
    }
+   const getReviewText = (e) => {
+      currentReviewText = e.value;
+   }
+   const setCourseRating = (currentRating, $el) => {
+      currentCourseRating = currentRating * 2;
+   }
+   const postCourseRating = () => {
+      let courseReview = {
+         st_id: {{ session('user')->id }},
+         course_id: {{ $course_details->id }},
+         rating: currentCourseRating,
+         review: currentReviewText
+      }
+      console.log(courseReview)
+      post(routes.createCourseReview, courseReview).then(response => console.log(response))
+   }
+   const intializeRatingSummary = () =>  {
+      get(routes.getRatingSummary({{ $course_details->id }})).then(response => {
+          setAverageRating(response.average)
+      })
+      
+      
+   }
+   intializeRatingSummary()
 </script>
 
 @endsection
