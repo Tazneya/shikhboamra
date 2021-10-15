@@ -50,9 +50,9 @@
                     </form>
                 </div>
             @endif
-            
+
         @endforeach
-{{--         
+{{--
         <div class="question container">
             <h4>1. Which items help you create a 100% complete profile? (Please check all that apply.)</h4>
             <form action="" class="answer_section">
