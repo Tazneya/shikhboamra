@@ -66,18 +66,16 @@ Route::group(['prefix' => 'teacher'], function()
 
 Route::group(['prefix' => 'student'], function()
 {
-
-            Route::get('/','StudentHomeController@index');
-            Route::get('course_details/{id}','StudentCourseController@show_course_details');
-            Route::get('course_details_enrolled/{id}','StudentCourseController@show_course_details_enrolled');
-            Route::post('course_enroll','StudentCourseController@course_enroll')->name('course_enroll');
-            Route::post('filter_course','StudentHomeController@filter_course')->name('filter_course');
-            Route::get('my_courses','StudentHomeController@my_course');
-            Route::get('course_details_enrolled/video/{id}','VideoController@show_video_preview');
-
-
-
-
+    Route::get('/','StudentHomeController@index');
+    Route::get('course_details/{id}','StudentCourseController@show_course_details')->name('show_course_details');
+    Route::get('course_details_enrolled/{id}','StudentCourseController@show_course_details_enrolled');
+    Route::post('course_enroll','StudentCourseController@course_enroll')->name('course_enroll');
+    Route::post('filter_course','StudentHomeController@filter_course')->name('filter_course');
+    Route::get('my_courses','StudentHomeController@my_course');
+    Route::get('course_details_enrolled/video/{id}','VideoController@show_video_preview');
+    Route::get('exam_confirmation/{exam_id}', 'StudentCourseController@exam_confirmation')->name('exam_confirmation_page');
+    Route::get('exam_page/{exam_id}', 'StudentCourseController@exam_page')->name('exam_page');
+    Route::get('exam_result/{exam_id}', 'StudentCourseController@exam_result')->name('exam_result');
 });
 
 

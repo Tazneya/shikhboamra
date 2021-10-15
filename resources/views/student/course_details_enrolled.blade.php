@@ -1,7 +1,6 @@
 @extends('layout.student_main')
 
 @section('content')
-
     <div class="_215b01">
        <div class="container-fluid">
           <div class="row">
@@ -63,6 +62,9 @@
                       <div class="nav nav-tabs tab_crse justify-content-center" id="nav-tab" role="tablist">
                          <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-selected="true">About</a>
                          <a class="nav-item nav-link" id="nav-courses-tab" data-toggle="tab" href="#nav-courses" role="tab" aria-selected="false">Courses Content</a>
+                         @if (count($course_exams) > 0)                             
+                           <a class="nav-item nav-link" id="nav-exam-tab" data-toggle="tab" href="#nav-exam" role="tab" aria-selected="false">Exams</a>
+                         @endif
                          <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="false">Reviews</a>
                       </div>
                    </nav>
@@ -140,13 +142,57 @@
 
                          </div>
                       </div>
+                      <div class="tab-pane fade" id="nav-exam" role="tabpanel">
+                        <div class="_htg451">
+
+                           <div class="_htg452 mt-35">
+                              <table class="table ucp-table" id="content-table">
+                                 <thead class="thead-s">
+                                    <tr>
+                                       <th class="text-center" scope="col">SERIAL NO</th>
+                                       <th scope="col">EXAM TITLE</th>
+                                       <th class="text-center" scope="col">DURATION</th>         
+                                       <th class="text-center" scope="col">TOTAL MARKS</th>
+                                       <th class="text-center" scope="col">ACTION</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    @foreach ($course_exams as $index=>$course_exam)
+                                       <tr>
+                                          <td class="text-center">{{ $index+1 }}</td>
+                                          <td class="cell-ta">{{ $course_exam->exam_name }}</td>
+                                          <td class="text-center">{{ $course_exam->durationString }}</td>
+                                          <td class="text-center">{{ $course_exam->total_marks }}</td>
+                                          @if (!$course_exam->isTaken)
+                                             <td class="text-center">
+                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Take Exam</a>         
+                                             </td>                                              
+                                          @else
+                                             <td class="text-center">
+                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Try Again</a>
+                                                <a href="{{ route('exam_result', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >View Result</a>        
+                                             </td> 
+                                          @endif
+                                       </tr>
+                                    @endforeach
+         
+         
+         
+         
+                                 </tbody>
+                              </table>
+                           </div>
+
+
+                        </div>
+                     </div>
                       <div class="tab-pane fade" id="nav-reviews" role="tabpanel">
                          <div class="student_reviews">
                             <div class="row">
                                <div class="col-lg-5">
                                   <div class="reviews_left">
                                      <h3>Student Feedback</h3>
-                                     <div class="total_rating">
+                                     {{-- <div class="total_rating">
                                         <div class="_rate001">4.6</div>
                                         <div class="rating-box">
                                            <span class="rating-star full-star"></span>
@@ -154,79 +200,54 @@
                                            <span class="rating-star full-star"></span>
                                            <span class="rating-star full-star"></span>
                                            <span class="rating-star half-star"></span>
+                                           <div class="my-rating-7"></div>
                                         </div>
                                         <div class="_rate002">Course Rating</div>
-                                     </div>
+                                     </div> --}}
+                                     <div class="averageRating"></div>
                                      <div class="_rate003">
                                         <div class="_rate004">
                                            <div class="progress progress1">
                                               <div class="progress-bar w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                           </div>
-                                           <div class="_rate002">70%</div>
+                                           <div class="starRating5"></div>
+                                           <div class="_rate002" id="starPercentage5">70%</div>
                                         </div>
                                         <div class="_rate004">
                                            <div class="progress progress1">
                                               <div class="progress-bar w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">40%</div>
+                                           <div class="starRating4"></div>
+                                           <div class="_rate002" id="starPercentage4">40%</div>
                                         </div>
                                         <div class="_rate004">
                                            <div class="progress progress1">
                                               <div class="progress-bar w-5" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">5%</div>
+                                           <div class="starRating3"></div>
+                                           <div class="_rate002" id="starPercentage3">5%</div>
                                         </div>
                                         <div class="_rate004">
                                            <div class="progress progress1">
                                               <div class="progress-bar w-2" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">1%</div>
+                                           <div class="starRating2"></div>
+                                           <div class="_rate002" id="starPercentage2">1%</div>
                                         </div>
                                         <div class="_rate004">
                                            <div class="progress progress1">
                                               <div class="progress-bar w-1" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">1%</div>
+                                           <div class="starRating1"></div>
+                                           <div class="_rate002" id="starPercentage1">1%</div>
                                         </div>
                                      </div>
                                   </div>
                                </div>
                                <div class="col-lg-7">
+                                  <div class="mb-3">
+                                     <button class="btn btn-info" onclick="openReviewPopup()">Rate this course</button>
+                                  </div>
                                   <div class="review_right">
                                      <div class="review_right_heading">
                                         <h3>Reviews</h3>
@@ -337,6 +358,102 @@
 @endsection
 
 @section('page-js')
+<script>
+   let currentReviewText = '';
+   let currentCourseRating = 0;
+   
+   // Initialize 5 seperate star ratings
+   var all_ratings = document.querySelectorAll(".starRating");
+   
+   for(let i = 5; i >= 1; i--) {
+      $(`.starRating${i}`).starRating({
+         starSize: 25,
+         initialRating: i,
+         readOnly: true
+      });
+   }
 
+
+   const setAverageRating = (rating) => {
+      $(".averageRating").starRating({
+         starSize: 25,
+         initialRating: rating,
+         readOnly: true
+      });
+   } 
+   const openReviewPopup = () => {
+      Swal.fire({
+         title: '<strong>Rate this course</strong>',
+         icon: 'info',
+         html:
+            `<form>
+               <div class="my-rating jq-stars mb-2"></div>
+               <div class="form-group">
+                  <textarea class="form-control" id="courseReviewText" onchange="getReviewText(this)" rows="3" placeholder="Write feedback.."></textarea>
+               </div>
+            </form>
+               `,
+         showCloseButton: true,
+         focusConfirm: false,
+         confirmButtonText:
+            '<i class="fa fa-check" aria-hidden="true"></i> Submit!',
+         confirmButtonAriaLabel: 'Thumbs up, great!',
+         cancelButtonText:
+            '<i class="fa fa-times" aria-hidden="true"></i>',
+         cancelButtonAriaLabel: 'Thumbs down'
+      }).then(result => {
+         if (result.isConfirmed) {
+            postCourseRating();
+         } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+         }
+      })
+      initializeRatingPlugin();
+   }
+   const initializeRatingPlugin = () => {
+      $(".my-rating").starRating({
+         totalStars: 5,
+         emptyColor: 'lightgray',
+         hoverColor: 'salmon',
+         activeColor: 'cornflowerblue',
+         strokeWidth: 0,
+         useGradient: false,
+         callback: (currentRating, $el) => setCourseRating(currentRating, $el)
+      });
+   }
+   const getReviewText = (e) => {
+      currentReviewText = e.value;
+   }
+   const setCourseRating = (currentRating, $el) => {
+      currentCourseRating = currentRating * 2;
+   }
+   const postCourseRating = () => {
+      let courseReview = {
+         st_id: {{ session('user')->id }},
+         course_id: {{ $course_details->id }},
+         rating: currentCourseRating,
+         review: currentReviewText
+      }
+      console.log(courseReview)
+      post(routes.createCourseReview, courseReview).then(response => console.log(response))
+   }
+   const intializeRatingSummary = () =>  {
+      get(routes.getRatingSummary({{ $course_details->id }})).then(response => {
+          setAverageRating(response.average)
+         //  console.log(response)
+         //  for(let i = 1; i <= 5; i++) {
+         //     document.querySelector(`starPercentage${i}`).innerHTML = response.star2;
+         //  }
+      })    
+      
+   }
+   const initializeReviews = () => {
+      get(routes.getReviews({{ $course_details->id }})).then(response => {
+          console.log(response)
+      }) 
+   }
+   intializeRatingSummary()
+   initializeReviews()
+</script>
 
 @endsection
