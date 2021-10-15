@@ -210,66 +210,36 @@
                                            <div class="progress progress1">
                                               <div class="progress-bar w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                           </div>
-                                           <div class="_rate002">70%</div>
+                                           <div class="starRating5"></div>
+                                           <div class="_rate002" id="starPercentage5">70%</div>
                                         </div>
                                         <div class="_rate004">
                                            <div class="progress progress1">
                                               <div class="progress-bar w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">40%</div>
+                                           <div class="starRating4"></div>
+                                           <div class="_rate002" id="starPercentage4">40%</div>
                                         </div>
                                         <div class="_rate004">
                                            <div class="progress progress1">
                                               <div class="progress-bar w-5" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">5%</div>
+                                           <div class="starRating3"></div>
+                                           <div class="_rate002" id="starPercentage3">5%</div>
                                         </div>
                                         <div class="_rate004">
                                            <div class="progress progress1">
                                               <div class="progress-bar w-2" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">1%</div>
+                                           <div class="starRating2"></div>
+                                           <div class="_rate002" id="starPercentage2">1%</div>
                                         </div>
                                         <div class="_rate004">
                                            <div class="progress progress1">
                                               <div class="progress-bar w-1" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                            </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">1%</div>
+                                           <div class="starRating1"></div>
+                                           <div class="_rate002" id="starPercentage1">1%</div>
                                         </div>
                                      </div>
                                   </div>
@@ -392,6 +362,18 @@
    let currentReviewText = '';
    let currentCourseRating = 0;
    
+   // Initialize 5 seperate star ratings
+   var all_ratings = document.querySelectorAll(".starRating");
+   
+   for(let i = 5; i >= 1; i--) {
+      $(`.starRating${i}`).starRating({
+         starSize: 25,
+         initialRating: i,
+         readOnly: true
+      });
+   }
+
+
    const setAverageRating = (rating) => {
       $(".averageRating").starRating({
          starSize: 25,
@@ -458,11 +440,20 @@
    const intializeRatingSummary = () =>  {
       get(routes.getRatingSummary({{ $course_details->id }})).then(response => {
           setAverageRating(response.average)
-      })
-      
+         //  console.log(response)
+         //  for(let i = 1; i <= 5; i++) {
+         //     document.querySelector(`starPercentage${i}`).innerHTML = response.star2;
+         //  }
+      })    
       
    }
+   const initializeReviews = () => {
+      get(routes.getReviews({{ $course_details->id }})).then(response => {
+          console.log(response)
+      }) 
+   }
    intializeRatingSummary()
+   initializeReviews()
 </script>
 
 @endsection

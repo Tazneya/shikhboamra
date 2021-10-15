@@ -24,3 +24,4 @@ Route::get('/student/exam_page/load_question/{exam_id}', [QuestionController::cl
 Route::post('/student/exam/submit', [CourseExamController::class, 'apiSubmitAnswers']);
 Route::post('/student/course/review/create', [CourseController::class, 'apiCreateRating']);
 Route::get('/student/course/rating_summary/{course_id}', [CourseController::class, 'apiGetCourseRatings']);
+Route::get('/student/course/reviews/get/{course_id}', [CourseController::class, 'apiGetReviews']);
