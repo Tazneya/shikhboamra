@@ -101,9 +101,9 @@
             if(current_page !== total) {
                 current_page += 1;
                 serveQuestion();
-                clearSelection();
-                clearTimer();
-                initializeTimer();
+                // clearSelection();
+                // clearTimer();
+                // initializeTimer();
             } else {
                 submitAnswer(response_record)
             }
@@ -124,7 +124,8 @@
         }
         function initializeTimer() {
             interval = startTimer(question_timer, timer_display, function() {
-                serveNextQuestion()
+                // serveNextQuestion()
+                submitAnswer(response_record)
             });
         }
         serveQuestion();  
