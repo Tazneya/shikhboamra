@@ -1,6 +1,7 @@
 @extends('layout.e_exam_template')
 @section('content')
 {{-- <?php dd(session('user')) ?> --}}
+{{-- <?php dd($question_ids) ?> --}}
     <div class="container">
         <div class="row">
             <div class="col">
@@ -42,23 +43,33 @@
 @section('page_js')
     <script>
 
-        const question_timer = 1000;
+        const question_timer = {{ $exam->duration }};
         var timer_display = document.querySelector('#timer');
 
         let current_page = 1;
         let interval = null;
         let total = 0;
         let exam_id = {{ $exam_id }};
+        let questions_ids = {{ $question_ids }};
+        console.log(questions_ids)
         let current_question_id = 0;
         let response_record = {
             user_id: {{ session('user')->id }},
             exam_id: {{ $exam_id }},
-            answers: []
+            // answer: []
+            answers: questions_ids.map(id => {
+                return {
+                    question_id: id,
+                    response: 0
+                }
+            })
         };
+        
         async function serveQuestion() {
             get(routes.serveExamQuestion(exam_id, current_page)).then(response => {
                 current_page = response.current_page
                 total = response.total
+                
                 console.log(response);
                 current_question_id = response.data[0].id;
                 document.getElementById("question").innerHTML = response.data[0].question;
@@ -94,14 +105,17 @@
         }
         function serveNextQuestion()
         {
-            response_record.answers.push({
-                question_id: current_question_id,
-                response: getAnswer()
+            response_record.answers = response_record.answers.map(answer => {
+                if(current_question_id === answer.question_id) {
+                    return { ...answer, response: getAnswer() }
+                }
+                return { ...answer }
             })
+
             if(current_page !== total) {
                 current_page += 1;
                 serveQuestion();
-                // clearSelection();
+                clearSelection();
                 // clearTimer();
                 // initializeTimer();
             } else {
@@ -133,6 +147,18 @@
             var fiveMinutes = 5;
             initializeTimer();
         };
-
+        window.onbeforeunload = function() {
+            
+            localStorage.setItem('response_record', JSON.stringify(response_record))
+            return "Are you sure you want to leave this page?";
+        }
+        function detectReload()
+        {            
+            if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+                answers = JSON.parse(localStorage.getItem('response_record'))
+                submitAnswer(answers)
+            } 
+        }
+        detectReload()
     </script>
 @endsection

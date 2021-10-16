@@ -35,16 +35,16 @@
                 <div class="question container">
                     <h4>{{ $answer->question->question }}</h4>
                     <form action="" class="answer_section">
-                        <div class="radio_input_group {{ $answer->response === 1 ? 'wrong_answer' : ''}}">
+                        <div class="radio_input_group {{ $answer->response === 1 ? 'wrong_answer' : ''}} {{ $answer->correct_answer === 1 ? 'correct_answer' : ''}}">
                             <input type="radio" name="question2" {{ $answer->response === 1 ? 'checked' : ''}} /> <span>{{ $answer->question->option1 }}</span><br />
                         </div>
-                        <div class="radio_input_group {{ $answer->response === 2 ? 'wrong_answer' : ''}}">
+                        <div class="radio_input_group {{ $answer->response === 2 ? 'wrong_answer' : ''}} {{ $answer->correct_answer === 2 ? 'correct_answer' : ''}}">
                             <input type="radio" name="question2" {{ $answer->response === 2 ? 'checked' : ''}} /> <span>{{ $answer->question->option2 }}</span><br />
                         </div>
-                        <div class="radio_input_group {{ $answer->response === 3 ? 'wrong_answer' : ''}}">
+                        <div class="radio_input_group {{ $answer->response === 3 ? 'wrong_answer' : ''}} {{ $answer->correct_answer === 3 ? 'correct_answer' : ''}}">
                             <input type="radio" name="question2" {{ $answer->response === 3 ? 'checked' : ''}} /> <span>{{ $answer->question->option3 }}</span><br />
                         </div>
-                        <div class="radio_input_group {{ $answer->response === 4 ? 'wrong_answer' : ''}}">
+                        <div class="radio_input_group {{ $answer->response === 4 ? 'wrong_answer' : ''}} {{ $answer->correct_answer === 4 ? 'correct_answer' : ''}}">
                             <input type="radio" name="question2" {{ $answer->response === 4 ? 'checked' : ''}} /> <span>{{ $answer->question->option4 }}</span><br />
                         </div>
                     </form>
@@ -107,4 +107,11 @@
     </div>
     <a href="{{ route('show_course_details', ['id' => session('recent_course_id') ]) }}" class="btn btn-primary float-right mt-3 mb-3">Go to Exam Page</a>
 </div>
+@endsection
+@section('page_js')
+<script type = "text/javascript" >  
+    function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };  
+</script> 
 @endsection

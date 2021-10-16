@@ -7,7 +7,7 @@
             <p>{{ $exam->exam_name}} </p>
             <p><b>Total:</b> {{ $exam->total_marks }}</p>
             <p><b>Time:</b> {{ $exam->durationString }}</p>
-                <a href="{{ route('exam_page', ['exam_id' => $exam->id ]) }}" class="btn btn-primary">Start Exam</a>
+                <a href="{{ route('exam_page', ['exam_id' => $exam->id ]) }}" class="btn btn-primary" target="_blank">Start Exam</a>
             </div>
         </div>
     </div>

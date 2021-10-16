@@ -147,7 +147,7 @@ class CourseController extends Controller
         return response()->json($reviewSummary, 200);
     }
     public function apiGetReviews($course_id) {
-        $reviews = review::where('course_id', $course_id)->with('user')->paginate(5);
+        $reviews = review::where('course_id', $course_id)->with('user')->get();
         return response()->json($reviews, 200);
     }
 

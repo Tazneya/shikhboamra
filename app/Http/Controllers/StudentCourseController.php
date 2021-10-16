@@ -43,7 +43,13 @@ class StudentCourseController extends Controller
     }
     public function exam_page($exam_id)
     {
-        return view('student.exam_page', ['exam_id' => $exam_id]);
+        $exam = course_exam::find($exam_id);
+        $question_ids = json_encode(question::where('exam_id', $exam_id)->pluck('id')->toArray());
+        return view('student.exam_page', [
+            'exam_id' => $exam_id,
+            'exam' => $exam,
+            'question_ids' => $question_ids
+        ]);
     }
     public function exam_page_old($exam_id)
     {
@@ -88,6 +94,7 @@ class StudentCourseController extends Controller
             if($answer->correct) {
                 $correct_answer_count++;
             }
+            $answer->correct_answer = question::find($answer->question_id)->correct_ans;
             $answer->question = question::find($answer->question_id);
         }
         $st_exam = st_exam::where([

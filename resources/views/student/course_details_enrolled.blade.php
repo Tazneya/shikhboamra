@@ -255,7 +255,7 @@
                                      </div>
                                   </div>
                                   <div class="review_all120">
-                                     <div class="review_item">
+                                     {{-- <div class="review_item">
                                         <div class="review_usr_dt">
                                            <img src="images/left-imgs/img-1.jpg" alt="">
                                            <div class="rv1458">
@@ -272,7 +272,7 @@
                                         </div>
                                         <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
 
-                                     </div>
+                                     </div> --}}
 
 
 
@@ -448,8 +448,31 @@
       
    }
    const initializeReviews = () => {
+
+      let output = ((id, mobile_number, text) => `<div class="review_item">
+                        <div class="review_usr_dt">
+                           <div class="rv1458">
+                              <h4 class="tutor_name1">${mobile_number}</h4>
+                           </div>
+                        </div>
+                        <div class="rating-box mt-20">
+                           <div class="rating-${id}"></div>
+                        </div>
+                        <p class="rvds10">${text}</p>
+
+                     </div>`)
+
       get(routes.getReviews({{ $course_details->id }})).then(response => {
-          console.log(response)
+          response.forEach(review => {
+             console.log(review)
+             document.querySelector(".review_all120").innerHTML = output(review.id, review.user.mobile_number, review.review);
+             $(`.rating-${review.id}`).starRating({
+               starSize: 25,
+               initialRating: review.rating/2,
+               readOnly: true
+            });
+          })
+          
       }) 
    }
    intializeRatingSummary()

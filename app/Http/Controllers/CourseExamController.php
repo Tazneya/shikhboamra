@@ -45,7 +45,11 @@ class CourseExamController extends Controller
         $total_correct_answers = 0;
         foreach($inputs['answers'] as $answer) {
             $question = question::find($answer['question_id']);
-            $correct = $question->correct_ans === $answer['response'] ? 1 : 0;
+            if($answer['response'] !== null) {
+                $correct = $question->correct_ans === $answer['response'] ? 1 : 0;
+            } else {
+                $correct = 0;
+            }
             $total_correct_answers = $correct === 1 ? $total_correct_answers + 1 : $total_correct_answers;
             CourseExamController::deleteIfAnswerExists($inputs['exam_id'], $answer['question_id'], $inputs['user_id']);
             st_answer::create([
