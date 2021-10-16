@@ -14,16 +14,16 @@
                     <h2 id="question">Question</h2>
                     <form action="" class="answer_section">
                         <div class="radio_input_group">
-                            <input type="radio" value=1 name="question2" id="option1" /> <span>Option 1</span><br />
+                            <input type="radio" value=1 name="question2"  /> <span id="option1" >Option 1</span><br />
                         </div>
                         <div class="radio_input_group">
-                            <input type="radio" value=2 name="question2" id="option2" /> <span>Option 2</span><br />
+                            <input type="radio" value=2 name="question2"/> <span id="option2">Option 2</span><br />
                         </div>
                         <div class="radio_input_group">
-                            <input type="radio" value=3 name="question2" id="option3" /> <span>Option 3</span><br />
+                            <input type="radio" value=3 name="question2" /> <span id="option3">Option 3</span><br />
                         </div>
                         <div class="radio_input_group">
-                            <input type="radio" value=4 name="question2" id="option4" /> <span>Option 4</span><br />
+                            <input type="radio" value=4 name="question2"/> <span id="option4">Option 4</span><br />
                         </div>
                     </form>
                 </div>
@@ -31,8 +31,8 @@
             <div class="col-md-6 col-12 align-right">
                 <p><i class="bi bi-stopwatch"></i> <b id="timer">--:--</b></p>
                 <img src="{{ asset('sourcefile_exam') }}/img/question_side_image.jpg" class="question_side_image" width="550px" alt="">
-                <div class="action_buttons">                    
-                    <a href="#" class="btn btn-primary" onclick="serveNextQuestion()" id="action_button">Next</a>                   
+                <div class="action_buttons">
+                    <a href="#" class="btn btn-primary" onclick="serveNextQuestion()" id="action_button">Next</a>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
 @section('page_js')
     <script>
 
-        const question_timer = 20;
+        const question_timer = 1000;
         var timer_display = document.querySelector('#timer');
 
         let current_page = 1;
@@ -56,10 +56,10 @@
             answers: []
         };
         async function serveQuestion() {
-            get(routes.serveExamQuestion(exam_id, current_page)).then(response => { 
+            get(routes.serveExamQuestion(exam_id, current_page)).then(response => {
                 current_page = response.current_page
                 total = response.total
-
+                console.log(response);
                 current_question_id = response.data[0].id;
                 document.getElementById("question").innerHTML = response.data[0].question;
                 document.getElementById("option1").innerHTML = response.data[0].option1;
@@ -75,7 +75,7 @@
                     action_button.innerHTML = 'Submit'
                 }
             });
-            
+
         }
         function submitAnswer(data)
         {
@@ -107,18 +107,18 @@
             } else {
                 submitAnswer(response_record)
             }
-        }  
+        }
         function getAnswer()
         {
             let answer = 0
             document.querySelectorAll('.answer_section input[type="radio"]').forEach(elem => {
-                if(elem.checked) {                                
+                if(elem.checked) {
                     answer = elem.value;
                     return false;
                 }
             })
             return parseInt(answer);
-        } 
+        }
         function clearTimer() {
             clearInterval(interval)
         }
@@ -128,11 +128,11 @@
                 submitAnswer(response_record)
             });
         }
-        serveQuestion();  
+        serveQuestion();
         window.onload = function () {
-            var fiveMinutes = 5;            
+            var fiveMinutes = 5;
             initializeTimer();
         };
-        
+
     </script>
 @endsection
