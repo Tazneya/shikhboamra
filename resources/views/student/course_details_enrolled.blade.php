@@ -562,14 +562,14 @@
             user_id: {{ session('user')->id }},
             course_id: {{ $course_details->id }}
          }
-         post(routes.createForumQuestion, postData).then(response => console.log(response))
+         post(routes.createForumQuestion, postData).then(response => reloadForum())
       } else {
          let postData = {
             reply: question,
             user_id: {{ session('user')->id }},
             question_id: currentlyReplyingTo
          }
-         post(routes.createQuestionReply, postData).then(response => console.log(response))
+         post(routes.createQuestionReply, postData).then(response => reloadForum())
       }
       
    }
@@ -599,6 +599,7 @@
          `
       }
       let questions = await get(routes.getQuestions({{ $course_details->id }}))
+      document.getElementById("forum-questions").innerHTML = ""
       questions.forEach(item => {
          document.getElementById("forum-questions").innerHTML += output(item.id, item.user.mobile_number, item.text)
       })
@@ -639,6 +640,19 @@
          document.getElementById("replyingTo").innerHTML = ``
          currentlyReplyingTo = 0
       } 
+   }
+   const reloadForum = async () => {
+      document.getElementById("forumQuestion").value = ""
+      document.getElementById("forum-questions").innerHTML = `
+         <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+         </div>
+      `
+      await renderQuestions()
+      if(currentlyReplyingTo !== 0) {
+         await renderReply(currentlyReplyingTo)
+         removeReplyMention()
+      }
    }
    intializeRatingSummary()
    initializeReviews()
