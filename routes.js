@@ -5,7 +5,11 @@ const routes = {
     submitAnswer: `${baseUrl}/api/student/exam/submit`,
     createCourseReview: `${baseUrl}/api/student/course/review/create`,
     getRatingSummary: (course_id => `${baseUrl}/api/student/course/rating_summary/${course_id}`),
-    getReviews: (course_id => `${baseUrl}/api/student/course/reviews/get/${course_id}`)
+    getReviews: (course_id => `${baseUrl}/api/student/course/reviews/get/${course_id}`),
+    getQuestions: (course_id => `${baseUrl}/api/forum/questions/${course_id}`),
+    getQuestionReplies: (question_id => `${baseUrl}/api/forum/questions/replies/${question_id}`),
+    createForumQuestion: `${baseUrl}/api/forum/questions/create`,
+    createQuestionReply: `${baseUrl}/api/forum/questions/reply/create`
 }
 
 const get = async (url) => {   

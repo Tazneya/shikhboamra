@@ -1,5 +1,16 @@
 @extends('layout.student_main')
-
+@section('page_css')
+    <link rel="stylesheet" href="{{ asset('/sourcefile_home').'/vendor/nested-comment-template/style.css' }}">
+    <style>
+       .comment_mention {
+          font-weight: bold;
+          color: #3b4c8f;
+          background-color: #7289da;
+          padding: 5px;
+          border-radius: 2px;
+       }
+    </style>
+@endsection
 @section('content')
     <div class="_215b01">
        <div class="container-fluid">
@@ -18,7 +29,6 @@
                                </div>
                             </a>
                          </div>
-
                       </div>
                       <div class="col-xl-8 col-lg-7 col-md-6">
                          <div class="_215b03">
@@ -66,6 +76,7 @@
                            <a class="nav-item nav-link" id="nav-exam-tab" data-toggle="tab" href="#nav-exam" role="tab" aria-selected="false">Exams</a>
                          @endif
                          <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="false">Reviews</a>
+                         <a class="nav-item nav-link" id="nav-forum-tab" data-toggle="tab" href="#nav-forum" role="tab" aria-selected="false">Forum</a>
                       </div>
                    </nav>
                 </div>
@@ -281,6 +292,70 @@
                             </div>
                          </div>
                       </div>
+                      <div class="tab-pane fade" id="nav-forum" role="tabpanel">
+                        <div class="container mb-5 mt-5">
+                           <div class="mb-3">
+                              <form action="" onsubmit="postForumQuestion(event)">
+                                 <div class="form-group">
+                                    <label for="exampleFormControlTextarea1"><b>Ask your question</b></label><span id="replyingTo"></span>
+                                    <textarea class="form-control mb-2" id="forumQuestion" rows="3"></textarea>
+                                    <button type="submit" class="btn btn-primary">Post</button>
+                                  </div>                                  
+                              </form>
+                           </div>
+                           <div class="card">
+                               <div class="row">
+                                   <div class="col-md-12">
+                                       <h3 class="text-center mb-5"> Questions </h3>
+                                       <div id="forum-questions">
+                                          {{-- <div class="row mb-3">
+                                              <div class="col-md-12">
+                                                  <div class="media"> <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="https://i.imgur.com/4FyNX7i.png" />
+                                                      <div class="media-body">
+                                                          <div class="row">
+                                                              <div class="col-8 d-flex">
+                                                                  <h5>Maria Smantha</h5> <span>- 2 hours ago</span>
+                                                              </div>
+                                                              <div class="col-4">
+                                                                  <div class="pull-right reply"> <a href="#"><span><i class="fa fa-reply"></i> reply</span></a> </div>
+                                                              </div>
+                                                          </div> It is a long established fact that a reader will be distracted by the readable content of a page. 
+                                                          <br />
+                                                          <br />
+                                                          <a href="#">Load Replies</a>
+                                                          <div class="replies">
+                                                            <div class="media mt-3"> <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="https://i.imgur.com/4FyNX7i.png" /></a>
+                                                               <div class="media-body">
+                                                                   <div class="row">
+                                                                       <div class="col-12 d-flex">
+                                                                           <h5>Simona Disa</h5> <span>- 3 hours ago</span>
+                                                                       </div>
+                                                                   </div> letters, as opposed to using 'Content here, content here', making it look like readable English.
+                                                               </div>
+                                                           </div>
+                                                           <div class="media mt-3"> <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="https://i.imgur.com/4FyNX7i.png" /></a>
+                                                               <div class="media-body">
+                                                                   <div class="row">
+                                                                       <div class="col-12 d-flex">
+                                                                           <h5>John Smith</h5> <span>- 4 hours ago</span>
+                                                                       </div>
+                                                                   </div> the majority have suffered alteration in some form, by injected humour, or randomised words.
+                                                               </div>
+                                                           </div>
+                                                          </div>
+                                                          
+                                                      </div>
+                                                  </div>
+                                                  
+                                              </div>
+                                          </div> --}}
+                                       </div>
+                                       
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                      </div>
                    </div>
                 </div>
              </div>
@@ -361,6 +436,7 @@
 <script>
    let currentReviewText = '';
    let currentCourseRating = 0;
+   let currentlyReplyingTo = 0;
    
    // Initialize 5 seperate star ratings
    var all_ratings = document.querySelectorAll(".starRating");
@@ -465,7 +541,7 @@
       get(routes.getReviews({{ $course_details->id }})).then(response => {
           response.forEach(review => {
              console.log(review)
-             document.querySelector(".review_all120").innerHTML = output(review.id, review.user.mobile_number, review.review);
+             document.querySelector(".review_all120").innerHTML += output(review.id, review.user.mobile_number, review.review);
              $(`.rating-${review.id}`).starRating({
                starSize: 25,
                initialRating: review.rating/2,
@@ -475,8 +551,98 @@
           
       }) 
    }
+
+   const postForumQuestion = (event) => {
+      event.preventDefault()
+      let question = document.getElementById("forumQuestion").value
+      console.log('Posting to', currentlyReplyingTo)
+      if(currentlyReplyingTo === 0) {
+         let postData = {
+            question: question,
+            user_id: {{ session('user')->id }},
+            course_id: {{ $course_details->id }}
+         }
+         post(routes.createForumQuestion, postData).then(response => console.log(response))
+      } else {
+         let postData = {
+            reply: question,
+            user_id: {{ session('user')->id }},
+            question_id: currentlyReplyingTo
+         }
+         post(routes.createQuestionReply, postData).then(response => console.log(response))
+      }
+      
+   }
+   const renderQuestions = async () => {
+      const output = (id, username, question) => {
+         return `
+            <div class="row mb-3">
+               <div class="col-md-12">
+                  <div class="media">
+                     <div class="media-body">
+                           <div class="row">
+                              <div class="col-8 d-flex">
+                                 <h5>${username}</h5>
+                              </div>
+                              <div class="col-4">
+                                 <div class="pull-right reply"> <button class="btn btn-primary btn-sm" onclick="addReplyMention(${id}, '${username}')"><span><i class="fa fa-reply"></i> reply</span></button> </div>
+                              </div>
+                           </div> ${question}
+                           <br />
+                           <br />
+                           <div id="${id}_load_reply_button"><button class="btn btn-secondary btn-sm" onclick="renderReply(${id})">Load Replies</button></div>
+                           <div class="replies" id="${id}_reply"></div>                           
+                     </div>
+                  </div>                  
+               </div>
+            </div>
+         `
+      }
+      let questions = await get(routes.getQuestions({{ $course_details->id }}))
+      questions.forEach(item => {
+         document.getElementById("forum-questions").innerHTML += output(item.id, item.user.mobile_number, item.text)
+      })
+      console.log(questions)
+   }
+   const renderReply = async (id) => {
+      output = (username, text) => {
+         return `
+            <div class="media mt-3"> <a class="pr-3" href="#"></a>
+               <div class="media-body">
+                     <div class="row">
+                        <div class="col-12 d-flex">
+                           <h5>${username}</h5> <span></span>
+                        </div>
+                     </div> ${text}
+               </div>
+            </div>
+         `
+      }
+      let replies = await get(routes.getQuestionReplies(id))
+      replies.forEach(reply => {
+         document.getElementById(`${id}_reply`).innerHTML += output(reply.user.mobile_number, reply.text)
+      })
+      document.getElementById(`${id}_load_reply_button`).innerHTML = `<b>all ${replies.length} replies loaded</b>`
+   }
+   const addReplyMention = (question_id, username) => {
+      if(currentlyReplyingTo === 0) {
+         document.getElementById("replyingTo").innerHTML = `
+            <b>·</b> Replying to <span class="comment_mention">@${username} <i class="fas fa-times" style="cursor: pointer" onclick="removeReplyMention()"></i></span>
+         `
+         currentlyReplyingTo = question_id
+         console.log(currentlyReplyingTo)
+      }     
+
+   }
+   const removeReplyMention = () => {
+      if(currentlyReplyingTo !== 0) {
+         document.getElementById("replyingTo").innerHTML = ``
+         currentlyReplyingTo = 0
+      } 
+   }
    intializeRatingSummary()
    initializeReviews()
+   renderQuestions()
 </script>
 
 @endsection

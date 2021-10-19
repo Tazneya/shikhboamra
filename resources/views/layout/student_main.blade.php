@@ -31,7 +31,7 @@
 		<link href="{{asset('sourcefile_home')}}/cursus/vendor/bootstrap/css/bootstrap.min.css?{{ time() }}" rel="stylesheet">
 		<link rel="stylesheet" href="{{asset('sourcefile_home')}}/vendor/star-rating/main.css?{{ time() }}">
 		<link rel="stylesheet" type="text/css" href="{{asset('sourcefile_home')}}/cursus/vendor/semantic/semantic.min.css?{{ time() }}">
-
+		@yield('page_css')
 	</head>
 
 <body>
