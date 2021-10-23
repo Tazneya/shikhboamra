@@ -147,7 +147,12 @@ class CourseController extends Controller
         return response()->json($reviewSummary, 200);
     }
     public function apiGetReviews($course_id) {
-        $reviews = review::where('course_id', $course_id)->with('user')->get();
+        $reviews = review::where('course_id', $course_id)->get();
+        foreach($reviews as $review)
+        {
+           $review->st_name = $review->user_info->student->st_name;
+        }
+    // file_put_contents('test.txt',json_encode($reviews));
         return response()->json($reviews, 200);
     }
 

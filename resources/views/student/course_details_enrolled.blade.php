@@ -72,11 +72,15 @@
                       <div class="nav nav-tabs tab_crse justify-content-center" id="nav-tab" role="tablist">
                          <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-selected="true">About</a>
                          <a class="nav-item nav-link" id="nav-courses-tab" data-toggle="tab" href="#nav-courses" role="tab" aria-selected="false">Courses Content</a>
-                         @if (count($course_exams) > 0)                             
+                         @if($enroll_avail)
+                         @if (count($course_exams) > 0)
                            <a class="nav-item nav-link" id="nav-exam-tab" data-toggle="tab" href="#nav-exam" role="tab" aria-selected="false">Exams</a>
                          @endif
+                         @endif
                          <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="false">Reviews</a>
+                         @if($enroll_avail)
                          <a class="nav-item nav-link" id="nav-forum-tab" data-toggle="tab" href="#nav-forum" role="tab" aria-selected="false">Forum</a>
+                         @endif
                       </div>
                    </nav>
                 </div>
@@ -162,7 +166,7 @@
                                     <tr>
                                        <th class="text-center" scope="col">SERIAL NO</th>
                                        <th scope="col">EXAM TITLE</th>
-                                       <th class="text-center" scope="col">DURATION</th>         
+                                       <th class="text-center" scope="col">DURATION</th>
                                        <th class="text-center" scope="col">TOTAL MARKS</th>
                                        <th class="text-center" scope="col">ACTION</th>
                                     </tr>
@@ -176,20 +180,20 @@
                                           <td class="text-center">{{ $course_exam->total_marks }}</td>
                                           @if (!$course_exam->isTaken)
                                              <td class="text-center">
-                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Take Exam</a>         
-                                             </td>                                              
+                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Take Exam</a>
+                                             </td>
                                           @else
                                              <td class="text-center">
                                                 <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Try Again</a>
-                                                <a href="{{ route('exam_result', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >View Result</a>        
-                                             </td> 
+                                                <a href="{{ route('exam_result', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >View Result</a>
+                                             </td>
                                           @endif
                                        </tr>
                                     @endforeach
-         
-         
-         
-         
+
+
+
+
                                  </tbody>
                               </table>
                            </div>
@@ -200,65 +204,13 @@
                       <div class="tab-pane fade" id="nav-reviews" role="tabpanel">
                          <div class="student_reviews">
                             <div class="row">
-                               <div class="col-lg-5">
-                                  <div class="reviews_left">
-                                     <h3>Student Feedback</h3>
-                                     {{-- <div class="total_rating">
-                                        <div class="_rate001">4.6</div>
-                                        <div class="rating-box">
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star half-star"></span>
-                                           <div class="my-rating-7"></div>
-                                        </div>
-                                        <div class="_rate002">Course Rating</div>
-                                     </div> --}}
-                                     <div class="averageRating"></div>
-                                     <div class="_rate003">
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="starRating5"></div>
-                                           <div class="_rate002" id="starPercentage5">70%</div>
-                                        </div>
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="starRating4"></div>
-                                           <div class="_rate002" id="starPercentage4">40%</div>
-                                        </div>
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-5" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="starRating3"></div>
-                                           <div class="_rate002" id="starPercentage3">5%</div>
-                                        </div>
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-2" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="starRating2"></div>
-                                           <div class="_rate002" id="starPercentage2">1%</div>
-                                        </div>
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-1" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="starRating1"></div>
-                                           <div class="_rate002" id="starPercentage1">1%</div>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="col-lg-7">
+
+                               <div class="col-lg-12">
+                                   @if($enroll_avail)
                                   <div class="mb-3">
                                      <button class="btn btn-info" onclick="openReviewPopup()">Rate this course</button>
                                   </div>
+                                  @endif
                                   <div class="review_right">
                                      <div class="review_right_heading">
                                         <h3>Reviews</h3>
@@ -300,7 +252,7 @@
                                     <label for="exampleFormControlTextarea1"><b>Ask your question</b></label><span id="replyingTo"></span>
                                     <textarea class="form-control mb-2" id="forumQuestion" rows="3"></textarea>
                                     <button type="submit" class="btn btn-primary">Post</button>
-                                  </div>                                  
+                                  </div>
                               </form>
                            </div>
                            <div class="card">
@@ -319,7 +271,7 @@
                                                               <div class="col-4">
                                                                   <div class="pull-right reply"> <a href="#"><span><i class="fa fa-reply"></i> reply</span></a> </div>
                                                               </div>
-                                                          </div> It is a long established fact that a reader will be distracted by the readable content of a page. 
+                                                          </div> It is a long established fact that a reader will be distracted by the readable content of a page.
                                                           <br />
                                                           <br />
                                                           <a href="#">Load Replies</a>
@@ -343,14 +295,14 @@
                                                                </div>
                                                            </div>
                                                           </div>
-                                                          
+
                                                       </div>
                                                   </div>
-                                                  
+
                                               </div>
                                           </div> --}}
                                        </div>
-                                       
+
                                    </div>
                                </div>
                            </div>
@@ -437,10 +389,10 @@
    let currentReviewText = '';
    let currentCourseRating = 0;
    let currentlyReplyingTo = 0;
-   
+
    // Initialize 5 seperate star ratings
    var all_ratings = document.querySelectorAll(".starRating");
-   
+
    for(let i = 5; i >= 1; i--) {
       $(`.starRating${i}`).starRating({
          starSize: 25,
@@ -456,7 +408,7 @@
          initialRating: rating,
          readOnly: true
       });
-   } 
+   }
    const openReviewPopup = () => {
       Swal.fire({
          title: '<strong>Rate this course</strong>',
@@ -520,8 +472,8 @@
          //  for(let i = 1; i <= 5; i++) {
          //     document.querySelector(`starPercentage${i}`).innerHTML = response.star2;
          //  }
-      })    
-      
+      })
+
    }
    const initializeReviews = () => {
 
@@ -540,16 +492,16 @@
 
       get(routes.getReviews({{ $course_details->id }})).then(response => {
           response.forEach(review => {
-             console.log(review)
-             document.querySelector(".review_all120").innerHTML += output(review.id, review.user.mobile_number, review.review);
+             //console.log(review)
+             document.querySelector(".review_all120").innerHTML += output(review.id, review.st_name, review.review);
              $(`.rating-${review.id}`).starRating({
                starSize: 25,
                initialRating: review.rating/2,
                readOnly: true
             });
           })
-          
-      }) 
+
+      })
    }
 
    const postForumQuestion = (event) => {
@@ -571,7 +523,7 @@
          }
          post(routes.createQuestionReply, postData).then(response => reloadForum())
       }
-      
+
    }
    const renderQuestions = async () => {
       const output = (id, username, question) => {
@@ -591,9 +543,9 @@
                            <br />
                            <br />
                            <div id="${id}_load_reply_button"><button class="btn btn-secondary btn-sm" onclick="renderReply(${id})">Load Replies</button></div>
-                           <div class="replies" id="${id}_reply"></div>                           
+                           <div class="replies" id="${id}_reply"></div>
                      </div>
-                  </div>                  
+                  </div>
                </div>
             </div>
          `
@@ -632,14 +584,14 @@
          `
          currentlyReplyingTo = question_id
          console.log(currentlyReplyingTo)
-      }     
+      }
 
    }
    const removeReplyMention = () => {
       if(currentlyReplyingTo !== 0) {
          document.getElementById("replyingTo").innerHTML = ``
          currentlyReplyingTo = 0
-      } 
+      }
    }
    const reloadForum = async () => {
       document.getElementById("forumQuestion").value = ""

@@ -1,7 +1,17 @@
 @extends('layout.student_main')
-
+@section('page_css')
+    <link rel="stylesheet" href="{{ asset('/sourcefile_home').'/vendor/nested-comment-template/style.css' }}">
+    <style>
+       .comment_mention {
+          font-weight: bold;
+          color: #3b4c8f;
+          background-color: #7289da;
+          padding: 5px;
+          border-radius: 2px;
+       }
+    </style>
+@endsection
 @section('content')
-
     <div class="_215b01">
        <div class="container-fluid">
           <div class="row">
@@ -19,7 +29,6 @@
                                </div>
                             </a>
                          </div>
-
                       </div>
                       <div class="col-xl-8 col-lg-7 col-md-6">
                          <div class="_215b03">
@@ -68,7 +77,15 @@
                       <div class="nav nav-tabs tab_crse justify-content-center" id="nav-tab" role="tablist">
                          <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-selected="true">About</a>
                          <a class="nav-item nav-link" id="nav-courses-tab" data-toggle="tab" href="#nav-courses" role="tab" aria-selected="false">Courses Content</a>
+                         @if($enroll_avail)
+                         @if (count($course_exams) > 0)
+                           <a class="nav-item nav-link" id="nav-exam-tab" data-toggle="tab" href="#nav-exam" role="tab" aria-selected="false">Exams</a>
+                         @endif
+                         @endif
                          <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="false">Reviews</a>
+                         @if($enroll_avail)
+                         <a class="nav-item nav-link" id="nav-forum-tab" data-toggle="tab" href="#nav-forum" role="tab" aria-selected="false">Forum</a>
+                         @endif
                       </div>
                    </nav>
                 </div>
@@ -131,7 +148,7 @@
                                         </div>
                                      </div>
                                      <div class="details">
-                                        <a href="#" class="preview-text">Preview</a>
+                                        <a href="video/{{ $video->id }}" class="preview-text">Preview</a>
                                         <span class="content-summary">{{ $video->duration }} Minute</span>
                                      </div>
                                   </div>
@@ -145,93 +162,60 @@
 
                          </div>
                       </div>
+                      <div class="tab-pane fade" id="nav-exam" role="tabpanel">
+                        <div class="_htg451">
+
+                           <div class="_htg452 mt-35">
+                              <table class="table ucp-table" id="content-table">
+                                 <thead class="thead-s">
+                                    <tr>
+                                       <th class="text-center" scope="col">SERIAL NO</th>
+                                       <th scope="col">EXAM TITLE</th>
+                                       <th class="text-center" scope="col">DURATION</th>
+                                       <th class="text-center" scope="col">TOTAL MARKS</th>
+                                       <th class="text-center" scope="col">ACTION</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    @foreach ($course_exams as $index=>$course_exam)
+                                       <tr>
+                                          <td class="text-center">{{ $index+1 }}</td>
+                                          <td class="cell-ta">{{ $course_exam->exam_name }}</td>
+                                          <td class="text-center">{{ $course_exam->durationString }}</td>
+                                          <td class="text-center">{{ $course_exam->total_marks }}</td>
+                                          @if (!$course_exam->isTaken)
+                                             <td class="text-center">
+                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Take Exam</a>
+                                             </td>
+                                          @else
+                                             <td class="text-center">
+                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Try Again</a>
+                                                <a href="{{ route('exam_result', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >View Result</a>
+                                             </td>
+                                          @endif
+                                       </tr>
+                                    @endforeach
+
+
+
+
+                                 </tbody>
+                              </table>
+                           </div>
+
+
+                        </div>
+                     </div>
                       <div class="tab-pane fade" id="nav-reviews" role="tabpanel">
                          <div class="student_reviews">
                             <div class="row">
-                               <div class="col-lg-5">
-                                  <div class="reviews_left">
-                                     <h3>Student Feedback</h3>
-                                     <div class="total_rating">
-                                        <div class="_rate001">4.6</div>
-                                        <div class="rating-box">
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star half-star"></span>
-                                        </div>
-                                        <div class="_rate002">Course Rating</div>
-                                     </div>
-                                     <div class="_rate003">
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                           </div>
-                                           <div class="_rate002">70%</div>
-                                        </div>
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">40%</div>
-                                        </div>
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-5" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">5%</div>
-                                        </div>
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-2" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">1%</div>
-                                        </div>
-                                        <div class="_rate004">
-                                           <div class="progress progress1">
-                                              <div class="progress-bar w-1" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                           </div>
-                                           <div class="rating-box">
-                                              <span class="rating-star full-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                              <span class="rating-star empty-star"></span>
-                                           </div>
-                                           <div class="_rate002">1%</div>
-                                        </div>
-                                     </div>
+
+                               <div class="col-lg-12">
+                                   @if($enroll_avail)
+                                  <div class="mb-3">
+                                     <button class="btn btn-info" onclick="openReviewPopup()">Rate this course</button>
                                   </div>
-                               </div>
-                               <div class="col-lg-7">
+                                  @endif
                                   <div class="review_right">
                                      <div class="review_right_heading">
                                         <h3>Reviews</h3>
@@ -239,7 +223,7 @@
                                      </div>
                                   </div>
                                   <div class="review_all120">
-                                     <div class="review_item">
+                                     {{-- <div class="review_item">
                                         <div class="review_usr_dt">
                                            <img src="images/left-imgs/img-1.jpg" alt="">
                                            <div class="rv1458">
@@ -256,7 +240,7 @@
                                         </div>
                                         <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
 
-                                     </div>
+                                     </div> --}}
 
 
 
@@ -264,6 +248,70 @@
                                </div>
                             </div>
                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-forum" role="tabpanel">
+                        <div class="container mb-5 mt-5">
+                           <div class="mb-3">
+                              <form action="" onsubmit="postForumQuestion(event)">
+                                 <div class="form-group">
+                                    <label for="exampleFormControlTextarea1"><b>Ask your question</b></label><span id="replyingTo"></span>
+                                    <textarea class="form-control mb-2" id="forumQuestion" rows="3"></textarea>
+                                    <button type="submit" class="btn btn-primary">Post</button>
+                                  </div>
+                              </form>
+                           </div>
+                           <div class="card">
+                               <div class="row">
+                                   <div class="col-md-12">
+                                       <h3 class="text-center mb-5"> Questions </h3>
+                                       <div id="forum-questions">
+                                          {{-- <div class="row mb-3">
+                                              <div class="col-md-12">
+                                                  <div class="media"> <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="https://i.imgur.com/4FyNX7i.png" />
+                                                      <div class="media-body">
+                                                          <div class="row">
+                                                              <div class="col-8 d-flex">
+                                                                  <h5>Maria Smantha</h5> <span>- 2 hours ago</span>
+                                                              </div>
+                                                              <div class="col-4">
+                                                                  <div class="pull-right reply"> <a href="#"><span><i class="fa fa-reply"></i> reply</span></a> </div>
+                                                              </div>
+                                                          </div> It is a long established fact that a reader will be distracted by the readable content of a page.
+                                                          <br />
+                                                          <br />
+                                                          <a href="#">Load Replies</a>
+                                                          <div class="replies">
+                                                            <div class="media mt-3"> <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="https://i.imgur.com/4FyNX7i.png" /></a>
+                                                               <div class="media-body">
+                                                                   <div class="row">
+                                                                       <div class="col-12 d-flex">
+                                                                           <h5>Simona Disa</h5> <span>- 3 hours ago</span>
+                                                                       </div>
+                                                                   </div> letters, as opposed to using 'Content here, content here', making it look like readable English.
+                                                               </div>
+                                                           </div>
+                                                           <div class="media mt-3"> <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="https://i.imgur.com/4FyNX7i.png" /></a>
+                                                               <div class="media-body">
+                                                                   <div class="row">
+                                                                       <div class="col-12 d-flex">
+                                                                           <h5>John Smith</h5> <span>- 4 hours ago</span>
+                                                                       </div>
+                                                                   </div> the majority have suffered alteration in some form, by injected humour, or randomised words.
+                                                               </div>
+                                                           </div>
+                                                          </div>
+
+                                                      </div>
+                                                  </div>
+
+                                              </div>
+                                          </div> --}}
+                                       </div>
+
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
                       </div>
                    </div>
                 </div>
@@ -339,48 +387,233 @@
        </div>
     </footer>
 
-
 @endsection
 
 @section('page-js')
 <script>
-$(function() {
+   let currentReviewText = '';
+   let currentCourseRating = 0;
+   let currentlyReplyingTo = 0;
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    });
-    function enroll_now(course_id)
-    {
-        swal({
-  title: "Are you sure?",
-  icon: "warning",
-  buttons: true,
-  dangerMode: true,
-})
-.then((willDelete) => {
-  if (willDelete) {
-    var formdata = new FormData();
-       formdata.append('course_id',course_id);
-        $.ajax({
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        url: course_enroll,
-        data:formdata,
-        success: function (data) {
-            swal("You successfully enrolled this course", {
-            icon: "success",
-    }).then((value) => {
-  location.reload()
-});
-        }
-    })
-  }
-});
-    }
+   // Initialize 5 seperate star ratings
+   var all_ratings = document.querySelectorAll(".starRating");
+
+   for(let i = 5; i >= 1; i--) {
+      $(`.starRating${i}`).starRating({
+         starSize: 25,
+         initialRating: i,
+         readOnly: true
+      });
+   }
+
+
+   const setAverageRating = (rating) => {
+      $(".averageRating").starRating({
+         starSize: 25,
+         initialRating: rating,
+         readOnly: true
+      });
+   }
+   const openReviewPopup = () => {
+      Swal.fire({
+         title: '<strong>Rate this course</strong>',
+         icon: 'info',
+         html:
+            `<form>
+               <div class="my-rating jq-stars mb-2"></div>
+               <div class="form-group">
+                  <textarea class="form-control" id="courseReviewText" onchange="getReviewText(this)" rows="3" placeholder="Write feedback.."></textarea>
+               </div>
+            </form>
+               `,
+         showCloseButton: true,
+         focusConfirm: false,
+         confirmButtonText:
+            '<i class="fa fa-check" aria-hidden="true"></i> Submit!',
+         confirmButtonAriaLabel: 'Thumbs up, great!',
+         cancelButtonText:
+            '<i class="fa fa-times" aria-hidden="true"></i>',
+         cancelButtonAriaLabel: 'Thumbs down'
+      }).then(result => {
+         if (result.isConfirmed) {
+            postCourseRating();
+         } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+         }
+      })
+      initializeRatingPlugin();
+   }
+   const initializeRatingPlugin = () => {
+      $(".my-rating").starRating({
+         totalStars: 5,
+         emptyColor: 'lightgray',
+         hoverColor: 'salmon',
+         activeColor: 'cornflowerblue',
+         strokeWidth: 0,
+         useGradient: false,
+         callback: (currentRating, $el) => setCourseRating(currentRating, $el)
+      });
+   }
+   const getReviewText = (e) => {
+      currentReviewText = e.value;
+   }
+   const setCourseRating = (currentRating, $el) => {
+      currentCourseRating = currentRating * 2;
+   }
+   const postCourseRating = () => {
+      let courseReview = {
+         st_id: {{ session('user')->id }},
+         course_id: {{ $course_details->id }},
+         rating: currentCourseRating,
+         review: currentReviewText
+      }
+      console.log(courseReview)
+      post(routes.createCourseReview, courseReview).then(response => console.log(response))
+   }
+   const intializeRatingSummary = () =>  {
+      get(routes.getRatingSummary({{ $course_details->id }})).then(response => {
+          setAverageRating(response.average)
+         //  console.log(response)
+         //  for(let i = 1; i <= 5; i++) {
+         //     document.querySelector(`starPercentage${i}`).innerHTML = response.star2;
+         //  }
+      })
+
+   }
+   const initializeReviews = () => {
+
+      let output = ((id, mobile_number, text) => `<div class="review_item">
+                        <div class="review_usr_dt">
+                           <div class="rv1458">
+                              <h4 class="tutor_name1">${mobile_number}</h4>
+                           </div>
+                        </div>
+                        <div class="rating-box mt-20">
+                           <div class="rating-${id}"></div>
+                        </div>
+                        <p class="rvds10">${text}</p>
+
+                     </div>`)
+
+      get(routes.getReviews({{ $course_details->id }})).then(response => {
+          response.forEach(review => {
+             //console.log(review)
+             document.querySelector(".review_all120").innerHTML += output(review.id, review.st_name, review.review);
+             $(`.rating-${review.id}`).starRating({
+               starSize: 25,
+               initialRating: review.rating/2,
+               readOnly: true
+            });
+          })
+
+      })
+   }
+
+   const postForumQuestion = (event) => {
+      event.preventDefault()
+      let question = document.getElementById("forumQuestion").value
+      console.log('Posting to', currentlyReplyingTo)
+      if(currentlyReplyingTo === 0) {
+         let postData = {
+            question: question,
+            user_id: {{ session('user')->id }},
+            course_id: {{ $course_details->id }}
+         }
+         post(routes.createForumQuestion, postData).then(response => reloadForum())
+      } else {
+         let postData = {
+            reply: question,
+            user_id: {{ session('user')->id }},
+            question_id: currentlyReplyingTo
+         }
+         post(routes.createQuestionReply, postData).then(response => reloadForum())
+      }
+
+   }
+   const renderQuestions = async () => {
+      const output = (id, username, question) => {
+         return `
+            <div class="row mb-3">
+               <div class="col-md-12">
+                  <div class="media">
+                     <div class="media-body">
+                           <div class="row">
+                              <div class="col-8 d-flex">
+                                 <h5>${username}</h5>
+                              </div>
+                              <div class="col-4">
+                                 <div class="pull-right reply"> <button class="btn btn-primary btn-sm" onclick="addReplyMention(${id}, '${username}')"><span><i class="fa fa-reply"></i> reply</span></button> </div>
+                              </div>
+                           </div> ${question}
+                           <br />
+                           <br />
+                           <div id="${id}_load_reply_button"><button class="btn btn-secondary btn-sm" onclick="renderReply(${id})">Load Replies</button></div>
+                           <div class="replies" id="${id}_reply"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         `
+      }
+      let questions = await get(routes.getQuestions({{ $course_details->id }}))
+      document.getElementById("forum-questions").innerHTML = ""
+      questions.forEach(item => {
+         document.getElementById("forum-questions").innerHTML += output(item.id, item.user.mobile_number, item.text)
+      })
+      console.log(questions)
+   }
+   const renderReply = async (id) => {
+      output = (username, text) => {
+         return `
+            <div class="media mt-3"> <a class="pr-3" href="#"></a>
+               <div class="media-body">
+                     <div class="row">
+                        <div class="col-12 d-flex">
+                           <h5>${username}</h5> <span></span>
+                        </div>
+                     </div> ${text}
+               </div>
+            </div>
+         `
+      }
+      let replies = await get(routes.getQuestionReplies(id))
+      replies.forEach(reply => {
+         document.getElementById(`${id}_reply`).innerHTML += output(reply.user.mobile_number, reply.text)
+      })
+      document.getElementById(`${id}_load_reply_button`).innerHTML = `<b>all ${replies.length} replies loaded</b>`
+   }
+   const addReplyMention = (question_id, username) => {
+      if(currentlyReplyingTo === 0) {
+         document.getElementById("replyingTo").innerHTML = `
+            <b>·</b> Replying to <span class="comment_mention">@${username} <i class="fas fa-times" style="cursor: pointer" onclick="removeReplyMention()"></i></span>
+         `
+         currentlyReplyingTo = question_id
+         console.log(currentlyReplyingTo)
+      }
+
+   }
+   const removeReplyMention = () => {
+      if(currentlyReplyingTo !== 0) {
+         document.getElementById("replyingTo").innerHTML = ``
+         currentlyReplyingTo = 0
+      }
+   }
+   const reloadForum = async () => {
+      document.getElementById("forumQuestion").value = ""
+      document.getElementById("forum-questions").innerHTML = `
+         <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+         </div>
+      `
+      await renderQuestions()
+      if(currentlyReplyingTo !== 0) {
+         await renderReply(currentlyReplyingTo)
+         removeReplyMention()
+      }
+   }
+   intializeRatingSummary()
+   initializeReviews()
+   renderQuestions()
 </script>
 
 @endsection

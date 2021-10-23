@@ -21,7 +21,7 @@ class StudentCourseController extends Controller
         $course_details = course::where('id',$course_id)->first();
         $enroll_avail = st_course::where('st_id',$user_id)->where('course_id',$course_id)->first();
         $course_exams = CourseExamController::byCourseId($course_id);
-        return view('student.course_details_enrolled',compact('course_details','enroll_avail', 'course_exams'));
+        return view('student.course_details',compact('course_details','enroll_avail', 'course_exams'));
     }
 
     public function show_course_details_enrolled(Request $request)
@@ -54,13 +54,13 @@ class StudentCourseController extends Controller
     public function exam_page_old($exam_id)
     {
         $questions = question::where('exam_id', $exam_id)->paginate(1);
-        
-        /* 
+
+        /*
         As laravel paginator gives seperated pagination information to json object
         So the paginated result first converted into json then again reverted to obtain
         all the pagination informations for custom pagination
         */
-        $question_json = json_encode($questions);        
+        $question_json = json_encode($questions);
         $question_json = json_decode($question_json, true);
 
         $next_page_url = $question_json['next_page_url'];
@@ -79,7 +79,7 @@ class StudentCourseController extends Controller
         ]);
     }
     public function exam_confirmation($exam_id)
-    {   
+    {
         $exam = CourseExamController::find($exam_id);
         return view('student.exam_confirmation', ['exam' => $exam]);
     }
