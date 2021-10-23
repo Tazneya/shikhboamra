@@ -15,5 +15,17 @@ class st_course extends Model
         return $this->belongsTo('App\Models\course','course_id','id')->where('active_status',1)->where('delete_status',0);
     }
 
+    public function rating()
+    {
+
+        return $this->hasMany('App\Models\review','course_id','id');
+    }
+    public function video_count()
+    {
+        return $this->hasMany('App\Models\course_content','course_id','id')->where('content_type','video');
+    }
+
+
+
 
 }

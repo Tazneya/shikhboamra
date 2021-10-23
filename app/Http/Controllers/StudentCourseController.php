@@ -19,6 +19,7 @@ class StudentCourseController extends Controller
         $request->session()->put('recent_course_id', $course_id);
         $user_id = auth()->user()->id;
         $course_details = course::where('id',$course_id)->first();
+
         $enroll_avail = st_course::where('st_id',$user_id)->where('course_id',$course_id)->first();
         $course_exams = CourseExamController::byCourseId($course_id);
         return view('student.course_details',compact('course_details','enroll_avail', 'course_exams'));

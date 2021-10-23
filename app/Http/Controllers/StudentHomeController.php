@@ -14,7 +14,11 @@ class StudentHomeController extends Controller
         $subjects = course::get(['subject']);
         $topics = course::get(['topic']);
         $courses = course::get();
-
+        // foreach($courses as $t)
+        // {
+        //     $myfile = fopen("test.txt", "a+") or die("Unable to open file!");
+        //     fwrite($myfile,($t->rating->avg('rating')/2)."\n");
+        // }
         return view('student.home',compact('courses','subjects','topics'));
     }
 

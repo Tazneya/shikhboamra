@@ -25,11 +25,11 @@
                             <div class="course-overlay">
 
                                <div class="crse_reviews">
-                                  <i class="uil uil-star"></i>4.5
+                                  <i class="uil uil-star"></i>{{number_format(($course->rating->avg('rating')/2),1) }}
                                </div>
                                <span class="play_btn1"><i class="uil uil-play"></i></span>
                                <div class="crse_timer">
-                                  25 Video
+                                {{ count($course->enroll_course->video_count) }} Video
                                </div>
                             </div>
                          </a>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="vdtodt">
 
-                               <span class="vdt14">15 days ago</span>
+
                             </div>
                             <a href="course_detail_view.html" class="crse14s">{{ $course->enroll_course->course_name }}</a>
 

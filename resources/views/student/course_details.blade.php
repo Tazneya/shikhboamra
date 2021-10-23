@@ -37,17 +37,15 @@
                          </div>
                          <div class="_215b05">
                             <div class="crse_reviews mr-2">
-                               <i class="uil uil-star"></i>4.5
+                               <i class="uil uil-star"></i>{{number_format(($course_details->rating->avg('rating')/2),1) }}
                             </div>
-                            (81,665 ratings)
+                            ({{ count($course_details->rating) }} ratings)
                          </div>
                          <div class="_215b05">
-                            114,521 students enrolled
+                            {{  count($course_details->enroll_count) }} students enrolled
                          </div>
 
-                         <div class="_215b05">
-                            Last updated 1/2020
-                         </div>
+
                          <ul class="_215b31">
                             <li>
                                 @if($enroll_avail)
