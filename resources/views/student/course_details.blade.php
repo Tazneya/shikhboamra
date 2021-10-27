@@ -12,8 +12,104 @@
     </style>
 @endsection
 @section('content')
+
+<div class="modal fade" id="bkashNumber" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Payment with Bkash</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center" style="height: 300px">
+
+                <div class="ui search focus">
+                    <img width="100px" height="80px" src="{{ asset('image/Bkash-logo.png') }}">
+                    <div class="ui left icon input swdh11 swdh19" style="width:80%;margin-top:6%">
+
+                        <input class="prompt srch_explore" type="text" name="mobile_number" value="" id="username" required="" maxlength="64" placeholder="Enter Bkash Number">
+                        <input id="hidden_course_id" type="hidden">
+                    </div>
+                </div>
+
+
+
+                <button class="login-btn" type="button" onclick="bkash_number()" style="margin-top:15%;width:87%">Submit</button>
+                {{-- <button class="login-btn" type="submit">Next</button> --}}
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="bkashOtp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Payment with Bkash</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center" style="height: 300px">
+
+                <div class="ui search focus">
+                    <img width="100px" height="80px" src="{{ asset('image/Bkash-logo.png') }}">
+                    <div class="ui left icon input swdh11 swdh19" style="width:80%;margin-top:6%">
+
+                        <input class="prompt srch_explore" type="text" name="mobile_number" value="" id="username" required="" maxlength="64" placeholder="Enter OTP">
+                    </div>
+                </div>
+
+
+
+                <button class="login-btn" type="button" onclick="bkash_otp()" style="margin-top:15%;width:87%">Submit</button>
+                {{-- <button class="login-btn" type="submit">Next</button> --}}
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="bkashPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Payment with Bkash</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center" style="height: 300px">
+
+                <div class="ui search focus">
+                    <img width="100px" height="80px" src="{{ asset('image/Bkash-logo.png') }}">
+                    <div class="ui left icon input swdh11 swdh19" style="width:80%;margin-top:6%">
+
+                        <input class="prompt srch_explore" type="text" name="mobile_number" value="" id="username" required="" maxlength="64" placeholder="Enter Bkash Password">
+                    </div>
+                </div>
+
+
+
+                <button class="login-btn" type="button" onclick="bkash_password()" style="margin-top:15%;width:87%">Submit</button>
+                {{-- <button class="login-btn" type="submit">Next</button> --}}
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
     <div class="_215b01">
        <div class="container-fluid">
+
+
+
           <div class="row">
              <div class="col-lg-12">
                 <div class="section3125">
@@ -51,7 +147,11 @@
                                 @if($enroll_avail)
                                 <button class="btn_adcart">You enrolled this course</button>
                                 @else
+                                    @if($course_details->course_type=='free')
                                 <button class="btn_adcart" onclick = 'enroll_now("{{ $course_details->id }}")'>Enroll Now</button>
+                                @else
+                                <button class="btn_adcart" onclick = 'enroll_now_paid("{{ $course_details->id }}")'>Enroll Now</button>
+                                @endif
 
                                 @endif
                             </li>
@@ -93,6 +193,7 @@
     </div>
     <div class="_215b17">
        <div class="container-fluid">
+
           <div class="row">
              <div class="col-lg-12">
                 <div class="course_tab_content">
@@ -317,6 +418,8 @@
           </div>
        </div>
     </div>
+
+
     <footer class="footer mt-30">
        <div class="container">
           <div class="row">
@@ -388,6 +491,91 @@
 @endsection
 
 @section('page-js')
+
+<script>
+    $(function() {
+
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        })
+
+        function bkash_password()
+        {
+            var course_id = $("#hidden_course_id").val();
+            var formdata = new FormData();
+           formdata.append('course_id',course_id);
+            $.ajax({
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            url: course_enroll,
+            data:formdata,
+            success: function (data) {
+                swal("You successfully enrolled this course", {
+                icon: "success",
+        }).then((value) => {
+      location.reload()
+    });
+            }
+        })
+
+        }
+
+        function bkash_number()
+        {
+
+            $("#bkashNumber").modal('hide');
+            $("#bkashOtp").modal('show');
+
+        }
+        function bkash_otp()
+        {
+            $("#bkashOtp").modal('hide');
+            $("#bkashPassword").modal('show');
+        }
+        function enroll_now_paid(course_id)
+        {
+           $("#bkashNumber").modal('show');
+           $('#hidden_course_id').val(course_id);
+        //    var element = document.getElementById('exampleModalCenter');
+        //    element.classList.add('show');
+
+        }
+
+        function enroll_now(course_id)
+        {
+            swal({
+      title: "Are you sure?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        var formdata = new FormData();
+           formdata.append('course_id',course_id);
+            $.ajax({
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            url: course_enroll,
+            data:formdata,
+            success: function (data) {
+                swal("You successfully enrolled this course", {
+                icon: "success",
+        }).then((value) => {
+      location.reload()
+    });
+            }
+        })
+      }
+    });
+        }
+    </script>
 <script>
    let currentReviewText = '';
    let currentCourseRating = 0;

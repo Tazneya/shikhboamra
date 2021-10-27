@@ -87,7 +87,11 @@
 
                             <div class="auth1lnkprce">
                                <p class="cr1fot">By <a href="#">{{ $course->teacher->teacher_name }}</a></p>
+                               @if($course->course_type =='free')
                                <div class="prce142">Free</div>
+                               @else
+                               <div class="prce142">BDT {{ $course->course_fee }}</div>
+                               @endif
 
                             </div>
                          </div>

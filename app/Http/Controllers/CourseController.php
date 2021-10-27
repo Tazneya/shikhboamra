@@ -76,6 +76,8 @@ class CourseController extends Controller
             'subject'=>$req->subject,
             'class'=>$req->class,
             'course_image'=>$image,
+            'course_type'=>$req->course_type,
+            'course_fee'=>$req->course_fee,
             'topic'=>$req->topic
 
          ]);

@@ -113,6 +113,16 @@
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/semantic/semantic.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/custom1.js?{{ time() }}"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/night-mode.js"></script>
+    <script>
+        $('#inputGroupFile04').change(function() {
+
+      var i = $(this).prev('label').clone();
+      var file = $('#inputGroupFile04')[0].files[0].name;
+      $(this).prev('label').text(file);
+    });
+    </script>
+
+    @yield('page_script')
 
 </body>
 

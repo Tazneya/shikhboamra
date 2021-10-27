@@ -35,6 +35,7 @@
 	</head>
 
 <body>
+
 	<!-- Header Start -->
 	<header class="header clearfix">
 		<button type="button" id="toggleMenu" class="toggle_menu">
@@ -114,7 +115,7 @@
 	<script src="{{asset('sourcefile_home')}}/cursus/js/jquery-3.3.1.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/vendor/OwlCarousel/owl.carousel.js"></script>
-	<script src="{{asset('sourcefile_home')}}/cursus/vendor/semantic/semantic.min.js"></script>
+	{{-- <script src="{{asset('sourcefile_home')}}/cursus/vendor/semantic/semantic.min.js"></script> --}}
 	<script src="{{asset('sourcefile_home')}}/cursus/js/custom1.js?{{ time() }}"></script>
 	<script src="{{asset('sourcefile_home')}}/cursus/js/night-mode.js"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
