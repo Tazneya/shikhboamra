@@ -801,5 +801,6 @@
    initializeReviews()
    renderQuestions()
 </script>
+<script src="{{asset('sourcefile_home')}}/cursus/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 @endsection
