@@ -24,6 +24,11 @@ class st_course extends Model
     {
         return $this->hasMany('App\Models\course_content','course_id','id')->where('content_type','video');
     }
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User','st_id','id');
+    }
+
 
 
 

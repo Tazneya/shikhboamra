@@ -20,5 +20,10 @@ class user extends Authenticatable
     {
         return $this->belongsTo('App\Models\teacher_info','user_id','id');
     }
+    public function exam($course_id)
+    {
+        //file_put_contents('test.txt',$course_id);
+        return $this->hasMany('App\Models\st_exam','st_id','id')->where('course_id',$course_id);
+    }
 
 }

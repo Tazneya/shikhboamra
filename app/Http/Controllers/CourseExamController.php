@@ -77,7 +77,7 @@ class CourseExamController extends Controller
         if($existing_st_answer !== null) {
             $existing_st_answer->delete();
             return true;
-        } 
+        }
         return false;
     }
     public static function makeStudentExamEntry($exam_id, $student_id, $total_answers, $total_correct_answers)
@@ -88,6 +88,7 @@ class CourseExamController extends Controller
 
         $st_exam = st_exam::create([
             'st_id' => $student_id,
+            'course_id'=>$exam->course_id,
             'exam_id' => $exam_id,
             'obtaining_marks' => $obtaining_marks
         ]);

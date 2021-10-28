@@ -10,4 +10,5 @@ class teacher_info extends Model
     //use HasFactory;
     protected $guarded = [];
 
+
 }

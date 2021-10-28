@@ -9,5 +9,9 @@ class student_info extends Model
 {
     //use HasFactory;
     protected $guarded = [];
+    public function user_info()
+    {
+        return $this->belongsTo('App\Models\User','st_id','id');
+    }
 
 }

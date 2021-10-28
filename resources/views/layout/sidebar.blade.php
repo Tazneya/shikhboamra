@@ -15,9 +15,9 @@
 						</a>
 					</li>
 					<li class="menu--item">
-						<a href="{{url('instructor_analytics')}}" class="menu--link" title="Analyics">
+						<a href="{{route('course_report')}}" class="menu--link" title="Analyics">
 							<i class='uil uil-analysis menu--icon'></i>
-							<span class="menu--label">Analyics</span>
+							<span class="menu--label">Course Report</span>
 						</a>
 					</li>
 					<!-- <li class="menu--item">

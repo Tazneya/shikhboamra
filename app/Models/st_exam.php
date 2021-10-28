@@ -13,4 +13,9 @@ class st_exam extends Model
         'exam_id',
         'obtaining_marks'
     ];
+
+    public function exam()
+    {
+        return $this->belongsTo('App\Models\course_exam','exam_id','id');
+    }
 }

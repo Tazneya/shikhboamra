@@ -43,8 +43,10 @@ Route::group(['prefix' => 'teacher'], function()
     Route::get('course_progration','filecontroller@course_progration');
     Route::get('exam_performance','filecontroller@exam_performance');
     Route::get('details_que_ans','filecontroller@details_que_ans');
-
-
+    Route::get('course_report','ReportController@course_report')->name('course_report');
+    Route::get('course_report/student_details/{id}','ReportController@student_details');
+    Route::get('course_report/student_details/exam_details/{course_id}/{student_id}','ReportController@exam_details');
+    Route::get('course_report/student_details/exam_details/answer_sheet/{exam_id}/{student_id}','ReportController@answer_sheet');
     Route::get('course_exam/{course_id?}','filecontroller@course_exam')->name('course_exams');
     Route::get('add_new_qus/{exam_id?}','filecontroller@add_new_qus');
     Route::post('add_new_qus/{exam_id?}','QuestionController@create')->name('add_new_question');
