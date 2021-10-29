@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\course;
 use App\Models\review;
+use App\Models\st_course;
 use App\Models\reviews;
 use Illuminate\Support\Facades\Validator;
 use Auth;
@@ -14,6 +15,17 @@ class CourseController extends Controller
 
 
 
+    public function course_review(Request $request)
+    {
+        $course_id = $request->id;
+       $request->session()->put('recent_course_id', $course_id);
+        //$user_id = auth()->user()->id;
+        $course_details = course::where('id',$course_id)->first();
+
+       // $enroll_avail = st_course::where('st_id',$user_id)->where('course_id',$course_id)->first();
+        //$course_exams = CourseExamController::byCourseId($course_id);
+        return view('teacher.course_review',compact('course_details'));
+    }
 
     public function show_all_course()
     {

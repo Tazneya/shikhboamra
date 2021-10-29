@@ -64,7 +64,7 @@
                                  <a type="button" class="btn btn-warning" href="{{url('teacher/create_new_course')}}">SHOW</a>
                               </td>
                               <td class="text-center">
-                                 <a type="button" class="btn btn-warning" href="{{url('teacher/create_new_course')}}">SHOW</a>
+                                 <a type="button" class="btn btn-warning" href="course_review/{{ $data->id }}" >SHOW</a>
                               </td>
                               <td class="text-center">
                                  <select class="ui hj145  cntry152 prompt srch_explore">
