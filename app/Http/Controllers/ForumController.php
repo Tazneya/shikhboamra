@@ -19,7 +19,7 @@ class ForumController extends Controller
         ]);
         return response()->json($question, 201);
     }
-    public function apiCreateQuestionReply(Request $req) 
+    public function apiCreateQuestionReply(Request $req)
     {
         $inputs = $req->all();
         $question = forum_question_reply::create([
@@ -31,10 +31,24 @@ class ForumController extends Controller
     }
     public function getAllQuestions()
     {
-        return forum_question::all();
+        $questions = forum_question::all();
+        foreach($questions as $question)
+        {
+           $question->st_name = $questions->user->student->st_name;
+        }
+        //file_put_contents('test2.txt',json_encode($questions));
+        return $questions ;
+
     }
     public function getQuestions($course_id) {
-        return forum_question::where('course_id', $course_id)->with('user')->orderBy('id', 'DESC')->get();
+        //file_put_contents('test2.txt','hello');
+        $questions = forum_question::where('course_id', $course_id)->with('user')->orderBy('id', 'DESC')->get();
+        foreach($questions as $question)
+        {
+           $question->st_name = $question->user->student->st_name;
+        }
+        //file_put_contents('test2.txt',json_encode($questions));
+        return $questions;
     }
     public function getAllReplys($question_id)
     {

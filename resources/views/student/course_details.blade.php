@@ -744,7 +744,7 @@
       let questions = await get(routes.getQuestions({{ $course_details->id }}))
       document.getElementById("forum-questions").innerHTML = ""
       questions.forEach(item => {
-         document.getElementById("forum-questions").innerHTML += output(item.id, item.user.mobile_number, item.text)
+         document.getElementById("forum-questions").innerHTML += output(item.id, item.st_name, item.text)
       })
       console.log(questions)
    }
