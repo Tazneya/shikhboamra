@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\forum_question;
 use App\Models\forum_question_reply;
+use App\Models\course;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
@@ -40,6 +41,18 @@ class ForumController extends Controller
         return $questions ;
 
     }
+    public function teacherForum(Request $request)
+    {
+        $course_id = $request->id;
+       // $request->session()->put('recent_course_id', $course_id);
+         //$user_id = auth()->user()->id;
+         $course_details = course::where('id',$course_id)->first();
+
+        // $enroll_avail = st_course::where('st_id',$user_id)->where('course_id',$course_id)->first();
+         //$course_exams = CourseExamController::byCourseId($course_id);
+         return view('teacher.course_forum',compact('course_details'));
+
+    }
     public function getQuestions($course_id) {
         //file_put_contents('test2.txt','hello');
         $questions = forum_question::where('course_id', $course_id)->with('user')->orderBy('id', 'DESC')->get();
@@ -52,6 +65,11 @@ class ForumController extends Controller
     }
     public function getAllReplys($question_id)
     {
-        return forum_question_reply::where('question_id', $question_id)->with('user')->orderBy('id', 'DESC')->get();
+        $replys = forum_question_reply::where('question_id', $question_id)->with('user')->orderBy('id', 'DESC')->get();
+        foreach($replys as $question)
+        {
+           $question->st_name = $question->user->student->st_name;
+        }
+        return $replys;
     }
 }

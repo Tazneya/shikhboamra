@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\course;
+use App\Models\course_content;
+use App\Models\st_course;
+use App\Models\course_contents;
+
 
 class filecontroller extends Controller
 {
@@ -34,7 +39,7 @@ class filecontroller extends Controller
     public function add_question(Request $req){
         $exam_id = $req->query('exam_id');
         $questions = QuestionController::getByExamId($exam_id);
-        return view('teacher.add_question', 
+        return view('teacher.add_question',
             ['exam_id' => $exam_id],
             ['questions' => $questions]
         );
@@ -64,7 +69,25 @@ class filecontroller extends Controller
         return view('teacher.details_que_ans');
     }
     public function instructorhome(){
-        return view('teacher.instructorhome');
+
+        $user_id = auth()->user()->id;
+        $courses = course::where('teacher_id',$user_id)->get();
+        $total_courses = count($courses);
+        $total_enrolled = 0;
+        $total_video = 0;
+        foreach($courses as $course)
+        {
+            $st_course = st_course::where('course_id',$course->id)->count();
+            $course_video = course_content::where('course_id',$course->id)->where('content_type','video')->count();
+            $total_enrolled+=$st_course;
+            $total_video+=$course_video;
+
+        }
+
+
+
+        //file_put_contents('test.txt',$courses);
+        return view('teacher.instructorhome',compact('total_courses','total_enrolled','total_video'));
     }
     public function course_video(){
         return view('teacher.course_video');
@@ -75,7 +98,7 @@ class filecontroller extends Controller
     public function course_exam(Request $req){
         $course_exams = CourseExamController::all();
         $course_id = $req->query('course_id');
-        return view('teacher.course_exam', 
+        return view('teacher.course_exam',
         [
             'course_id' => $course_id,
             'course_exams' => $course_exams

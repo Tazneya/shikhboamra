@@ -12,8 +12,8 @@
 						<div class="card_dash">
 							<div class="card_dash_left">
 								<h5>Total Enroll</h5>
-								<h2>1500</h2>
-								<span class="crdbg_2">New 125</span>
+								<h2>{{ $total_enrolled }}</h2>
+
 							</div>
 							<div class="card_dash_right">
 								<img src="{{asset('sourcefile_home')}}/cursus/images/dashboard/graduation-cap.svg" alt="">
@@ -24,8 +24,8 @@
 						<div class="card_dash">
 							<div class="card_dash_left">
 								<h5>Total Courses</h5>
-								<h2>130</h2>
-								<span class="crdbg_3">New 5</span>
+								<h2>{{ $total_courses }}</h2>
+
 							</div>
 							<div class="card_dash_right">
 								<img src="{{asset('sourcefile_home')}}/cursus/images/dashboard/online-course.svg" alt="">
@@ -35,9 +35,9 @@
 					<div class="col-xl-3 col-lg-6 col-md-6">
 						<div class="card_dash">
 							<div class="card_dash_left">
-								<h5>Total Students</h5>
-								<h2>2650</h2>
-								<span class="crdbg_4">New 245</span>
+								<h5>Total Video</h5>
+								<h2>{{ $total_video }}</h2>
+
 							</div>
 							<div class="card_dash_right">
 								<img src="{{asset('sourcefile_home')}}/cursus/images/dashboard/knowledge.svg" alt="">
