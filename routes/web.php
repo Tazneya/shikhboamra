@@ -21,6 +21,7 @@ Route::get('login','filecontroller@login')->name('login-view');
 Route::post('login', 'AuthController@login')->name('login');
 Route::get('logout', 'AuthController@logout')->name('logout');
 Route::post('signup','AuthController@signup')->name('signup');
+Route::get('test','ReportController@analytics_report');
 
 //Route::view('otp','otp');
 Route::post('submit_otp','AuthController@submit_otp')->name('submit_otp');
@@ -80,6 +81,7 @@ Route::group(['prefix' => 'student'], function()
     Route::get('exam_confirmation/{exam_id}', 'StudentCourseController@exam_confirmation')->name('exam_confirmation_page');
     Route::get('exam_page/{exam_id}', 'StudentCourseController@exam_page')->name('exam_page');
     Route::get('exam_result/{exam_id}', 'StudentCourseController@exam_result')->name('exam_result');
+    Route::get('course_details_enrolled/note/{id}','NoteController@note_preview');
 });
 
 

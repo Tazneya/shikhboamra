@@ -77,4 +77,10 @@ class NoteController extends Controller
 
     }
 
+    public function note_preview($id)
+    {
+        $note = course_content::find($id)->content_url;
+        return response()->file($note);
+    }
+
 }

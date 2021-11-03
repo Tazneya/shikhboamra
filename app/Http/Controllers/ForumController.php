@@ -68,7 +68,7 @@ class ForumController extends Controller
         $replys = forum_question_reply::where('question_id', $question_id)->with('user')->orderBy('id', 'DESC')->get();
         foreach($replys as $question)
         {
-           $question->st_name = $question->user->student->st_name;
+           $question->st_name = $question->user->teacher->teacher_name;
         }
         return $replys;
     }

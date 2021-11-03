@@ -46,18 +46,11 @@
 			<a href="index-2.html"><img class="logo-inverse" src="{{asset('sourcefile_home')}}/cursus/images/ct_logo.svg" alt=""></a>
 		</div>
 
-		<div class="search120">
-			<div class="ui search">
-			  <div class="ui left icon input swdh10">
-				<input class="prompt srch10" type="text" placeholder="Search for Tuts Videos, Tutors, Tests and more..">
-				<i class='uil uil-search-alt icon icon1'></i>
-			  </div>
-			</div>
-		</div>
+
 		<div class="header_right">
 			<ul>
 				<li>
-					<a href="#" class="upload_btn" title="Create New Course">Create New Course</a>
+					<a href="{{url('teacher/create_new_course')}}" class="upload_btn" title="Create New Course">Create New Course</a>
 				</li>
 				<li class="ui dropdown">
 					<a href="#" class="opts_account" title="Account">

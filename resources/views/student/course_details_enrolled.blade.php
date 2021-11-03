@@ -69,7 +69,8 @@
                    <nav>
                       <div class="nav nav-tabs tab_crse justify-content-center" id="nav-tab" role="tablist">
                          <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-selected="true">About</a>
-                         <a class="nav-item nav-link" id="nav-courses-tab" data-toggle="tab" href="#nav-courses" role="tab" aria-selected="false">Courses Content</a>
+                         <a class="nav-item nav-link" id="nav-courses-tab" data-toggle="tab" href="#nav-courses" role="tab" aria-selected="false">Courses Video</a>
+                         <a class="nav-item nav-link" id="nav-note-tab" data-toggle="tab" href="#nav-note" role="tab" aria-selected="false">Courses Note</a>
                          @if($enroll_avail)
                          @if (count($course_exams) > 0)
                            <a class="nav-item nav-link" id="nav-exam-tab" data-toggle="tab" href="#nav-exam" role="tab" aria-selected="false">Exams</a>
@@ -107,54 +108,96 @@
 
                          </div>
                       </div>
+
                       <div class="tab-pane fade" id="nav-courses" role="tabpanel">
-                         <div class="crse_content">
-                            <h3>Course content</h3>
-                            <div class="_112456">
-                               <ul class="accordion-expand-holder">
-                                  <li><span class="accordion-expand-all _d1452">Expand all</span></li>
-                                  <li><span class="_fgr123"> 402 lectures</span></li>
-                                  <li><span class="_fgr123">47:06:29</span></li>
-                               </ul>
-                            </div>
-                            <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
-                               <a href="javascript:void(0)" class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">
-                                  <div class="section-header-left">
-                                     <span class="section-title-wrapper">
-                                     <i class='uil uil-presentation-play crse_icon'></i>
-                                     <span class="section-title-text">Introduction to this Course</span>
-                                     </span>
-                                  </div>
-                                  <div class="section-header-right">
-                                     <span class="num-items-in-section">8 lectures</span>
-                                     <span class="section-header-length">22:08</span>
-                                  </div>
-                               </a>
-                               <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
+                        <div class="crse_content">
+                           <h3>Course content</h3>
+                           <div class="_112456">
+                              <ul class="accordion-expand-holder">
+                                 <li><span class="accordion-expand-all _d1452">Expand all</span></li>
+                                 <li><span class="_fgr123"> 402 lectures</span></li>
+                                 <li><span class="_fgr123">47:06:29</span></li>
+                              </ul>
+                           </div>
+                           <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
+                              <a href="javascript:void(0)" class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">
+                                 <div class="section-header-left">
+                                    <span class="section-title-wrapper">
+                                    <i class='uil uil-presentation-play crse_icon'></i>
+                                    <span class="section-title-text">Introduction to this Course</span>
+                                    </span>
+                                 </div>
+                                 <div class="section-header-right">
+                                    <span class="num-items-in-section">8 lectures</span>
+                                    <span class="section-header-length">22:08</span>
+                                 </div>
+                              </a>
+                              <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
 
-                                @foreach($course_details->video as $video)
-                                  <div class="lecture-container">
-                                     <div class="left-content">
-                                        <i class='uil uil-play-circle icon_142'></i>
-                                        <div class="top">
-                                           <div class="title">{{ $video->content_name }}</div>
-                                        </div>
-                                     </div>
-                                     <div class="details">
-                                        <a href="video/{{ $video->id }}" class="preview-text">Preview</a>
-                                        <span class="content-summary">{{ $video->duration }} Minute</span>
-                                     </div>
-                                  </div>
-                                  @endforeach
+                               @foreach($course_details->video as $video)
+                                 <div class="lecture-container">
+                                    <div class="left-content">
+                                       <i class='uil uil-play-circle icon_142'></i>
+                                       <div class="top">
+                                          <div class="title">{{ $video->content_name }}</div>
+                                       </div>
+                                    </div>
+                                    <div class="details">
+                                       <a href="video/{{ $video->id }}" class="preview-text">Preview</a>
+                                       <span class="content-summary">{{ $video->duration }} Minute</span>
+                                    </div>
+                                 </div>
+                                 @endforeach
 
-                               </div>
+                              </div>
 
 
 
-                            </div>
+                           </div>
 
-                         </div>
-                      </div>
+                        </div>
+                     </div>
+
+                     <div class="tab-pane fade" id="nav-note" role="tabpanel">
+                        <div class="_htg451">
+
+                           <div class="_htg452 mt-35">
+                              <table class="table ucp-table" id="content-table">
+                                 <thead class="thead-s">
+                                    <tr>
+                                       <th class="text-center" scope="col">SERIAL NO</th>
+                                       <th scope="col">Note Title</th>
+                                       <th class="text-center" scope="col">ACTION</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    @foreach ($course_details->note as $data)
+                                       <tr>
+                                          <td class="text-center">1</td>
+                                          <td class="cell-ta">{{ $data->content_name }}</td>
+
+
+
+                                             <td class="text-center">
+
+                                                <a href="note/{{ $data->id }}" class="btn btn-primary" >Show</a>
+                                             </td>
+
+                                       </tr>
+                                    @endforeach
+
+
+
+
+                                 </tbody>
+                              </table>
+                           </div>
+
+
+                        </div>
+                     </div>
+
+
                       <div class="tab-pane fade" id="nav-exam" role="tabpanel">
                         <div class="_htg451">
 
@@ -182,7 +225,7 @@
                                              </td>
                                           @else
                                              <td class="text-center">
-                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Try Again</a>
+
                                                 <a href="{{ route('exam_result', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >View Result</a>
                                              </td>
                                           @endif
@@ -384,6 +427,90 @@
 
 @section('page-js')
 <script>
+    $(function() {
+
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        })
+
+        function bkash_password()
+        {
+            var course_id = $("#hidden_course_id").val();
+            var formdata = new FormData();
+           formdata.append('course_id',course_id);
+            $.ajax({
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            url: course_enroll,
+            data:formdata,
+            success: function (data) {
+                swal("You successfully enrolled this course", {
+                icon: "success",
+        }).then((value) => {
+      location.reload()
+    });
+            }
+        })
+
+        }
+
+        function bkash_number()
+        {
+
+            $("#bkashNumber").modal('hide');
+            $("#bkashOtp").modal('show');
+
+        }
+        function bkash_otp()
+        {
+            $("#bkashOtp").modal('hide');
+            $("#bkashPassword").modal('show');
+        }
+        function enroll_now_paid(course_id)
+        {
+           $("#bkashNumber").modal('show');
+           $('#hidden_course_id').val(course_id);
+        //    var element = document.getElementById('exampleModalCenter');
+        //    element.classList.add('show');
+
+        }
+
+        function enroll_now(course_id)
+        {
+            swal({
+      title: "Are you sure?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        var formdata = new FormData();
+           formdata.append('course_id',course_id);
+            $.ajax({
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            url: course_enroll,
+            data:formdata,
+            success: function (data) {
+                swal("You successfully enrolled this course", {
+                icon: "success",
+        }).then((value) => {
+      location.reload()
+    });
+            }
+        })
+      }
+    });
+        }
+    </script>
+<script>
    let currentReviewText = '';
    let currentCourseRating = 0;
    let currentlyReplyingTo = 0;
@@ -524,6 +651,7 @@
 
    }
    const renderQuestions = async () => {
+
       const output = (id, username, question) => {
          return `
             <div class="row mb-3">
@@ -535,7 +663,9 @@
                                  <h5>${username}</h5>
                               </div>
                               <div class="col-4">
+                                @if(auth()->user()->role=='Teacher')
                                  <div class="pull-right reply"> <button class="btn btn-primary btn-sm" onclick="addReplyMention(${id}, '${username}')"><span><i class="fa fa-reply"></i> reply</span></button> </div>
+                                @endif
                               </div>
                            </div> ${question}
                            <br />
@@ -551,7 +681,7 @@
       let questions = await get(routes.getQuestions({{ $course_details->id }}))
       document.getElementById("forum-questions").innerHTML = ""
       questions.forEach(item => {
-         document.getElementById("forum-questions").innerHTML += output(item.id, item.user.mobile_number, item.text)
+         document.getElementById("forum-questions").innerHTML += output(item.id, item.st_name, item.text)
       })
       console.log(questions)
    }
@@ -571,7 +701,7 @@
       }
       let replies = await get(routes.getQuestionReplies(id))
       replies.forEach(reply => {
-         document.getElementById(`${id}_reply`).innerHTML += output(reply.user.mobile_number, reply.text)
+         document.getElementById(`${id}_reply`).innerHTML += output(reply.st_name, reply.text)
       })
       document.getElementById(`${id}_load_reply_button`).innerHTML = `<b>all ${replies.length} replies loaded</b>`
    }

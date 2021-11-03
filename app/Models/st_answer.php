@@ -15,4 +15,10 @@ class st_answer extends Model
         'response',
         'correct'
     ];
+
+    public function question()
+    {
+        return $this->belongsTo('App\Models\question','question_id','id');
+    }
+
 }
