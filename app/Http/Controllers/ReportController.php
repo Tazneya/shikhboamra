@@ -20,19 +20,24 @@ class ReportController extends Controller
         $wrong_tag = [];
         foreach($correct as $data)
         {
-            $correct_tag[]=$data->question->tag;
+            $tag = explode(',',$data->question->tag);
+            for($i=0;$i<sizeof($tag);$i++)
+            $correct_tag[]=$tag[$i];
            // array_push($correct_tag,['tag'=>$data->question->tag,'verdict'=>1]);
 
         }
 
         foreach($wrong as $data)
         {
-            $wrong_tag[]=$data->question->tag;
+
+            $tag = explode(',',$data->question->tag);
+            for($i=0;$i<sizeof($tag);$i++)
+            $wrong_tag[]=$tag[$i];
            // echo sizeof($data->question->tag);
            // array_push($wrong_tag,['tag'=>$data->question->tag,'verdict'=>0]);
         }
 
-        return $wrong_tag;
+        return $correct_tag;
     }
     public function course_report()
     {

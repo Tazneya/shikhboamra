@@ -1,4 +1,4 @@
-@extends('layout.student_main')
+@extends('layout.main')
 @section('page_css')
     <link rel="stylesheet" href="{{ asset('/sourcefile_home').'/vendor/nested-comment-template/style.css' }}">
     <style>
@@ -276,7 +276,7 @@
 
 @endsection
 
-@section('page-js')
+@section('page_script')
 
 <script>
     $(function() {
