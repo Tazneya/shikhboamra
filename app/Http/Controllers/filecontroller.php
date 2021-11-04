@@ -96,8 +96,10 @@ class filecontroller extends Controller
         return view('teacher.course_note');
     }
     public function course_exam(Request $req){
-        $course_exams = CourseExamController::all();
+
         $course_id = $req->query('course_id');
+        $course_exams = CourseExamController::byCourseId($course_id);
+        file_put_contents('test.txt',json_encode($course_exams));
         return view('teacher.course_exam',
         [
             'course_id' => $course_id,
