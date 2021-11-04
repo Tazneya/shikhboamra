@@ -12,7 +12,7 @@
 		<title>SHIKHBOAMRA - Sign Up Next Step</title>
 
 		<!-- Favicon Icon -->
-		<link rel="icon" type="image/png" href="{{asset('sourcefile_home')}}/cursus/images/fav.png">
+		<link rel="icon" type="image/png"l href="{{asset('sourcefile_home')}}/cursus/images/fav.png">
 
 		<!-- Stylesheets -->
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
