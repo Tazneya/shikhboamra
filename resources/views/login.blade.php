@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, shrink-to-fit=9">
 		<meta name="description" content="Gambolthemes">
 		<meta name="author" content="Gambolthemes">
-		<title>Cursus - Sign Up Next Step</title>
+		<title>SHIKHBOAMRA - Sign Up Next Step</title>
 
 		<!-- Favicon Icon -->
 		<link rel="icon" type="image/png" href="{{asset('sourcefile_home')}}/cursus/images/fav.png">
