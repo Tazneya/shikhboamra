@@ -123,6 +123,6 @@ class CourseExamController extends Controller
             'total_marks' => $req->input('total_marks')
         ]);
 
-        return redirect()->route('course_exams');
+        return redirect()->to('teacher/course_exam?course_id='.$req->input('course_id'));
     }
 }
