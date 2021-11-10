@@ -27,6 +27,7 @@
                               <th scope="col">Student Name</th>
                               <th scope="col">Contact No</th>
                               <th scope="col">Exam Details</th>
+                              <th scope="col">Student Progress</th>
 
                            </tr>
                         </thead>
@@ -39,6 +40,9 @@
                               <td class="cell-ta">{{ $data->user->mobile_number }}</td>
                               <td class="cell-ta">
                                 <a type="button" class="btn btn-warning" href="exam_details/{{ $data->course_id }}/{{ $data->user->id }}">Show</a>
+                             </td>
+                             <td class="cell-ta">
+                                <a type="button" class="btn btn-warning" href="student_progress/{{ $data->user->id }}">Show</a>
                              </td>
 
 

@@ -63,12 +63,12 @@
 						  <span class="menu--label">Statements</span>
 						</a>
 					</li> -->
-					<li class="menu--item">
+					{{-- <li class="menu--item">
 						<a href="instructor_verification.html" class="menu--link" title="Verification">
 						  <i class='uil uil-check-circle menu--icon'></i>
 						  <span class="menu--label">Verification</span>
 						</a>
-					</li>
+					</li> --}}
 				</ul>
 			</div>
 			<div class="left_section pt-2">

@@ -40,8 +40,9 @@ class CourseExamController extends Controller
     }
     public function apiSubmitAnswers(Request $req)
     {
-        $inputs = $req->all();
 
+        $inputs = $req->all();
+        //file_put_contents('test2.txt',json_encode($inputs));
         $total_correct_answers = 0;
         foreach($inputs['answers'] as $answer) {
             $question = question::find($answer['question_id']);
@@ -61,6 +62,7 @@ class CourseExamController extends Controller
             ]);
         }
         $exam_entry = $this->makeStudentExamEntry($inputs['exam_id'], $inputs['user_id'], count($inputs['answers']), $total_correct_answers);
+
         return response()->json(
             [
                 'answers' => $inputs,
@@ -82,16 +84,19 @@ class CourseExamController extends Controller
     }
     public static function makeStudentExamEntry($exam_id, $student_id, $total_answers, $total_correct_answers)
     {
-        CourseExamController::deleteIfExamEntryExists($student_id, $exam_id);
-        $exam = course_exam::find($exam_id);
-        $obtaining_marks = ($exam->total_marks / $total_answers) * $total_correct_answers;
 
-        $st_exam = st_exam::create([
-            'st_id' => $student_id,
-            'course_id'=>$exam->course_id,
-            'exam_id' => $exam_id,
-            'obtaining_marks' => $obtaining_marks
-        ]);
+        CourseExamController::deleteIfExamEntryExists($student_id, $exam_id);
+        $exam = course_exam::where('id',$exam_id)->first();
+        $course_id = $exam->course_id;
+        //file_put_contents('test.txt',$course_id);
+        $obtaining_marks = ($exam->total_marks / $total_answers) * $total_correct_answers;
+        $st_exam = new st_exam();
+        $st_exam->st_id = $student_id;
+        $st_exam->course_id = $course_id;
+        $st_exam->exam_id = $exam_id;
+        $st_exam->obtaining_marks = $obtaining_marks;
+        $st_exam->save();
+
 
         return $st_exam;
     }

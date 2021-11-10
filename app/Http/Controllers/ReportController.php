@@ -10,9 +10,10 @@ use App\Models\st_answer;
 class ReportController extends Controller
 {
     //
-    public function analytics_report()
+    public function analytics_report($student_id)
     {
         $student_id = 73;
+        //$course_id = 1;
         $correct = st_answer::where('user_id',$student_id)->where('correct',1)->get(['question_id']);
         $wrong = st_answer::where('user_id',$student_id)->where('correct',0)->get(['question_id']);
         $myfile = fopen("test.txt", "a+") or die("Unable to open file!");
@@ -22,7 +23,8 @@ class ReportController extends Controller
         {
             $tag = explode(',',$data->question->tag);
             for($i=0;$i<sizeof($tag);$i++)
-            $correct_tag[]=$tag[$i];
+            array_push($correct_tag,['tag'=>$tag[$i],'verdict'=>1]);
+
            // array_push($correct_tag,['tag'=>$data->question->tag,'verdict'=>1]);
 
         }
@@ -32,12 +34,21 @@ class ReportController extends Controller
 
             $tag = explode(',',$data->question->tag);
             for($i=0;$i<sizeof($tag);$i++)
-            $wrong_tag[]=$tag[$i];
+            array_push($correct_tag,['tag'=>$tag[$i],'verdict'=>-1]);
            // echo sizeof($data->question->tag);
            // array_push($wrong_tag,['tag'=>$data->question->tag,'verdict'=>0]);
         }
+        $total_tag = array_merge($correct_tag,$wrong_tag);
+        $freqency = array();
+        foreach($total_tag as $data)
+        {
+            if(!array_key_exists($data['tag'], $freqency))
+        $freqency[ $data['tag'] ] = 0;
+         $freqency[ $data['tag'] ] += $data['verdict'];
+        }
 
-        return $correct_tag;
+       return view('teacher.student_progress',compact('freqency'));
+        //return $freqency;
     }
     public function course_report()
     {
