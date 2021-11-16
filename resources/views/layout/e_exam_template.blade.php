@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('sourcefile_exam') }}/css/exam.css">
     <link rel="stylesheet" href="{{ asset('sourcefile_exam') }}/css/info_page.css">
     <link rel="stylesheet" href="{{ asset('sourcefile_exam') }}/css/answers.css">
-    <title>E-Exam | Subjects</title>
+    <title>SHIKHBOAMRA | EXAM</title>
 </head>
 <body>
     <header>
@@ -24,7 +24,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            {{-- <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ml-auto text-center">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
@@ -48,7 +48,7 @@
                     <a class="nav-link btn btn-primary text-white" href="#">Login</a>
                 </li>
               </ul>
-            </div>
+            </div> --}}
           </div>
         </nav>
       </header>
