@@ -74,7 +74,7 @@ Route::group(['prefix' => 'student'], function()
 {
     Route::get('/','StudentHomeController@index');
     Route::get('course_details/{id}','StudentCourseController@show_course_details')->name('show_course_details');
-    Route::get('course_details_enrolled/{id}','StudentCourseController@show_course_details_enrolled');
+    Route::get('course_details_enrolled/{id}','StudentCourseController@show_course_details_enrolled')->name('show_course_details-enrolled');
     Route::post('course_enroll','StudentCourseController@course_enroll')->name('course_enroll');
     Route::post('filter_course','StudentHomeController@filter_course')->name('filter_course');
     Route::get('my_courses','StudentHomeController@my_course');
@@ -84,6 +84,11 @@ Route::group(['prefix' => 'student'], function()
     Route::get('exam_page/{exam_id}', 'StudentCourseController@exam_page')->name('exam_page');
     Route::get('exam_result/{exam_id}', 'StudentCourseController@exam_result')->name('exam_result');
     Route::get('course_details_enrolled/note/{id}','NoteController@note_preview');
+    Route::get('course_report','ReportController@course_report_student');
+    Route::get('course_report/exam_details/{course_id}','ReportController@exam_details_student');
+    Route::get('course_report/answer_sheet/{exam_id}','ReportController@student_answer_sheet');
+    Route::get('analytics','ReportController@analytics_report_student');
+    
 });
 
 

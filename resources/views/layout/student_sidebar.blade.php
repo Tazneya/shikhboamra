@@ -15,7 +15,14 @@
                     </a>
                 </li>
                 <li class="menu--item">
-                    <a href="{{url('instructor_analytics')}}" class="menu--link" title="Analyics">
+                    <a href="{{url('student/course_report')}}" class="menu--link" title="Analyics">
+                        <i class='uil uil-analysis menu--icon'></i>
+                        <span class="menu--label">Report</span>
+                    </a>
+                </li>
+
+                <li class="menu--item">
+                    <a href="{{url('student/analytics')}}" class="menu--link" title="Analyics">
                         <i class='uil uil-analysis menu--icon'></i>
                         <span class="menu--label">Analytics</span>
                     </a>
@@ -63,12 +70,7 @@
                       <span class="menu--label">Statements</span>
                     </a>
                 </li> -->
-                <li class="menu--item">
-                    <a href="instructor_verification.html" class="menu--link" title="Verification">
-                      <i class='uil uil-check-circle menu--icon'></i>
-                      <span class="menu--label">Verification</span>
-                    </a>
-                </li>
+                
             </ul>
         </div>
         <div class="left_section pt-2">

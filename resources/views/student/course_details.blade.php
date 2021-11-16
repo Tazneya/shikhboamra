@@ -288,7 +288,7 @@
                                              </td>
                                           @else
                                              <td class="text-center">
-                                                <a href="{{ route('exam_confirmation_page', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >Try Again</a>
+                                               
                                                 <a href="{{ route('exam_result', ['exam_id' => $course_exam->id]) }}" class="btn btn-primary" >View Result</a>
                                              </td>
                                           @endif

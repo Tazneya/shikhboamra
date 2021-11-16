@@ -105,7 +105,7 @@
             </form>
         </div> --}}
     </div>
-    <a href="{{ route('show_course_details', ['id' => session('recent_course_id') ]) }}" class="btn btn-primary float-right mt-3 mb-3">Go to Exam Page</a>
+    <a href="{{ route('show_course_details-enrolled', ['id' => session('recent_course_id') ]) }}" class="btn btn-primary float-right mt-3 mb-3">Go to Exam Page</a>
 </div>
 @endsection
 @section('page_js')

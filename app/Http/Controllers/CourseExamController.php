@@ -26,7 +26,7 @@ class CourseExamController extends Controller
         foreach($course_exams as $course_exam) {
             $course_exam->durationString = Utils::getDurationString((int)$course_exam->duration);
             if(session()->has('user')) {
-                $st_exam = st_exam::where('exam_id', $course_exam->id)->first();
+                $st_exam = st_exam::where('exam_id', $course_exam->id)->where('st_id',auth()->user()->id)->first();
                 $course_exam->isTaken = $st_exam !== null ? true : false;
             }
         }

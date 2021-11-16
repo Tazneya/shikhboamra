@@ -632,7 +632,7 @@
    const postForumQuestion = (event) => {
       event.preventDefault()
       let question = document.getElementById("forumQuestion").value
-      console.log('Posting to', currentlyReplyingTo)
+      //console.log('Posting to', currentlyReplyingTo)
       if(currentlyReplyingTo === 0) {
          let postData = {
             question: question,

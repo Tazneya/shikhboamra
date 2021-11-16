@@ -29,6 +29,11 @@ class st_course extends Model
         return $this->belongsTo('App\Models\User','st_id','id');
     }
 
+    public function course()
+    {
+        return $this->belongsTo('App\Models\course','course_id','id');
+    }
+
 
 
 
