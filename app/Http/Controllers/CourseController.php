@@ -39,6 +39,22 @@ class CourseController extends Controller
         }
         return view('teacher.instructor_courses',compact('datas'));
     }
+    public function course_Update(Request $request){
+        $id= $request->id;
+        $course_name=$request->course_name;
+        $course_image=$request->course_image;
+        $course_description=$request->course_description;
+        $subject=$request->subject;
+        $class=$request->class;
+        $topic=$request->topic;
+     
+  course::where('id','=',$id)->update(['course_name'=> $course_name,'course_image'=> $course_image,'course_description'=> $course_description,'subject'=> $subject,'class'=> $class,'topic'=> $topic]);
+         //file_put_contents('test.txt',($datas));
+         $datas = course::get();
+         return redirect()->route('show_all_course_teacher')->with('success','Course Added Successfully');
+
+        // return view('teacher.instructor_courses',compact('datas'));
+    }
 
     public function add_course(Request $req)
     {

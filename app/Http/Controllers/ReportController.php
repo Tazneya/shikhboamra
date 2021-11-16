@@ -13,11 +13,11 @@ class ReportController extends Controller
     //
     public function analytics_report($student_id)
     {
-        $student_id = 73;
+        // $student_id = 73;
         //$course_id = 1;
         $correct = st_answer::where('user_id',$student_id)->where('correct',1)->get(['question_id']);
         $wrong = st_answer::where('user_id',$student_id)->where('correct',0)->get(['question_id']);
-        $myfile = fopen("test.txt", "a+") or die("Unable to open file!");
+        // $myfile = fopen("test.txt", "a+") or die("Unable to open file!");
         $correct_tag = [];
         $wrong_tag = [];
         foreach($correct as $data)
@@ -58,7 +58,7 @@ class ReportController extends Controller
         //$course_id = 1;
         $correct = st_answer::where('user_id',$student_id)->where('correct',1)->get(['question_id']);
         $wrong = st_answer::where('user_id',$student_id)->where('correct',0)->get(['question_id']);
-        $myfile = fopen("test.txt", "a+") or die("Unable to open file!");
+        // $myfile = fopen("test.txt", "a+") or die("Unable to open file!");
         $correct_tag = [];
         $wrong_tag = [];
         foreach($correct as $data)

@@ -30,7 +30,8 @@ Route::group(['prefix' => 'teacher'], function()
     Route::get('/','filecontroller@instructorhome');
 
     Route::get('course_details','filecontroller@course_details');
-    Route::get('ci_edit','filecontroller@ci_edit');
+    Route::get('ci_edit/{id}','filecontroller@ci_edit');
+    Route::post('course_Update', 'CourseController@course_Update')->name('course_update');
 
     Route::get('note_add','filecontroller@note_add');
     Route::get('add_new_exam/{course_id?}','filecontroller@add_new_exam');

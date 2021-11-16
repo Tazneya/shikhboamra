@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\course;
 use App\Models\course_content;
 use App\Models\st_course;
+
 use App\Models\course_contents;
 
 
@@ -23,8 +24,12 @@ class filecontroller extends Controller
     public function course_details(){
         return view('teacher.course_details');
     }
-    public function ci_edit(){
-        return view('ci_edit');
+    public function ci_edit(Request $request){
+        $id= $request->id;
+        $data = course::where('id','=',$id)->first();
+         //file_put_contents('test.txt',($datas));
+         return view('teacher.ci_edit',compact('data'));
+        // return view('teacher.ci_edit');
     }
     public function video_add(){
         return view('teacher.video_add');

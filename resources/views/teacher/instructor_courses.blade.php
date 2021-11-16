@@ -66,14 +66,9 @@
                               <td class="text-center">
                                  <a type="button" class="btn btn-warning" href="course_review/{{ $data->id }}" >SHOW</a>
                               </td>
-                              <td class="text-center">
-                                 <select class="ui hj145  cntry152 prompt srch_explore">
-                                    <option value=""><a href="#" title="Delete" class="gray-s">Edit</a></option>
-                                    <option value=""><a href="#" title="Delete" class="gray-s">Delete</a></option>
-                                    <option value=""><a href="#" title="Delete" class="gray-s">status</a></option>
-                                    <option value=""><a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a></option>
-                                    <option value=""><a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a></option>
-                                 </select>
+                              <td class="text-center"><a href="" class="btn btn-danger">Delete</a>
+                                 <a href="ci_edit/{{ $data->id }}" class="btn btn-warning">Edit</a>
+                                 
 
                               </td>
                            </tr>

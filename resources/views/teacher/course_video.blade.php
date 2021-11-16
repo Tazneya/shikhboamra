@@ -38,7 +38,7 @@
                             @foreach($datas as $data)
                            <tr>
 
-                              <td class="text-center">1</td>
+                              <td class="text-center">{{ $data->id}}</td>
                               <td class="cell-ta">{{ $data->content_name}}</td>
                               <td class="text-center">{{ $data->duration }}</td>
 
