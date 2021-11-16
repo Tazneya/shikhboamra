@@ -48,7 +48,7 @@ class ReportController extends Controller
          $freqency[ $data['tag'] ] += $data['verdict'];
         }
 
-       return view('student.student_progress',compact('freqency'));
+       return view('teacher.student_progress',compact('freqency'));
         //return $freqency;
     }
 
@@ -89,7 +89,7 @@ class ReportController extends Controller
          $freqency[ $data['tag'] ] += $data['verdict'];
         }
 
-       return view('teacher.student_progress',compact('freqency'));
+       return view('student.student_progress',compact('freqency'));
         //return $freqency;
     }
     public function course_report()
