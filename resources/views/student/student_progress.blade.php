@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.student_main')
 @section('content')
 <div class ="container">
 <div class="table-responsive mt-30">
