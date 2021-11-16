@@ -29,7 +29,7 @@
 
             </tr>
             @endif
-            
+            @endif
             @endforeach
 
 
@@ -50,8 +50,8 @@
         </thead>
         <tbody>
             <?php $i=1;?>
-            @foreach ($freqency as $data=>$key )
-             @if($key<-5)
+         @foreach ($freqency as $data=>$key )
+         @if($key<=-5)
             @if($i<6)
             <tr>
                 <td class="text-center">{{ $i++ }}</td>
@@ -62,8 +62,8 @@
 
             </tr>
             @endif
-        @endif 
-            @endforeach
+         @endif 
+        @endforeach
 
 
 
