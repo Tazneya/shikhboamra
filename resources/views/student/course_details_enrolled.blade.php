@@ -115,8 +115,7 @@
                            <div class="_112456">
                               <ul class="accordion-expand-holder">
                                  <li><span class="accordion-expand-all _d1452">Expand all</span></li>
-                                 <li><span class="_fgr123"> 402 lectures</span></li>
-                                 <li><span class="_fgr123">47:06:29</span></li>
+                                 
                               </ul>
                            </div>
                            <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
@@ -127,10 +126,7 @@
                                     <span class="section-title-text">Introduction to this Course</span>
                                     </span>
                                  </div>
-                                 <div class="section-header-right">
-                                    <span class="num-items-in-section">8 lectures</span>
-                                    <span class="section-header-length">22:08</span>
-                                 </div>
+                                 
                               </a>
                               <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
 
