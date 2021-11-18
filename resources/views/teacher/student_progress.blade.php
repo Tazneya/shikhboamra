@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.student_main')
 @section('content')
 <div class ="container">
 <div class="table-responsive mt-30">
@@ -18,7 +18,8 @@
             <?php $i=1;?>
             @foreach ($freqency as $data=>$key )
 
-            {{-- @if($key>5) --}}
+             @if($key>=5)
+            @if($i<6)
             <tr>
                 <td class="text-center">{{ $i++ }}</td>
 
@@ -27,7 +28,8 @@
 
 
             </tr>
-            {{-- @endif --}}
+            @endif
+            @endif
             @endforeach
 
 
@@ -48,9 +50,9 @@
         </thead>
         <tbody>
             <?php $i=1;?>
-            @foreach ($freqency as $data=>$key )
-            {{-- @if($key<-5) --}}
-
+         @foreach ($freqency as $data=>$key )
+         @if($key<=-5)
+            @if($i<6)
             <tr>
                 <td class="text-center">{{ $i++ }}</td>
 
@@ -59,8 +61,9 @@
 
 
             </tr>
-        {{-- @endif --}}
-            @endforeach
+            @endif
+         @endif 
+        @endforeach
 
 
 

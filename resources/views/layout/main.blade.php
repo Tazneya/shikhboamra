@@ -63,12 +63,16 @@
 								<img src="{{asset('sourcefile_home')}}/cursus/images/hd_dp.jpg" alt="">
 								<div class="pd_content">
 									<div class="rhte85">
-										<h6>Joginder Singh</h6>
+										@if(auth()->user()->role =='Teacher')
+										<h6>{{auth()->user()->teacher->teacher_name}}</h6>
+										@else
+										<h6>{{auth()->user()->student->st_name}}</h6>
+										@endif
 										<div class="mef78" title="Verify">
 											<i class='uil uil-check-circle'></i>
 										</div>
 									</div>
-									<span>gambol943@gmail.com</span>
+									<span>{{auth()->user()->mobile_number}}</span>
 								</div>
 							</div>
 							<a href="my_instructor_profile_view.html" class="dp_link_12">View Instructor Profile</a>
@@ -125,6 +129,14 @@
       var file = $('#inputGroupFile04')[0].files[0].name;
       $(this).prev('label').text(file);
     });
+
+	$('#inputGroupFile05').change(function() {
+		
+var i = $(this).prev('label').clone();
+var file = $('#inputGroupFile05')[0].files[0].name;
+
+$(".custom-file-label").text(file);
+});
     </script>
 
 

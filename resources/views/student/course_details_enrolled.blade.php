@@ -259,24 +259,7 @@
                                      </div>
                                   </div>
                                   <div class="review_all120">
-                                     {{-- <div class="review_item">
-                                        <div class="review_usr_dt">
-                                           <img src="images/left-imgs/img-1.jpg" alt="">
-                                           <div class="rv1458">
-                                              <h4 class="tutor_name1">John Doe</h4>
-                                              <span class="time_145">2 hour ago</span>
-                                           </div>
-                                        </div>
-                                        <div class="rating-box mt-20">
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star full-star"></span>
-                                           <span class="rating-star half-star"></span>
-                                        </div>
-                                        <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
-
-                                     </div> --}}
+                                     
 
 
 
@@ -301,47 +284,7 @@
                                    <div class="col-md-12">
                                        <h3 class="text-center mb-5"> Questions </h3>
                                        <div id="forum-questions">
-                                          {{-- <div class="row mb-3">
-                                              <div class="col-md-12">
-                                                  <div class="media"> <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="https://i.imgur.com/4FyNX7i.png" />
-                                                      <div class="media-body">
-                                                          <div class="row">
-                                                              <div class="col-8 d-flex">
-                                                                  <h5>Maria Smantha</h5> <span>- 2 hours ago</span>
-                                                              </div>
-                                                              <div class="col-4">
-                                                                  <div class="pull-right reply"> <a href="#"><span><i class="fa fa-reply"></i> reply</span></a> </div>
-                                                              </div>
-                                                          </div> It is a long established fact that a reader will be distracted by the readable content of a page.
-                                                          <br />
-                                                          <br />
-                                                          <a href="#">Load Replies</a>
-                                                          <div class="replies">
-                                                            <div class="media mt-3"> <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="https://i.imgur.com/4FyNX7i.png" /></a>
-                                                               <div class="media-body">
-                                                                   <div class="row">
-                                                                       <div class="col-12 d-flex">
-                                                                           <h5>Simona Disa</h5> <span>- 3 hours ago</span>
-                                                                       </div>
-                                                                   </div> letters, as opposed to using 'Content here, content here', making it look like readable English.
-                                                               </div>
-                                                           </div>
-                                                           <div class="media mt-3"> <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="https://i.imgur.com/4FyNX7i.png" /></a>
-                                                               <div class="media-body">
-                                                                   <div class="row">
-                                                                       <div class="col-12 d-flex">
-                                                                           <h5>John Smith</h5> <span>- 4 hours ago</span>
-                                                                       </div>
-                                                                   </div> the majority have suffered alteration in some form, by injected humour, or randomised words.
-                                                               </div>
-                                                           </div>
-                                                          </div>
-
-                                                      </div>
-                                                  </div>
-
-                                              </div>
-                                          </div> --}}
+                                      
                                        </div>
 
                                    </div>
@@ -599,7 +542,6 @@
          //  }
       })
 
-   }
    const initializeReviews = () => {
 
       let output = ((id, mobile_number, text) => `<div class="review_item">

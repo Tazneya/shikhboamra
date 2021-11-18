@@ -39,19 +39,15 @@
 
 
                             <div class="view_all_dt">
-                                <div class="view_img_left">
-                                    <div class="view__img">
-                                        <img src="{{asset('sourcefile_home')}}/cursus/images/courses/add_img.jpg" alt="">
-                                    </div>
-                                </div>
+                                
                                 <div class="view_img_right">
                                     <h4>Video</h4>
                                     <p>Upload your video content here. It must meet our course image quality standards to be accepted..</p>
                                     <div class="upload__input">
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" name="content_video" class="custom-file-input" id="inputGroupFile04">
-                                                <label class="custom-file-label" for="inputGroupFile04">No Choose file</label>
+                                                <input type="file" name="content_video" class="custom-file-input" id="inputGroupFile05">
+                                                <label class="custom-file-label" for="inputGroupFile05">No Choose file</label>
                                             </div>
                                         </div>
                                     </div>
