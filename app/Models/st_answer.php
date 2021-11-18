@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class st_answer extends Model
 {
-    use HasFactory;
+   // use HasFactory;
     protected $fillable = [
         'exam_id',
         'question_id',

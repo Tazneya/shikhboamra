@@ -42,7 +42,7 @@
 
 @section('page_js')
     <script>
-
+        
         const question_timer = {{ $exam->duration }};
         var timer_display = document.querySelector('#timer');
 

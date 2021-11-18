@@ -22,6 +22,7 @@ class CourseExamController extends Controller
     }
     public static function byCourseId($id)
     {
+        
         $course_exams =  course_exam::where('course_id', $id)->get();
         foreach($course_exams as $course_exam) {
             $course_exam->durationString = Utils::getDurationString((int)$course_exam->duration);
