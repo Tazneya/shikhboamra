@@ -22,6 +22,7 @@
              <form action="{{route('course_update')}}" method="POST"   enctype="multipart/form-data">
                 {{-- for image enctype="multipart/form-data" --}}
                 @csrf
+                <input type='hidden' name='id' value="{{$data->id}}">
       <div class="row">
          <div class="col-lg-12">
             <div class="col-lg-12 col-md-12">
