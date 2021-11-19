@@ -209,6 +209,10 @@ class AuthController extends Controller
         if($user->role =='Student')
         return redirect()->to('student');
 
+        if($user->role =='Admin')
+        return redirect()->to('admin');
+
+
         //$user = user::where('mobile_number',$req->mobile_number)->where('password')
     }
     public function logout()

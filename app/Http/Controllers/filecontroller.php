@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\course;
 use App\Models\course_content;
 use App\Models\st_course;
+use App\Models\user;
 
 use App\Models\course_contents;
 
@@ -93,6 +94,23 @@ class filecontroller extends Controller
 
         //file_put_contents('test.txt',$courses);
         return view('teacher.instructorhome',compact('total_courses','total_enrolled','total_video'));
+    }
+
+    public function adminhome(){
+
+
+        $courses = course::get();
+        $total_courses = count($courses);
+        $student = user::where("role",'Student')->count();
+        $teacher = user::where("role",'Teacher')->count();
+        $total_enrolled = 0;
+        $total_video = 0;
+
+
+
+
+        //file_put_contents('test.txt',$courses);
+        return view('admin.home',compact('total_courses','student','teacher'));
     }
     public function course_video(){
         return view('teacher.course_video');

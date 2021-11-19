@@ -45,6 +45,13 @@ Route::get('test','ReportController@analytics_report');
 
 //Route::view('otp','otp');
 Route::post('submit_otp','AuthController@submit_otp')->name('submit_otp');
+Route::group(['prefix' => 'admin'], function()
+{
+    Route::get('/','filecontroller@adminhome');
+    Route::get('teacher_list','AdminController@show_teacher_list')->name('teacher_list');
+    Route::get('student_list','AdminController@show_student_list')->name('student_list');
+});
+
 Route::group(['prefix' => 'teacher','middleware' =>'teacher'], function()
 {
     Route::get('/','filecontroller@instructorhome');
