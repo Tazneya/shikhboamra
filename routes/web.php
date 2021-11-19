@@ -1,6 +1,11 @@
 <?php
 
+use App\Models\course_content;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\Models\st_course;
+
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +19,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    if(auth()->user())
+    {
+    if(auth()->user()->role=='Teacher')
+    return redirect()->to('teacher');
+    else
+    return  redirect()->to('teacher');
+    }
+    else
+    {   $student = User::where('role','Student')->get();
+        $teacher = User::where('role','Teacher')->get();
+        $video = course_content::where('content_type','video')->get();
+        $courses = st_course::groupBy('course_id')->orderByRaw('count(*) DESC')->get();
+        //file_put_contents('test.txt',json_encode($courses));
+        return view('home',compact('courses','student','teacher','video'));
+    }
+   ;
 });
 Route::get('signup','filecontroller@signup');
 Route::get('login','filecontroller@login')->name('login-view');
@@ -25,7 +45,7 @@ Route::get('test','ReportController@analytics_report');
 
 //Route::view('otp','otp');
 Route::post('submit_otp','AuthController@submit_otp')->name('submit_otp');
-Route::group(['prefix' => 'teacher'], function()
+Route::group(['prefix' => 'teacher','middleware' =>'teacher'], function()
 {
     Route::get('/','filecontroller@instructorhome');
 
@@ -71,7 +91,7 @@ Route::group(['prefix' => 'teacher'], function()
 
 });
 
-Route::group(['prefix' => 'student'], function()
+Route::group(['prefix' => 'student','middleware' =>'student'], function()
 {
     Route::get('/','StudentHomeController@index');
     Route::get('course_details/{id}','StudentCourseController@show_course_details')->name('show_course_details');
@@ -79,7 +99,7 @@ Route::group(['prefix' => 'student'], function()
     Route::post('course_enroll','StudentCourseController@course_enroll')->name('course_enroll');
     Route::post('filter_course','StudentHomeController@filter_course')->name('filter_course');
     Route::get('my_courses','StudentHomeController@my_course');
-    
+
     Route::get('course_details_enrolled/video/{id}','VideoController@show_video_preview');
     Route::get('exam_confirmation/{exam_id}', 'StudentCourseController@exam_confirmation')->name('exam_confirmation_page');
     Route::get('exam_page/{exam_id}', 'StudentCourseController@exam_page')->name('exam_page');
@@ -89,7 +109,7 @@ Route::group(['prefix' => 'student'], function()
     Route::get('course_report/exam_details/{course_id}','ReportController@exam_details_student');
     Route::get('course_report/answer_sheet/{exam_id}','ReportController@student_answer_sheet');
     Route::get('analytics','ReportController@analytics_report_student');
-    
+
 });
 
 

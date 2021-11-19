@@ -251,21 +251,21 @@
                                 <div class="col-md-4 sm-mb-30">
                                     <div class="counter-item one">
                                         <img class="count-img" src="{{asset('sourcefile_home')}}/images/about/style3/icons/1.png" alt="">
-                                        <h2 class="number rs-count kplus">2</h2>
+                                        <h2 class="number rs-count ">{{ count($student) }}</h2>
                                         <h4 class="title mb-0">Students</h4>
                                     </div>
                                 </div>
                                 <div class="col-md-4 sm-mb-30">
                                     <div class="counter-item two">
                                         <img class="count-img" src="{{asset('sourcefile_home')}}/images/about/style3/icons/2.png" alt="">
-                                        <h2 class="number rs-count">500</h2>
+                                        <h2 class="number rs-count">{{ count($teacher)  }}</h2>
                                         <h4 class="title mb-0">Teachers</h4>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="counter-item three">
+                                <div class="col-md-4 sm-mb-30">
+                                    <div class="counter-item two">
                                         <img class="count-img" src="{{asset('sourcefile_home')}}/images/about/style3/icons/3.png" alt="">
-                                        <h2 class="number rs-count">1000</h2>
+                                        <h2 class="number rs-count">{{ count($video) }}</h2>
                                         <h4 class="title mb-0">Videos</h4>
                                     </div>
                                 </div>
@@ -283,29 +283,30 @@
                         <div class="sub-title primary">Top Courses</div>
                         <h2 class="title mb-0">Popular Courses</h2>
                     </div>
+
                     <div class="row">
+                        @foreach($courses as $course)
                         <div class="col-lg-4 col-md-6 mb-30">
                             <div class="course-wrap">
                                 <div class="front-part">
                                     <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/1.png" alt="">
+                                        <img src="{{ asset($course->course->course_image) }}" alt="">
                                     </div>
                                     <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
+                                        <a class="categorie" href="#">{{ $course->course->course_name }}</a>
                                         <h4 class="title"><a href="course-single.html">Become a PHP Master and Make Money Fast</a></h4>
                                     </div>
                                 </div>
                                 <div class="inner-part">
                                     <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Become a PHP Master and Make Money Fast</a></h4>
+                                        <a class="categorie" href="#">{{ $course->course->course_name }}</a>
+                                        <h4 class="title"><a href="course-single.html">{{ $course->course->course_description }}t</a></h4>
                                         <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
+                                            <li class="course-user"><i class="fa fa-user"></i> {{ count($course->course->enroll_count)}}</li>
                                             <li class="ratings">
+
+                                                ({{number_format(($course->rating->avg('rating')/2),1) }})
                                                 <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
                                             </li>
                                         </ul>
                                     </div>
@@ -313,348 +314,17 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/2.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="#">Learning jQuery Mobile for Beginners</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Learning jQuery Mobile for Beginners</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                        @endforeach
 
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/3.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">The Art of Black and White Photography</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="#">The Art of Black and White Photography</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/4.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Learn Python – Interactive Python Tutorial</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Learn Python – Interactive Python Tutorial</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/5.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Your Complete Guide to Dark Photography</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Your Complete Guide to Dark Photography</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/6.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">From Zero to Hero with Advance Nodejs</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">From Zero to Hero with Advance Nodejs</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
-                    <div class="btn-part text-center mt-30">
-                        <a class="readon3 dark-hov" href="#">View All Courses</a>
-                    </div>
+
                 </div>
             </div>
             <!-- Subject Categories Section End -->
 
             <!-- Popular Course Section Start -->
-            <div class="rs-popular-courses style2 bg3 pt-94 pb-200 md-pt-64 md-pb-90">
-                <div class="container">
-                    <div class="sec-title mb-60 text-center md-mb-30">
 
-                        <h2 class="title mb-0">Best Instructor</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/1.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Become a PHP Master and Make Money Fast</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Become a PHP Master and Make Money Fast</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/2.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="#">Learning jQuery Mobile for Beginners</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Learning jQuery Mobile for Beginners</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/3.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">The Art of Black and White Photography</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="#">The Art of Black and White Photography</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/4.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Learn Python – Interactive Python Tutorial</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Learn Python – Interactive Python Tutorial</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/5.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Your Complete Guide to Dark Photography</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">Your Complete Guide to Dark Photography</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-30">
-                            <div class="course-wrap">
-                                <div class="front-part">
-                                    <div class="img-part">
-                                        <img src="{{asset('sourcefile_home')}}/images/courses/style2/6.png" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">From Zero to Hero with Advance Nodejs</a></h4>
-                                    </div>
-                                </div>
-                                <div class="inner-part">
-                                    <div class="content-part">
-                                        <a class="categorie" href="#">Web Development</a>
-                                        <h4 class="title"><a href="course-single.html">From Zero to Hero with Advance Nodejs</a></h4>
-                                        <ul class="course-meta">
-                                            <li class="course-user"><i class="fa fa-user"></i> 245</li>
-                                            <li class="ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                (05)
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="btn-part text-center mt-30">
-                        <a class="readon3 dark-hov" href="#">Joint As Instructor</a>
-                    </div>
-                </div>
-            </div>
             <!-- Popular Course Section End -->
 
             <!-- Testimonial Section Start -->
