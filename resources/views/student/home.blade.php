@@ -67,20 +67,12 @@
                             </div>
                          </a>
                          <div class="fcrse_content">
-                            <div class="eps_dots more_dropdown">
-                               <a href="#"><i class="uil uil-ellipsis-v"></i></a>
-                               <div class="dropdown-content">
-                                  <span><i class='uil uil-share-alt'></i>Share</span>
-                                  <span><i class="uil uil-heart"></i>Save</span>
-                                  <span><i class='uil uil-ban'></i>Not Interested</span>
-                                  <span><i class="uil uil-windsock"></i>Report</span>
-                               </div>
-                            </div>
+
                             <div class="vdtodt">
 
 
                             </div>
-                            <a href="course_detail_view.html" class="crse14s">{{ $course->course_name }}</a>
+                            <a href="{{ url('student/course_details/'.$course->id) }}" class="crse14s">{{ $course->course_name }}</a>
 
 
 
