@@ -141,7 +141,7 @@ class AuthController extends Controller
         $mobile_number = '88'.$mobile_number;
         $url = "http://gsms.pw/smsapi";
      $data = [
-    "api_key" => "C2000343610a798a92fde7.49639094",
+    "api_key" => "C2000343618ca1805c77b6.21481376",
     "type" => "text",
     "contacts" => $mobile_number,
     "senderid" => "8809601001329",
