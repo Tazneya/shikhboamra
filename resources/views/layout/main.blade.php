@@ -75,7 +75,7 @@
 									<span>{{auth()->user()->mobile_number}}</span>
 								</div>
 							</div>
-							<a href="my_instructor_profile_view.html" class="dp_link_12">View Instructor Profile</a>
+
 						</div>
 
 
