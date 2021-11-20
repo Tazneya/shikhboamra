@@ -31,7 +31,7 @@ class CourseController extends Controller
     {
 
 
-        $datas = course::where('active_status',1)->where('delete_status',0)->get();
+        $datas = course::where('active_status',1)->where('delete_status',0)->where('teacher_id',auth()->user()->id)->get();
         $i = 1;
         foreach($datas as $data)
         {
