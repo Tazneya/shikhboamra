@@ -36,7 +36,7 @@ Route::get('/', function () {
     }
    ;
 });
-Route::get('signup','filecontroller@signup');
+Route::get('signup','filecontroller@signup')->name('signup-view');
 Route::get('login','filecontroller@login')->name('login-view');
 Route::post('login', 'AuthController@login')->name('login');
 Route::get('logout', 'AuthController@logout')->name('logout');

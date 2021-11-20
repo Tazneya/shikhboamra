@@ -103,7 +103,7 @@
 								@endif
 							</div>
 						</div>
-						<p class="mb-0 mt-30">Don't have an account?  <a href="sign_in.html">Sign up</a></p>
+						<p class="mb-0 mt-30">Don't have an account?  <a href="{{ route('signup-view') }}">Sign up</a></p>
 					</div>
 
 					{{-- <div class="sign_footer"><img src="{{asset('sourcefile_home')}}/cursus/images/sign_logo.png" alt="">© 2020 <strong>Cursus</strong>. All Rights Reserved.</div> --}}
