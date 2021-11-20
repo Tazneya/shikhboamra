@@ -294,7 +294,7 @@
                                     </div>
                                     <div class="content-part">
                                         <a class="categorie" href="#">{{ $course->course->course_name }}</a>
-                                        <h4 class="title"><a href="course-single.html">Become a PHP Master and Make Money Fast</a></h4>
+                                        <h4 class="title"><a href="course-single.html">{{$course->course->course_name }}</a></h4>
                                     </div>
                                 </div>
                                 <div class="inner-part">
