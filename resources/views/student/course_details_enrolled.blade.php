@@ -115,7 +115,7 @@
                            <div class="_112456">
                               <ul class="accordion-expand-holder">
                                  <li><span class="accordion-expand-all _d1452">Expand all</span></li>
-                                 
+
                               </ul>
                            </div>
                            <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
@@ -126,7 +126,7 @@
                                     <span class="section-title-text">Introduction to this Course</span>
                                     </span>
                                  </div>
-                                 
+
                               </a>
                               <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
 
@@ -255,7 +255,7 @@
                                      </div>
                                   </div>
                                   <div class="review_all120">
-                                     
+
 
 
 
@@ -280,7 +280,7 @@
                                    <div class="col-md-12">
                                        <h3 class="text-center mb-5"> Questions </h3>
                                        <div id="forum-questions">
-                                      
+
                                        </div>
 
                                    </div>
@@ -538,6 +538,7 @@
          //  }
       })
 
+   }
    const initializeReviews = () => {
 
       let output = ((id, mobile_number, text) => `<div class="review_item">
@@ -570,7 +571,7 @@
    const postForumQuestion = (event) => {
       event.preventDefault()
       let question = document.getElementById("forumQuestion").value
-      //console.log('Posting to', currentlyReplyingTo)
+      console.log('Posting to', currentlyReplyingTo)
       if(currentlyReplyingTo === 0) {
          let postData = {
             question: question,
@@ -676,5 +677,6 @@
    initializeReviews()
    renderQuestions()
 </script>
+<script src="{{asset('sourcefile_home')}}/cursus/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 @endsection
