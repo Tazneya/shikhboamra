@@ -1,4 +1,4 @@
-@extends('layout.student_main')
+@extends('layout.main')
 @section('content')
 <div class ="container">
 <div class="table-responsive mt-30">
@@ -62,7 +62,7 @@
 
             </tr>
             @endif
-         @endif 
+         @endif
         @endforeach
 
 

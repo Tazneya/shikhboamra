@@ -17,9 +17,7 @@
       <div class="row">
          <div class="col-12">
             <div class="mt-10">
-               <div class="card_dash_right1">
-                  <a type="button" class="create_btn_dash course_details" href="{{url('teacher/create_new_course')}}">ADD NEW</a>
-               </div>
+
                <div class="table-cerificate">
                   <div class="table-responsive">
                      <table class="table ucp-table" id="content-table">
